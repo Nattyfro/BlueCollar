@@ -1,0 +1,1 @@
+export const video = `https://www.dropbox.com/s/y9b3md02u4lrjze/yt1s.com%20-%20ROYALTY%20FREE%20Travel%20Pop%20Music%20%20Travel%20Video%20Background%20Royalty%20Free%20Music%20by%20MUSIC4VIDEO_1080p.mp4?dl=0`;
