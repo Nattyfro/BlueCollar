@@ -5,7 +5,7 @@ import { SelectChangeEvent } from '@mui/material/Select';
 // config
 import { DRAWER_WIDTH, HEADER_DESKTOP_HEIGHT } from '../../../config';
 // @type
-import { CountriesProps } from '../../../@types/map';
+import { CitiesProps } from '../../../@types/map';
 import { CourseFiltersProps } from '../../../@types/e-learning';
 //
 import { SearchInput } from '../../../components';
@@ -79,7 +79,7 @@ export default function ElearningCourseBarFilters({ mobileOpen, onMobileClose }:
     });
   };
 
-  const handleChangeLanguage = (keyword: CountriesProps[]) => {
+  const handleChangeLanguage = (keyword: CitiesProps[]) => {
     setFilters({
       ...filters,
       filterLanguage: keyword,
