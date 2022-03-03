@@ -33,7 +33,7 @@ export default function TravelTourFilterLocation() {
         options={_mock.countries}
         getOptionLabel={(option) => option.label}
         filterOptions={createFilterOptions({
-          stringify: (option) => option.label + option.code,
+          stringify: (option) => option.label + option.id,
         })}
         renderInput={(params) => (
           <InputStyle
@@ -64,7 +64,7 @@ export default function TravelTourFilterLocation() {
             <Box component="li" {...props}>
               <Image
                 alt="flag country"
-                src={`https://flagcdn.com/${option.code.toLowerCase()}.svg`}
+                src={`https://flagcdn.com/${option.id.toLowerCase()}.svg`}
                 sx={{
                   mr: 1,
                   width: 24,
