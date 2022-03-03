@@ -4,7 +4,7 @@ import match from 'autosuggest-highlight/match';
 import { styled } from '@mui/material/styles';
 import { Box, Autocomplete, Checkbox, TextField, Chip } from '@mui/material';
 // @type
-import { CountriesProps } from '../../../@types/map';
+import { CitiesProps } from '../../../@types/map';
 // _data
 import _mock from '../../../../_data/mock';
 // components
@@ -23,8 +23,8 @@ const RootStyle = styled('div')(() => ({
 // ----------------------------------------------------------------------
 
 type Props = {
-  filterLanguage: CountriesProps[];
-  onChangeLanguage: (keyword: CountriesProps[]) => void;
+  filterLanguage: CitiesProps[];
+  onChangeLanguage: (keyword: CitiesProps[]) => void;
 };
 
 export default function ElearningCourseLanguageFilter({ filterLanguage, onChangeLanguage }: Props) {
