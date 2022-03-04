@@ -17,23 +17,6 @@ const BRANDS_NAME = [
   'vimeo',
 ];
 
-
-/*
-const BRANDS_NAME = [
-  'airbnbz',
-  'dropbox',
-  'facebook',
-  'google',
-  'heroku',
-  'lenovo',
-  'microsoft',
-  'netflix',
-  'slack',
-  'spotify',
-  'tripadvisor',
-  'vimeo',
-]; */
-
 export const _brands = BRANDS_NAME.map((brand, index) => ({
   id: _mock.id(index),
   name: brand,

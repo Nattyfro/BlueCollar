@@ -1,6 +1,6 @@
 // @mui
 import { styled } from '@mui/material/styles';
-import { Stack, Container, Typography, Grid, Card } from '@mui/material';
+import { Stack, Container, Typography, Grid, Card, Button } from '@mui/material';
 // components
 import { Image } from '../../../components';
 
@@ -13,7 +13,7 @@ const VISIONS = [
   },
   {
     name: 'Browse Candidates',
-    description: 'Finding your future employee should be nothing short of straight forward. ',
+    description: 'Finding your future employee should be nothing short of straight forward. ', 
   },
   { 
   name: 'Negotiate', 
@@ -33,6 +33,7 @@ export default function CareerLandingGettingStarted() { // Myles edit
   return (
     <RootStyle>
       <Container>
+      <Button>hello</Button>
         <Stack
           spacing={3}
           sx={{
@@ -102,7 +103,8 @@ export default function CareerLandingGettingStarted() { // Myles edit
                       }),
                       ...(thirdVision && {
                         boxShadow: { md: 0 },
-                      }),
+                        
+                      } ),
                     }}
                   >
                     <Typography
@@ -118,7 +120,9 @@ export default function CareerLandingGettingStarted() { // Myles edit
                     </Typography>
 
                     <Typography sx={{ color: 'text.secondary' }}>{description}</Typography>
+                    
                   </Card>
+                  
                 );
               })}
             </Stack>
