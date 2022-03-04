@@ -44,7 +44,19 @@ export const fullAddress = [
 ];
 
 export const country = [
-  'Bloxwich',
+  'Wolverhampton',
+  'Bromsgrove',
+  'Redditch',
+  'Dudley',
+  'Perton',
+  'Codsall',
+  'Stourbridge',
+  'Sedgley',
+  'Tipton',
+  'Birmingham',
+  'Coventry',
+  'Walsall',
+  /*'Bloxwich',
   'Madagascar',
   'Netherlands Antilles',
   'Azerbaijan',
@@ -55,7 +67,7 @@ export const country = [
   'Italy',
   'Iran',
   'Denmark',
-  'Congo',
+  'Congo', */
   'Cambodia',
   'Virgin Islands, British',
   'Bahamas',

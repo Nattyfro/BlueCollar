@@ -54,9 +54,9 @@ export default function CareerLandingPage({ posts }: Props) {
     <Page title="Landing - Career"> 
       <CareerLandingHero />
 
-      <CareerLandingGettingStarted />
-
       <CareerLangdingConnections countries={_jobsByCountries} />
+      
+      <CareerLandingGettingStarted />
 
       <CareerLandingFeaturedJobs jobs={jobs.slice(-6)} />
 

@@ -195,12 +195,12 @@ function SummarySection() {
       sx={{ pt: { md: 5 } }}
     >
       <Stack spacing={{ md: 3 }} direction="row" divider={DividerStyle}>
-        {SummaryItem(2000000, 'Jobs')}
-        {SummaryItem(500000, 'Successful Hiring')}
+        {SummaryItem(8000, 'Followers')}
+        {SummaryItem(150, 'Hires')}
       </Stack>
       <Stack spacing={{ md: 3 }} direction="row" divider={DividerStyle}>
-        {SummaryItem(250000, 'Partners')}
-        {SummaryItem(156000, 'Employee')}
+        {SummaryItem(650, 'Negotiations')}
+        {SummaryItem(156000, 'Page Views')}
       </Stack>
     </Stack>
   );
