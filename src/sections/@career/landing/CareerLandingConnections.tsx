@@ -118,10 +118,9 @@ export default function CareerLangdingConnections({ countries }: Props) {
                 textAlign: { xs: 'center', md: 'unset' },
               }}
             >
-              <Typography variant="h2">Global Connections</Typography>
+              <Typography variant="h2">Local Connections</Typography>
               <Typography sx={{ mt: 3, mb: 5, color: 'text.secondary' }}>
-                Vestibulum fringilla pede sit amet augue. Nam adipiscing. Nulla neque dolor,
-                sagittis eget, iaculis quis.
+              Search in your local vacininty by entring your City or town name, you can also target candidates even further with our postcode filter.
               </Typography>
               <NextLink href={Routes.career.jobs}>
                 <Button
@@ -129,7 +128,7 @@ export default function CareerLangdingConnections({ countries }: Props) {
                   variant="contained"
                   endIcon={<Iconify icon={directionStraightRight} sx={{ width: 22, height: 22 }} />}
                 >
-                  View All Jobs
+                  See Candidates
                 </Button>
               </NextLink>
             </Stack>
@@ -199,10 +198,11 @@ function JobByCountryItem({ country }: JobByCountryItemProp) {
         <Stack spacing={1} sx={{ textAlign: 'center', p: 2.5 }}>
           <Typography variant="h5">{location}</Typography>
           <Typography variant="body3" sx={{ color: 'text.disabled' }}>
-            {totalJobs} Jobs
+            {totalJobs}
           </Typography>
         </Stack>
       </Card>
     </NextLink>
   );
 }
+
