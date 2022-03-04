@@ -172,8 +172,8 @@ function BrandsSection() {
           <SvgIconStyle  // this is the actual svg
             src={brand.image}
             sx={{
-              width: 94,
-              height: 28,
+              width: 98,
+              height: 37,
               opacity: 0.8,
               color: 'grey.500',
             }}
