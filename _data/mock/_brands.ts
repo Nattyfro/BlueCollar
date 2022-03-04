@@ -3,10 +3,10 @@ import _mock from './_mock';
 // ----------------------------------------------------------------------
 
 const BRANDS_NAME = [
-  'Instagram',
   'Facebook1',
-  'LinkedIn',
+  'Instagram',
   'TikTok',
+  'LinkedIn',
   'heroku',
   'lenovo',
   'microsoft',
