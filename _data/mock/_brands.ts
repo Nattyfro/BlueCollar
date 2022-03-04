@@ -3,6 +3,23 @@ import _mock from './_mock';
 // ----------------------------------------------------------------------
 
 const BRANDS_NAME = [
+  'Facebook1',
+  'Instagram',
+  'LinkedIn',
+  'TikTok',
+  'heroku',
+  'lenovo',
+  'microsoft',
+  'netflix',
+  'slack',
+  'spotify',
+  'tripadvisor',
+  'vimeo',
+];
+
+
+/*
+const BRANDS_NAME = [
   'airbnbz',
   'dropbox',
   'facebook',
@@ -15,7 +32,7 @@ const BRANDS_NAME = [
   'spotify',
   'tripadvisor',
   'vimeo',
-];
+]; */
 
 export const _brands = BRANDS_NAME.map((brand, index) => ({
   id: _mock.id(index),
