@@ -3,7 +3,7 @@ import _mock from './_mock';
 // ----------------------------------------------------------------------
 
 const BRANDS_NAME = [
-  'airbnb',
+  'airbnbz',
   'dropbox',
   'facebook',
   'google',
@@ -20,7 +20,8 @@ const BRANDS_NAME = [
 export const _brands = BRANDS_NAME.map((brand, index) => ({
   id: _mock.id(index),
   name: brand,
-  image: `https://zone-assets-api.vercel.app/assets/logos/${brand}.svg`,
+  // image: `https://zone-assets-api.vercel.app/assets/logos/${brand}.svg`,
+  image: `https://blue-collar.vercel.app/career/assets/logo/${brand}.svg`,
 }));
 
 export const _brandsColor = BRANDS_NAME.map((brand, index) => ({
@@ -28,3 +29,5 @@ export const _brandsColor = BRANDS_NAME.map((brand, index) => ({
   name: brand,
   image: `https://zone-assets-api.vercel.app/assets/logos/${brand}_original.svg`,
 }));
+
+

@@ -9,7 +9,7 @@ import { createFilterOptions } from '@mui/material/Autocomplete';
 // _data
 import _mock from '../../../../_data/mock';
 // components
-import { Image, Iconify } from '../../../components';
+import { Iconify } from '../../../components';
 import { InputStyle } from './TravelTourBarFilters';
 
 // ----------------------------------------------------------------------
@@ -62,17 +62,7 @@ export default function TravelTourFilterLocation() {
           }[] = parse(option.label, matches);
           return (
             <Box component="li" {...props}>
-              <Image
-                alt="flag country"
-                src={`https://flagcdn.com/${option.id.toLowerCase()}.svg`}
-                sx={{
-                  mr: 1,
-                  width: 24,
-                  height: 24,
-                  flexShrink: 0,
-                  borderRadius: '50%',
-                }}
-              />
+              
               {parts.map((part, index) => (
                 <Box
                   key={index}
@@ -93,3 +83,20 @@ export default function TravelTourFilterLocation() {
     </RootStyle>
   );
 }
+
+/*
+<Image
+                alt="flag country"
+                src={`https://flagcdn.com/${option.id.toLowerCase()}.svg`}
+                sx={{
+                  mr: 1,
+                  width: 24,
+                  height: 24,
+                  flexShrink: 0,
+                  borderRadius: '50%',
+                }}
+              />
+
+              PUT ON LINE 65
+
+*/
