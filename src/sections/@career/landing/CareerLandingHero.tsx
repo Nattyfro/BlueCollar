@@ -154,7 +154,8 @@ function BrandsSection() {
       flexWrap="wrap"
       direction={{ md: 'row' }}
       alignItems={{ md: 'center' }}
-      sx={{ pt: { md: 1 } }}
+      sx={{ pt: { sm: 1 , md: 1 } }}
+      // sx={{ pt: { md: 1 } }} MYLES this is the original
     >
       {_brands.slice(0, 4).map((brand) => ( // this is basically telling me the size of the logos
         <Box
