@@ -88,6 +88,7 @@ export const _jobsByCategories = [...Array(8)].map((_, index) => ({
 export const _jobsByCountries = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
   location: _mock.address.country(index),
-  totalJobs: 101 + index,
+  // totalJobs: 101 + index,
+  totalJobs: 'West Midlands', //123455
   coverImg: _mock.image.travel(index),
 }));

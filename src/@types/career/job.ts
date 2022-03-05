@@ -21,7 +21,8 @@ export type JobByCountryProps = {
   id: string;
   location: string;
   coverImg: string;
-  totalJobs: number;
+  totalJobs: string;
+  // totalJobs: number; MYLES ORIGINAL
 };
 
 export type JobProps = {
