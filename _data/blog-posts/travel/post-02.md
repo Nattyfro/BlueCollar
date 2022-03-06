@@ -3,7 +3,7 @@ title: Believing These 7 Myths About Event Keeps You From Growing
 description: Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc.
 category: Branding
 favorited: true
-coverImg: https://zone-assets-api.vercel.app/assets/images/travel/travel_2.jpg
+coverImg: https://blue-collar-one.vercel.app/assets/images/travel/Wolverhampton-2.jpg
 heroImg: https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_3.jpg
 createdAt: '2020-03-16T05:35:07.322Z'
 duration: 8 minutes read
