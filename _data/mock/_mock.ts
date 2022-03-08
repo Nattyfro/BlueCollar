@@ -65,7 +65,7 @@ const _mock = {
     //
     travel: (index: number) =>
      //  `https://zone-assets-api.vercel.app/assets/images/travel/travel_${index + 1}.jpg`,
-      `https://blue-collar.vercel.app.app/assets/images/travel/travel_${index + 1}.jpg`,
+      `https://blue-collar.vercel.app/assets/images/travel/travel_${index + 1}.jpg`,
     travelLarge: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_${index + 1}.jpg`,
     //
