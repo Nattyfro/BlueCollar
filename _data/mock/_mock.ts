@@ -64,8 +64,7 @@ const _mock = {
       `https://zone-assets-api.vercel.app/assets/images/marketing/marketing_${index + 1}.jpg`,
     //
     travel: (index: number) =>
-      // `https://zone-assets-api.vercel.app/assets/images/travel/travel_${index + 1}.jpg`, -- MYLES ORIGINAL
-      `https://blue-collar-one.vercel.app/assets/images/travel/travel_${index + 1}.jpg`,
+      `https://zone-assets-api.vercel.app/assets/images/travel/travel_${index + 1}.jpg`,
     travelLarge: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_${index + 1}.jpg`,
     //
