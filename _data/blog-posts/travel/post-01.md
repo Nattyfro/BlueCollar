@@ -4,7 +4,11 @@ description: Pellentesque posuere. Phasellus a est. Suspendisse pulvinar, augue 
 category: Marketing
 favorited: true
 coverImg: https://blue-collar-one.vercel.app/assets/images/travel/Wolverhampton-2.jpg
-
+export const _brands = BRANDS_NAME.map((brand, index) => ({
+  id: _mock.id(index),
+  name: brand,
+  image: `https://zone-assets-api.vercel.app/assets/logos/${brand}.svg`,
+}));
 heroImg: https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_3.jpg
 createdAt: '2020-03-16T05:35:07.322Z'
 duration: 8 minutes read
