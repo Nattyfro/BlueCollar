@@ -5,6 +5,7 @@ category: Branding
 favorited: true
 coverImg: https://blue-collar.vercel.app/assets/images/travel/travel_1.jpg
 heroImg: https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_3.jpg
+createdAt: '2020-03-16T05:35:07.322Z'
 duration: 8 minutes read
 shareLinks:
   facebook: facebook-link
