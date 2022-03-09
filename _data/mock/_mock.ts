@@ -59,7 +59,7 @@ const _mock = {
     avatar: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/avatars/avatar_${index + 1}.jpg`,
     company: (index: number) =>
-      `https://blue-collar.vercel.app/assets/images/companies/company_${index + 1}.png`, // Myles Jobs
+      `https://zone-assets-api.vercel.app/assets/images/companies/company_${index + 1}.png`,
     marketing: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/marketing/marketing_${index + 1}.jpg`,
     //
@@ -70,7 +70,7 @@ const _mock = {
       `https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_${index + 1}.jpg`,
     //
     career: (index: number) =>
-      `https://zone-assets-api.vercel.app/assets/images/career/career_${index + 1}.jpg`,
+      `https://blue-collar.vercel.app/assets/images/career/career_${index + 1}.jpg`,
     course: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/e-learning/course_${index + 1}.jpg`,
   },
