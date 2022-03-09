@@ -1,6 +1,6 @@
 // @mui
 import { styled } from '@mui/material/styles';
-import { Stack, Container, Typography, Grid, Card, Button } from '@mui/material';
+import { Stack, Container, Typography, Grid, Card } from '@mui/material';
 // components
 import { Image } from '../../../components';
 

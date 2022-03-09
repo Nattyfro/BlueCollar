@@ -19,6 +19,7 @@ import {
   description,
   jobCategories,
 } from './text';
+import { Avatar } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -56,10 +57,11 @@ const _mock = {
     price: (index: number) => price[index],
   },
   image: {
-    avatar: (index: number) =>
+    avatar: (index: number) =>   
       `https://zone-assets-api.vercel.app/assets/images/avatars/avatar_${index + 1}.jpg`,
     company: (index: number) =>
-      `https://zone-assets-api.vercel.app/assets/images/companies/company_${index + 1}.png`,
+     // `https://zone-assets-api.vercel.app/assets/images/companies/company_${index + 1}.png`,
+     `https://blue-collar.vercel.app/assets/images/people/people_${index + 1}.png`,
     marketing: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/marketing/marketing_${index + 1}.jpg`,
     //
@@ -70,7 +72,7 @@ const _mock = {
       `https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_${index + 1}.jpg`,
     //
     career: (index: number) =>
-      `https://blue-collar.vercel.app/assets/images/career/career_${index + 1}.jpg`,
+      `https://zone-assets-api.vercel.app/assets/images/career/career_${index + 1}.jpg`,
     course: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/e-learning/course_${index + 1}.jpg`,
   },
