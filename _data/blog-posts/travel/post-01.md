@@ -3,7 +3,7 @@ title: The A - Z Of Event
 description: 21 pain points in the Construction Sector
 category: Marketing
 favorited: true
-coverImg: https://blue-collar.vercel.app.app/assets/images/travel/travel_1.jpg
+coverImg: https://blue-collar.vercel.app/assets/images/travel/travel_1.jpg
 heroImg: https://zone-assets-api.vercel.app/assets/images/travel/travel_hero_3.jpg
 createdAt: '2020-03-16T05:35:07.322Z'
 duration: 8 minutes read
@@ -14,7 +14,7 @@ shareLinks:
   twitter: twitter-link
 tags: [Marketing, Development, HR & Recruiting, Designz, Management]
 author:
-  name: Lucian Obrien
+  name: Lucian O'brien
   role: Full Stack Designer
   picture: https://zone-assets-api.vercel.app/assets/images/avatars/avatar_1.jpg
   quotes: Member since Mar 15, 2021
