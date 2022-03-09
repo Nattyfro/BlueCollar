@@ -53,8 +53,7 @@ export default function CareerLandingFeaturedJobs({ jobs }: Props) {
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography variant="h3">
-              Jobs available apply to Editorial Specialist, Account Manager, Human Resources
-              Specialist and more!
+              We have put countless hours in building trust with users to show them to you like this...
             </Typography>
           </Grid>
         </Grid>

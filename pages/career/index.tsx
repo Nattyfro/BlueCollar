@@ -19,7 +19,7 @@ import Layout from '../../src/layouts';
 // components
 import { Page, ErrorScreen } from '../../src/components';
 // sections
-import { NewsletterCareer } from '../../src/sections/newsletter';
+import { NewsletterCareer, NewsletterTravel } from '../../src/sections/newsletter';
 import { DownloadAppCareer } from '../../src/sections/download-app';
 import { BlogCareerLatestPosts } from '../../src/sections/blog';
 import { TestimonialsCareer } from '../../src/sections/testimonials';
@@ -57,6 +57,8 @@ export default function CareerLandingPage({ posts }: Props) {
       <CareerLangdingConnections countries={_jobsByCountries} />
       
       <CareerLandingGettingStarted />
+
+      <NewsletterTravel />
 
       <CareerLandingFeaturedJobs jobs={jobs.slice(-6)} />
 

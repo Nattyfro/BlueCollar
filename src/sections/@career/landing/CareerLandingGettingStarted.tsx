@@ -33,7 +33,6 @@ export default function CareerLandingGettingStarted() { // Myles edit
   return (
     <RootStyle>
       <Container>
-      <Button>hello</Button>
         <Stack
           spacing={3}
           sx={{
