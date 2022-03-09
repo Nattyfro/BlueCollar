@@ -74,7 +74,7 @@ export default function CareerJobItem({ job }: Props) {
           <Image
             alt={companyName}
             src={companyLogo}
-            sx={{ width: 75, height: 75, borderRadius: 1 }}
+            sx={{ width: 100, height: 100, borderRadius: 1 }}
           />
           {isUrgent && <Label color="success">Recently active</Label>}
         </Stack>

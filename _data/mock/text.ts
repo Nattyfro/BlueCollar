@@ -43,22 +43,21 @@ export const brandsName = [
 // ----------------------------------------------------------------------
 
 export const jobTitle = [
-  'Myles Y...',
-  'Elan W...',
-  'Harry S...',
-  'Jordan C...',
-  'Stephan W...',
-  'William P...',
-  'Colin K...',
-  'Dynamic Quality Technician',
-  'Relational Mobility Technician',
-  'Senior Web Engineer',
-  'Dynamic Markets Administrator',
-  'Chief Research Analyst',
-  'Internal Paradigm Synergist',
-  'Relational Accountability Liason',
-  'Regional Brand Associate',
-  'Interactive Creative Supervisor',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User',
+  'Blue Collar User'
 ];
 
 // ----------------------------------------------------------------------

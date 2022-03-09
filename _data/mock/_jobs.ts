@@ -16,7 +16,7 @@ export const _jobs = [...Array(12)].map((_, index) => ({
   location: _mock.address.country(index),
   experience: index + 1,
   type: (index % 2 && 'part time') || (index % 4 && 'freelance') || 'full time',
-  level: (index % 2 && 'manager') || (index % 4 && 'intern/student') || 'No experience',
+  level: (index % 2 && 'Roofer') || (index % 4 && 'Gen.. Labourer') || 'No experience',
   salary: (index % 3 && 12000) || 'competitive',
   languages: ['Russian', 'Spanish', 'English'],
   isUrgent: index === 2 || false,
