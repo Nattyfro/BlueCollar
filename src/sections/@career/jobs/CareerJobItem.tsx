@@ -98,7 +98,7 @@ export default function CareerJobItem({ job }: Props) {
         </Stack>
 
         <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-          Posted days: {fDate(createdAt)}
+          Posted day: {fDate(createdAt)}
         </Typography>
       </Stack>
 
@@ -118,7 +118,7 @@ export default function CareerJobItem({ job }: Props) {
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={increaseLevel} sx={{ width: 20, height: 20, mr: 1 }} />}
-            value={`${experience} year exp`}
+            value={`${experience} yearz exp`}
           />
         </Grid>
 

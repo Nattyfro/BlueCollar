@@ -60,7 +60,7 @@ const _mock = {
     avatar: (index: number) =>   
       `https://zone-assets-api.vercel.app/assets/images/avatars/avatar_${index + 1}.jpg`,
     company: (index: number) => 
-     // `https://zone-assets-api.vercel.app/assets/images/companies/company_${index + 1}.png`,
+     
      `https://blue-collar.vercel.app/assets/images/people/people_${index + 1}.png`,
     marketing: (index: number) =>
       `https://zone-assets-api.vercel.app/assets/images/marketing/marketing_${index + 1}.jpg`,
