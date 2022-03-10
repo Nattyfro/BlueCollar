@@ -19,7 +19,6 @@ import {
   description,
   jobCategories,
 } from './text';
-import { Avatar } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

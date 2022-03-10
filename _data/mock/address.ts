@@ -78,7 +78,7 @@ export const country = [
   'Saint Vincent and the Grenadines',
   'Greenland',
   'Maldives',
-  'Comoros',
+  'ComorozZZZ',
   'Bhutan',
   'Tuvalu',
   'Ethiopia',
