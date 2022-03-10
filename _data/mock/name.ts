@@ -121,7 +121,7 @@ export const lastName = [
   'Satterfield',
   'Bahringer',
   'Schulist',
-  'Durgan',
+  'Durganzzz',
   'Carroll',
   'Jones',
   'Leffler',
