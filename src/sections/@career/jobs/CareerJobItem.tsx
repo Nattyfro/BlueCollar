@@ -118,7 +118,7 @@ export default function CareerJobItem({ job }: Props) {
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={increaseLevel} sx={{ width: 20, height: 20, mr: 1 }} />}
-            value={`${experience} yearz exp`}
+            value={`${experience} year exp`}
           />
         </Grid>
 

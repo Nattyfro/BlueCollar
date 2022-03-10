@@ -57,7 +57,7 @@ export const jobTitle = [
   'Blue Collar User',
   'Blue Collar User',
   'Blue Collar User',
-  'Blue Collar User'
+  'Blue Collar User',
 ];
 
 // ----------------------------------------------------------------------
