@@ -98,7 +98,7 @@ export default function CareerJobItem({ job }: Props) {
         </Stack>
 
         <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-          Posted day: {fDate(createdAt)}
+          Posted days: {fDate(createdAt)}
         </Typography>
       </Stack>
 
