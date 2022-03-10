@@ -137,7 +137,7 @@ function CompanyItem({ company }: CompanyItemProps) {
           }}
         />
         <Typography variant="body3" sx={{ color: 'text.disabled', mt: 2.5, mb: 0.5 }}>
-          {company.totalJobs} jobz
+          {company.totalJobs} job
         </Typography>
         <TextMaxLine variant="subtitle2" persistent>
           {company.companyName}

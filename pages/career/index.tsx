@@ -62,7 +62,7 @@ export default function CareerLandingPage({ posts }: Props) {
 
       <CareerLandingFeaturedJobs jobs={jobs.slice(-6)} />
 
-      <CareerLandingTopCompanies companies={_jobsByCompanies} />
+     
 
       <CareerLandingHotCategories categories={_jobsByCategories} />
 
@@ -98,3 +98,6 @@ export async function getStaticProps() {
     },
   };
 }
+
+
+//  <CareerLandingTopCompanies companies={_jobsByCompanies} />
