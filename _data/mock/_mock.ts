@@ -55,7 +55,7 @@ const _mock = {
     rating: (index: number) => rating[index],
     age: (index: number) => age[index],
     price: (index: number) => price[index],
-  },
+  }, //dd
   image: {
     avatar: (index: number) =>   
       `https://zone-assets-api.vercel.app/assets/images/avatars/avatar_${index + 1}.jpg`,
