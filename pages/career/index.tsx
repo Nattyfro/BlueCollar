@@ -23,13 +23,13 @@ import { NewsletterCareer, NewsletterTravel } from '../../src/sections/newslette
 import { DownloadAppCareer } from '../../src/sections/download-app';
 import { BlogCareerLatestPosts } from '../../src/sections/blog';
 import { TestimonialsCareer } from '../../src/sections/testimonials';
-import { OurClientsCareer } from '../../src/sections/our-clients';
+// MYLES --- import { OurClientsCareer } from '../../src/sections/our-clients';
 import {
   CareerLandingHero,
   CareerLandingStep,
   CareerLandingGettingStarted,
   CareerLandingFeaturedJobs,
-  CareerLandingTopCompanies,
+  // MYLES --- CareerLandingTopCompanies,
   CareerLangdingConnections,
   CareerLandingHotCategories,
   CareerLangdingForRecruiters,
@@ -70,7 +70,7 @@ export default function CareerLandingPage({ posts }: Props) {
 
       <TestimonialsCareer testimonials={_testimonials} />
 
-      <OurClientsCareer brands={_brandsColor} />
+      
 
       <BlogCareerLatestPosts posts={posts.slice(0, 5)} />
       
@@ -99,5 +99,12 @@ export async function getStaticProps() {
   };
 }
 
+// MYLES ----------------------------------------------------------------------
+
+
+
 
 //  <CareerLandingTopCompanies companies={_jobsByCompanies} />
+
+
+// <OurClientsCareer brands={_brandsColor} />
