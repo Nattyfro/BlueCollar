@@ -98,7 +98,7 @@ export default function CareerLandingHero() {
                   Talent?
                 </Typography>
                 <Typography sx={{ color: 'grey.500' }}>
-                Wez provide you with a comprehensive list of potential prospects in the construction industry.
+                We provide you with a comprehensive list of potential prospects in the construction industry.
                 </Typography>
               </Stack>
 
