@@ -36,7 +36,7 @@ export const defaultSettings = {
   // ltr | rtl
   themeDirection: 'ltr',
   //  default | blueOrange | greenOrange | purpleTeal | cyanYellow | pinkCyan
-  themeColorPresets: 'pinkCyan',
+  themeColorPresets: 'blueOrange',
 } as SettingsValueProps;
 
 // LAYOUT

@@ -99,7 +99,7 @@ export const colorPresets = [
     secondary: {
       lighter: '#FFF3D8',
       light: '#FFD18B',
-      main: '#FFA03F',
+      main: '#FF5733',
       dark: '#B75D1F',
       darker: '#7A2D0C',
       contrastText: contrastText.black,

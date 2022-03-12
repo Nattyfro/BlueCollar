@@ -152,11 +152,11 @@ export default function RegisterForm() {
 
         <Typography variant="caption" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
           I agree to
-          <Link color="text.primary" href="#">
+          <Link color="text.primary" href="http://localhost:8888/career/">
             {''} Terms of Service {''}
           </Link>
           and
-          <Link color="text.primary" href="#">
+          <Link color="text.primary" href="http://localhost:8888/career/">
             {''} Privacy Policy.
           </Link>
         </Typography>

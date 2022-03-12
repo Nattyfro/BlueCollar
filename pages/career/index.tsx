@@ -62,19 +62,13 @@ export default function CareerLandingPage({ posts }: Props) {
 
       <CareerLandingFeaturedJobs jobs={jobs.slice(-6)} />
 
-     
-
-      <CareerLandingHotCategories categories={_jobsByCategories} />
-
+      <TestimonialsCareer testimonials={_testimonials} />
+      
       <CareerLangdingForRecruiters />
 
-      <TestimonialsCareer testimonials={_testimonials} />
-
       
 
-      <BlogCareerLatestPosts posts={posts.slice(0, 5)} />
       
-      <CareerLandingStep />
 
       <DownloadAppCareer />
 

@@ -70,7 +70,7 @@ export default function AuthCarousel({ title }: AuthCarouselProps) {
           <Box key={img}>
             <Image
               alt={img}
-              src={`https://zone-assets-api.vercel.app/assets/images/auth/${img}.jpg`}
+              src={`https://blue-collar.vercel.app/assets/images/auth/${img}.jpg`}
               sx={{ width: 1, height: '100vh' }}
             />
           </Box>

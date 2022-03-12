@@ -36,16 +36,11 @@ export default function CheckoutSummary() {
           </Label>
         </Stack>
 
-        <Stack direction="row" justifyContent="space-between">
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Billed Monthly
-          </Typography>
-          <Switch color="success" defaultChecked />
-        </Stack>
+        
 
         <Stack direction="row" justifyContent="flex-end" alignItems="center" spacing={1}>
-          <Typography variant="h4">$</Typography>
-          <Typography variant="h3">9.99</Typography>
+          <Typography variant="h4">£</Typography>
+          <Typography variant="h3">12.99</Typography>
           <Typography variant="subtitle2">/mo</Typography>
         </Stack>
 
@@ -53,7 +48,7 @@ export default function CheckoutSummary() {
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="h6">Total Billed</Typography>
-          <Typography variant="h6">$9.99*</Typography>
+          <Typography variant="h6">£12.99</Typography>
         </Stack>
 
         <Divider sx={{ borderStyle: 'dashed', mb: 1 }} />
@@ -68,7 +63,7 @@ export default function CheckoutSummary() {
           color: 'text.secondary',
         }}
       >
-        * Plus applicable taxes
+        * This is including tax
       </Typography>
 
       <LoadingButton fullWidth size="large" variant="contained" sx={{ mt: 5, mb: 3 }}>
