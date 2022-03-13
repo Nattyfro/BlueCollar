@@ -72,7 +72,7 @@ export default function RegisterForm() {
           render={({ field, fieldState: { error } }) => (
             <TextField
               {...field}
-              label="Full Name"
+              label="Company name"
               error={Boolean(error)}
               helperText={error?.message}
             />

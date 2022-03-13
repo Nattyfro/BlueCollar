@@ -23,7 +23,7 @@ import {
 // hooks
 import { useResponsive } from '../../hooks';
 // components
-import { Logo, Iconify, SocialsButton, AppStoreButton } from '../../components';
+import { Logo, Iconify, SocialsButton } from '../../components';
 //
 import { PageLinks } from '../nav/NavConfig';
 
@@ -115,9 +115,6 @@ export default function Footer() {
             © 2022. All rights reserved
           </Typography>
           <Stack direction="row" spacing={3} justifyContent="center">
-            <Link variant="body3" sx={{ color: 'text.secondary' }}>
-              Help Center
-            </Link>
             <Link variant="body3" sx={{ color: 'text.secondary' }}>
               Terms of Service
             </Link>

@@ -94,7 +94,7 @@ export default function SupportSidebar({
           Do you still need help?
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4 }}>
-          Always support whenever you need (24/7).
+          Support Hours 7am - 10pm (GMT-0)
         </Typography>
 
         <Stack spacing={2}>
@@ -108,15 +108,6 @@ export default function SupportSidebar({
             <Typography variant="subtitle2">Chat Now</Typography>
           </ContactButtonStyle>
 
-          <ContactButtonStyle>
-            <Iconify icon={mobileIcon} sx={{ width: 24, height: 24 }} />
-            <Typography variant="subtitle2">
-              Call{' '}
-              <Box component="span" sx={{ color: 'primary.main' }}>
-                552-917-1454
-              </Box>
-            </Typography>
-          </ContactButtonStyle>
         </Stack>
       </Box>
     </Scrollbar>
