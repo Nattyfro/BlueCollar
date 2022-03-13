@@ -119,6 +119,7 @@ export default function CareerLandingHero() {
                   onChangeLocation={handleChangeLocation}
                 />
                 <Button
+                  href='jobs'
                   size="large"
                   variant="contained"
                   sx={{

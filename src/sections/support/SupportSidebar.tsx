@@ -94,7 +94,7 @@ export default function SupportSidebar({
           Do you still need help?
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary', mb: 4 }}>
-          Support Hours 7am - 10pm (GMT-0)
+          Support Hours 7am - 10pm (GMT+0)
         </Typography>
 
         <Stack spacing={2}>
