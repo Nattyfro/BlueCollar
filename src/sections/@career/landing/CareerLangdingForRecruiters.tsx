@@ -1,14 +1,13 @@
 // icons
-import documentIcon from '@iconify/icons-carbon/document';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Grid, Container, Typography, Button } from '@mui/material';
+import { Grid, Container, Typography, Button, FilledInput, InputAdornment } from '@mui/material';
 // utils
 import cssStyles from '../../../utils/cssStyles';
 // components
-import { Iconify, Image } from '../../../components';
+import { Image } from '../../../components';
+// @mui
 
-// ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   ...cssStyles(theme).bgImage(),
@@ -41,9 +40,39 @@ export default function CareerLangdingForRecruiters() {
               ullamcorper velit.
             </Typography>
 
-            <Button variant="contained" size="large" startIcon={<Iconify icon={documentIcon} />}>
-              Post a Job
-            </Button>
+            <FilledInput
+            placeholder="Enter your email"
+            endAdornment={
+              <InputAdornment position="end">
+                <Button
+                  size="large"
+                  variant="contained"
+                  sx={{
+                    height: 56,
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </InputAdornment>
+            }
+            sx={{
+              p: 0,
+              width: 1,
+              maxWidth: 560,
+              bgcolor: 'common.white',
+              '&:hover, &.Mui-focused': {
+                bgcolor: 'common.white',
+              },
+              '& .MuiFilledInput-input': {
+                py: '18px',
+                '&::placeholder': {
+                  color: 'grey.500',
+                },
+              },
+            }}
+          />
           </Grid>
 
           <Grid

@@ -172,6 +172,15 @@ export const blogTitle = [
   'How To Make More Event By Doing Less',
 ];
 
+
+export const reviews = [
+  'Amazing experience i love it a lot. Thanks to the team that dreams come true, great! I appreciate there attitude and approach.',
+  'We have taken on a new employee through Blue Collar and he is great! We are looking forward to using this service again.',
+  'Great customer service and great results, what more could you ask for!',
+  'Love this site. Always keeping me up to date and letting me know about new candidates in my area.',
+  '10/10 exactly what the construction industry needs',
+];
+
 // ----------------------------------------------------------------------
 
 export const sentence = [

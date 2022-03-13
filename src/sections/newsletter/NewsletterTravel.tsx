@@ -52,11 +52,11 @@ export default function NewsletterTravel() {
                 textAlign: { xs: 'center', md: 'left' },
               }}
             >
-              <Typography variant="h2">Newsletter</Typography>
+              <Typography variant="h2">Learn How To Approach 🤟</Typography>
               <Typography>
-                Sign up now to receive hot special offers
-                <br /> and information about the best tours!
-              </Typography>
+              Join our mailing list for helpful tips on securing
+                <br /> A new hire alongside with new features!
+              </Typography> 
 
               <FilledInput
                 fullWidth

@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------
 
 export const role = [
-  'UX Designer',
-  'Full Stack Designer',
-  'Backend Developer',
-  'UX Designer',
-  'UX Designer',
+  'HWH Bespoke Properties',
+  'E & W Builders',
+  'C D Carepentry',
+  'MJH Plumbing',
+  'K P Young Roofing',
   'Project Manager',
   'Leader',
   'Backend Developer',
@@ -42,3 +42,4 @@ export const role = [
   'UI Designer',
   'Full Stack Designer',
 ];
+

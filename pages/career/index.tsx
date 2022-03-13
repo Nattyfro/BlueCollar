@@ -67,12 +67,6 @@ export default function CareerLandingPage({ posts }: Props) {
       <CareerLangdingForRecruiters />
 
       
-
-      
-
-      <DownloadAppCareer />
-
-      <NewsletterCareer />
     </Page>
   );
 }

@@ -12,6 +12,7 @@ import { fullAddress, country, countries } from './address';
 import {
   jobTitle,
   tourName,
+  reviews,
   sentence,
   blogTitle,
   brandsName,
@@ -48,6 +49,7 @@ const _mock = {
     brandsName: (index: number) => brandsName[index],
     sentence: (index: number) => sentence[index],
     description: (index: number) => description[index],
+    reviews: (index:number) => reviews [index], // here
   },
   number: {
     percent: (index: number) => percent[index],
