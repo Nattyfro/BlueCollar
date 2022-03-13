@@ -48,30 +48,23 @@ export default function Footer() {
               <Stack alignItems="flex-start" spacing={3}>
                 <Logo />
                 <Typography variant="body3" sx={{ color: 'text.secondary' }}>
-                  The starting point for your next project based on easy-to-customize Material-UI ©
-                  helps you build apps faster and better.
+                  Connecting employees to employeers.
                 </Typography>
               </Stack>
 
               <Stack spacing={2}>
-                <Typography variant="h6">Social</Typography>
+                <Typography variant="h6">Socials 🤟</Typography>
                 <SocialsButton />
               </Stack>
 
-              <Stack alignItems="flex-start">
-                <Typography variant="h6">Documentation</Typography>
-                <NextLinkItem href="#">Documentation</NextLinkItem>
-                <NextLinkItem href="#">Changelog</NextLinkItem>
-                <NextLinkItem href="#">Contributing</NextLinkItem>
-              </Stack>
 
               <Stack spacing={2}>
                 <Stack spacing={1}>
                   <Typography variant="h6">Let’s stay in touch</Typography>
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                    Ubscribe to our newsletter to receive latest articles to your inbox weekly.
+                    Subscribe to our newsletter to receive latest articles to your inbox weekly.
                   </Typography>
-                </Stack>2021
+                </Stack>
                 <FilledInput
                   placeholder="Email address"
                   endAdornment={
@@ -88,10 +81,6 @@ export default function Footer() {
                 />
               </Stack>
 
-              <Stack spacing={2}>
-                <Typography variant="h6">Apps</Typography>
-                <AppStoreButton />
-              </Stack>
             </Stack>
           </Grid>
 

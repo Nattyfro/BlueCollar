@@ -1,7 +1,7 @@
 // icons
 import logoLinkedin from '@iconify/icons-carbon/logo-linkedin';
 import logoFacebook from '@iconify/icons-carbon/logo-facebook';
-import logoTwitter from '@iconify/icons-carbon/logo-twitter';
+// import logoTwitter from '@iconify/icons-carbon/logo-twitter';
 import logoInstagram from '@iconify/icons-carbon/logo-instagram';
 // @mui
 import { alpha } from '@mui/material/styles';
@@ -47,12 +47,6 @@ export default function SocialsButton({
       socialColor: '#007EBB',
       path: links.linkedin || '#linkedin-link',
     },
-    {
-      name: 'Twitter',
-      icon: logoTwitter,
-      socialColor: '#00AAEC',
-      path: links.twitter || '#twitter-link',
-    },
   ];
 
   return (
@@ -74,7 +68,7 @@ export default function SocialsButton({
               }}
               {...other}
             >
-              <Iconify icon={icon} sx={{ width: 20, height: 20 }} />
+              <Iconify icon={icon} sx={{ width: 25, height: 25 }} />
             </IconButton>
           </Link>
         ) : (

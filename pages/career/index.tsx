@@ -11,11 +11,11 @@ import {
   _jobsByCountries,
 } from '../../_data/mock';
 // layouts
-import Layout from '../../src/layouts';
+import Layout from '../../src/layouts';``
 // components
 import { Page, ErrorScreen } from '../../src/components';
 // sections
-import { NewsletterCareer, NewsletterTravel } from '../../src/sections/newsletter';
+import { NewsletterTravel } from '../../src/sections/newsletter';
 import { TestimonialsCareer } from '../../src/sections/testimonials';
 // MYLES --- import { OurClientsCareer } from '../../src/sections/our-clients';
 import {
@@ -54,8 +54,6 @@ export default function CareerLandingPage() {
       
       <CareerLangdingForRecruiters />
 
-      <NewsletterCareer />
-      
     </Page>
   );
 }
@@ -75,13 +73,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-// MYLES ----------------------------------------------------------------------
-
-
-
-
-//  <CareerLandingTopCompanies companies={_jobsByCompanies} />
-
-
-// <OurClientsCareer brands={_brandsColor} />
