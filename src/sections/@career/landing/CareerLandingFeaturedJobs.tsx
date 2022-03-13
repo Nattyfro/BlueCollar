@@ -71,7 +71,7 @@ export default function CareerLandingFeaturedJobs({ jobs }: Props) {
             },
           }}
         >
-          {jobs.map((job) => (
+          {jobs.slice(0, 3).map((job) => (
             <CareerJobItem key={job.id} job={job} />
           ))}
         </Box>
