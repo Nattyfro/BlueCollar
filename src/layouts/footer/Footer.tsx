@@ -48,7 +48,7 @@ export default function Footer() {
               <Stack alignItems="flex-start" spacing={3}>
                 <Logo />
                 <Typography variant="body3" sx={{ color: 'text.secondary' }}>
-                  Connecting employees to employeers.
+                  Connecting employees to employers.
                 </Typography>
               </Stack>
 

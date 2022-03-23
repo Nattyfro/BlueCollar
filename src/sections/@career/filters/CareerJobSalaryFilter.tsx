@@ -13,7 +13,7 @@ const inputStyle = {
 
 const placeholder = (
   <Typography variant="body2" sx={{ color: 'text.disabled' }}>
-    All salary ranges
+    Salary range
   </Typography>
 );
 

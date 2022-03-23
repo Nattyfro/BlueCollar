@@ -72,6 +72,19 @@ export default function RegisterForm() {
           render={({ field, fieldState: { error } }) => (
             <TextField
               {...field}
+              label="Full Name"
+              error={Boolean(error)}
+              helperText={error?.message}
+            />
+          )}
+        />
+
+<Controller
+          name="fullName"
+          control={control}
+          render={({ field, fieldState: { error } }) => (
+            <TextField
+              {...field}
               label="Company name"
               error={Boolean(error)}
               helperText={error?.message}

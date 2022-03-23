@@ -43,21 +43,21 @@ export const brandsName = [
 // ----------------------------------------------------------------------
 
 export const jobTitle = [
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
-  'Blue Collar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
+  'BlueCollar User',
 ];
 
 // ----------------------------------------------------------------------
