@@ -28,6 +28,7 @@ const Routes = {
   career: {
     landing: '/career',
     jobs: '/career/jobs',
+    favourites: '/career/favourites',
     job: (id: string) => `/career/jobs/${id}`,
     posts: '/career/blog',
     post: (slug: string) => `/career/blog/${slug}`,

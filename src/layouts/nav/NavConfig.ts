@@ -24,7 +24,7 @@ export const navConfig = [
   
   {
     title: 'Favourites',
-    path: Routes.registerIllustration
+    path: Routes.career.favourites
   },
   {
     title: 'Support',

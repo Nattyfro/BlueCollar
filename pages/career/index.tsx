@@ -17,12 +17,10 @@ import { Page, ErrorScreen } from '../../src/components';
 // sections
 import { NewsletterTravel } from '../../src/sections/newsletter';
 import { TestimonialsCareer } from '../../src/sections/testimonials';
-// MYLES --- import { OurClientsCareer } from '../../src/sections/our-clients';
 import {
   CareerLandingHero,
   CareerLandingGettingStarted,
   CareerLandingFeaturedJobs,
-  // MYLES --- CareerLandingTopCompanies,
   CareerLangdingConnections,
   CareerLangdingForRecruiters,
 } from '../../src/sections/@career';
