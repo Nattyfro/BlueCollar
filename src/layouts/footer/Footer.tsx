@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 // hooks
 // components
-import { Logo, SocialsButton } from '../../components';
+import { Logo } from '../../components';
 
 // ----------------------------------------------------------------------
 
