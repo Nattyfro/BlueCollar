@@ -1,42 +1,22 @@
-import { ReactNode, useState } from 'react';
-// icons
-import chevronDown from '@iconify/icons-carbon/chevron-down';
-import chevronRight from '@iconify/icons-carbon/chevron-right';
-// next
-import NextLink, { LinkProps } from 'next/link';
-// @mui
-import Masonry from '@mui/lab/Masonry';
 import {
-  Box,
   Grid,
   Link,
   Stack,
   Button,
   Divider,
-  SxProps,
-  Collapse,
   Container,
   Typography,
   FilledInput,
   InputAdornment,
 } from '@mui/material';
 // hooks
-import { useResponsive } from '../../hooks';
 // components
-import { Logo, Iconify, SocialsButton } from '../../components';
-//
-import { PageLinks } from '../nav/NavConfig';
+import { Logo, SocialsButton } from '../../components';
 
 // ----------------------------------------------------------------------
 
 export default function Footer() {
-  const isDesktop = useResponsive('up', 'md');
 
-  const lists = PageLinks.filter((list) => list.subheader !== 'Coming Soon');
-
-  const renderLists = isDesktop
-    ? lists
-    : lists.sort((listA, listB) => Number(listA.order) - Number(listB.order));
 
   return (
     <>
@@ -49,16 +29,24 @@ export default function Footer() {
                 <Logo />
                 <Typography variant="body3" sx={{ color: 'text.secondary' }}>
                   Connecting employees to employers.
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet deleniti obcaecati enim exercitationem laborum reprehenderit illum dolor cupiditate quos id, sed, cum numquam corporis sunt.
                 </Typography>
               </Stack>
 
-              <Stack spacing={2}>
-                <Typography variant="h6">Socials 🤟</Typography>
-                <SocialsButton />
-              </Stack>
+              
 
 
-              <Stack spacing={2}>
+              
+
+            </Stack>
+          </Grid>
+
+
+          
+
+          <Grid item xs={12} md={6}>
+            
+            <Stack spacing={2}>
                 <Stack spacing={1}>
                   <Typography variant="h6">Let’s stay in touch</Typography>
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -81,23 +69,8 @@ export default function Footer() {
                 />
               </Stack>
 
-            </Stack>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            {isDesktop ? (
-              <Masonry columns={3} spacing={3}>
-                {renderLists.map((list) => (
-                  <ListDesktop key={list.subheader} list={list} />
-                ))}
-              </Masonry>
-            ) : (
-              <Stack spacing={1.5}>
-                {renderLists.map((list) => (
-                  <ListMobile key={list.subheader} list={list} />
-                ))}
-              </Stack>
-            )}
+              
+              
           </Grid>
         </Grid>
       </Container>
@@ -122,106 +95,5 @@ export default function Footer() {
         </Stack>
       </Container>
     </>
-  );
-}
-
-// ----------------------------------------------------------------------
-
-interface NextLinkItemProps extends LinkProps {
-  children: ReactNode;
-  sx?: SxProps;
-}
-
-function NextLinkItem({ children, sx, ...other }: NextLinkItemProps) {
-  return (
-    <NextLink passHref {...other}>
-      <Link
-        variant="body3"
-        sx={{
-          mt: 1,
-          color: 'text.secondary',
-          '&:hover': {
-            color: 'text.primary',
-          },
-          ...sx,
-        }}
-      >
-        {children}
-      </Link>
-    </NextLink>
-  );
-}
-
-// ----------------------------------------------------------------------
-
-type ListProps = {
-  list: {
-    subheader: string;
-    items?: {
-      title: string;
-      path: string;
-    }[];
-  };
-};
-
-function ListDesktop({ list }: ListProps) {
-  const { subheader, items } = list;
-
-  return (
-    <Stack alignItems="flex-start" sx={{ pb: { md: 1 } }}>
-      <Typography variant="h6">{subheader}</Typography>
-      {items?.map((link) => (
-        <NextLinkItem key={link.title} href={link.path}>
-          {link.title}
-        </NextLinkItem>
-      ))}
-    </Stack>
-  );
-}
-
-// ----------------------------------------------------------------------
-
-function ListMobile({ list }: ListProps) {
-  const { subheader, items } = list;
-  const [expand, setExpand] = useState(false);
-
-  const onExpand = () => {
-    setExpand(!expand);
-  };
-
-  return (
-    <Stack spacing={1.5} alignItems="flex-start">
-      <Typography
-        variant="h6"
-        onClick={onExpand}
-        sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-      >
-        {subheader}
-        <Iconify
-          icon={expand ? chevronDown : chevronRight}
-          sx={{ width: 20, height: 20, ml: 0.5 }}
-        />
-      </Typography>
-
-      <Collapse in={expand} sx={{ width: 1 }}>
-        <Box
-          sx={{
-            display: 'grid',
-            rowGap: 1,
-            columnGap: 3,
-            gridTemplateColumns: {
-              xs: 'repeat(1, 1fr)',
-              sm: 'repeat(2, 1fr)',
-            },
-          }}
-        >
-          {items?.map((link) => (
-            <NextLinkItem key={link.title} href={link.path}>
-              {link.title}
-            </NextLinkItem>
-          ))}
-        </Box>
-      </Collapse>
-    </Stack>
   );
 }
