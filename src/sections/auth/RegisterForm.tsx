@@ -28,6 +28,7 @@ const FormSchema = Yup.object().shape({
 });
 
 type FormValuesProps = {
+  companyName: string;
   fullName: string;
   email: string;
   password: string;
@@ -80,7 +81,7 @@ export default function RegisterForm() {
         />
 
 <Controller
-          name="fullName"
+          name="companyName"
           control={control}
           render={({ field, fieldState: { error } }) => (
             <TextField

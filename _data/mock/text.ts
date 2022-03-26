@@ -64,7 +64,7 @@ export const jobTitle = [
 
 export const jobCategories = [
   'General Labourers',
-  'Brick layers',
+  'Bricklayers',
   'Groundsworkers',
   'Plumbers',
   'Carpenters',
