@@ -12,6 +12,7 @@ export const PageLinks = [
       { title: 'Home', path: Routes.career.landing },
       { title: 'Candidates', path: Routes.career.jobs },
       { title: 'Support', path: Routes.support },
+      { title: 'Account', path: Routes.career.myAccount },
     ],
   },
 ];
@@ -30,19 +31,10 @@ export const navConfig = [
     title: 'Support',
     path: Routes.support
   },
+  {
+    title: 'Settings',
+    path: Routes.career.myAccount
+  },
 
   
 ];
-
-
-
-/* Career
-career: {
-  landing: '/career',
-  jobs: '/career/jobs',
-  job: (id: string) => `/career/jobs/${id}`,
-  posts: '/career/blog',
-  post: (slug: string) => `/career/blog/${slug}`,
-  about: '/career/about-us',
-  contact: '/career/contact-us',
-}, */

@@ -16,7 +16,7 @@ import { fCurrency } from '../../../utils/formatNumber';
 
 // ----------------------------------------------------------------------
 
-const SERVICES = ['Email marketing', 'SEO', ' Social Marketing', 'Research'];
+const SERVICES = ['Email marketingz', 'SEO', ' Social Marketing', 'Research'];
 
 const FormSchema = Yup.object().shape({
   services: Yup.array().required().min(1, 'Services field must have at least 1 items'),

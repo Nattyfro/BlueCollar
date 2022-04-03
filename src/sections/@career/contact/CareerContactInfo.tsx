@@ -1,58 +1,55 @@
+// icons
+import locationIcon from '@iconify/icons-carbon/location';
+import mobileIcon from '@iconify/icons-carbon/mobile';
+import emailIcon from '@iconify/icons-carbon/email';
+import timeIcon from '@iconify/icons-carbon/time';
+import launchIcon from '@iconify/icons-carbon/launch';
 // @mui
-import { Typography, Stack, Container, Link } from '@mui/material';
+import { Typography, Stack, Link } from '@mui/material';
 // components
-import { SocialsButton } from '../../../components';
+import { Iconify, TextIconLabel, Image } from '../../../components';
 
 // ----------------------------------------------------------------------
 
 export default function CareerContactInfo() {
   return (
-    <Container
-      sx={{
-        py: { xs: 8, md: 10 },
-        textAlign: { xs: 'center', md: 'left' },
-      }}
-    >
-      <Typography variant="h2">Get In Touch</Typography>
-      <Typography
-        variant="subtitle1"
+    <Stack spacing={3}>
+      <Image
+        alt="marketing-contact"
+        src="https://blue-collar.vercel.app/assets/illustrations/illustration_marketing_contact.svg"
         sx={{
-          mt: 3,
-          mb: { xs: 3, md: 6 },
+          maxWidth: 380,
+          display: { xs: 'none', md: 'block' },
         }}
-      >{`We'd love to talk about how we can help you.`}</Typography>
+      />
 
-      <Stack spacing={{ xs: 3, md: 5 }} direction={{ xs: 'column', md: 'row' }}>
-        <Stack spacing={1}>
-          <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
-            Email
-          </Typography>
-          <Link variant="body2" color="inherit" href="mailto:hello@example.com">
-            hello@example.com
-          </Link>
-        </Stack>
 
-        <Stack spacing={1}>
-          <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
-            Phone
-          </Typography>
-          <Typography variant="body2">(907) 555-0101</Typography>
-        </Stack>
 
-        <Stack spacing={1}>
-          <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
-            Address
-          </Typography>
-          <Typography variant="body2">3891 Ranchview Dr. Richardson, California 62639</Typography>
-        </Stack>
+      <TextIconLabel
+        spacing={2}
+        alignItems="flex-start"
+        icon={<Iconify icon={emailIcon} sx={{ width: 28, height: 28 }} />}
+        value={
+          <Stack spacing={0.5}>
+            <Typography variant="h6">Talk to us</Typography>
+            <Link color="inherit" variant="body2" href="mailto:hello@example.com">
+              support@bluecollar.com
+            </Link>
+          </Stack>
+        }
+      />
 
-        <Stack spacing={1} alignItems={{ xs: 'center', md: 'flex-start' }}>
-          <Typography variant="subtitle2" sx={{ color: 'primary.main' }}>
-            Follow Us
-          </Typography>
-          <SocialsButton sx={{ color: 'text.primary' }} />
-        </Stack>
-      </Stack>
-    </Container>
+      <TextIconLabel
+        spacing={2}
+        alignItems="flex-start"
+        icon={<Iconify icon={timeIcon} sx={{ width: 28, height: 28 }} />}
+        value={
+          <Stack spacing={0.5}>
+            <Typography variant="h6">Working Hours</Typography>
+            <Typography variant="body2">Mon-Sat: 9 am — 10 pm</Typography>
+          </Stack>
+        }
+      />
+    </Stack>
   );
 }
