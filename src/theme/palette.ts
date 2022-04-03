@@ -9,7 +9,7 @@ export type ColorSchema = 'primary' | 'secondary' | 'tertiary' | 'info' | 'succe
 interface GradientsPaletteOptions {
   primary: string;
   secondary: string;
-  tertiary: any;
+  tertiary: string;
   info: string;
   success: string;
   warning: string;

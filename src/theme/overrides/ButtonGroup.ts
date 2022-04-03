@@ -20,7 +20,6 @@ export default function ButtonGroup(theme: Theme) {
         },
         styleContained('primary'),
         styleContained('secondary'),
-        styleContained('tertiary'),
         styleContained('info'),
         styleContained('success'),
         styleContained('warning'),
