@@ -60,7 +60,7 @@ export default function LoginForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={2.5} alignItems="flex-end">
         <Controller
-          name="emaizl"
+          name="email"
           control={control}
           render={({ field, fieldState: { error } }) => (
             <TextField
