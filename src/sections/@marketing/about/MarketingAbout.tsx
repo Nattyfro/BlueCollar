@@ -24,7 +24,7 @@ const SUMMARY = [
   { title: 'Happy clients', total: 32000, icon: userCertification },
 ];
 
-const COLORS = ['primary', 'secondary', 'warning', 'success'] as const;
+const COLORS = ['primary', 'secondary', 'tertiary', 'warning', 'success'] as const;
 
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(10, 0),
