@@ -24,6 +24,7 @@ export default function ToggleButton(theme: Theme) {
       variants: [
         styleSelected('primary'),
         styleSelected('secondary'),
+        styleSelected('tertiary'),
         styleSelected('info'),
         styleSelected('success'),
         styleSelected('warning'),
