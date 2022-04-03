@@ -101,7 +101,7 @@ export default function CareerContactForm() {
 
       <Divider/>
 
-<Stack spacing={1} sx={{ py: 5, px: 0}}>
+<Stack spacing={1} sx={{ py: 2.5, px: 0}}>
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
             Desired Salary (£)
           </Typography>
@@ -485,7 +485,7 @@ export default function CareerContactForm() {
                             selected={field.value.includes(drives)}
                             onChange={() => field.onChange(onSelected(drives))}
                             sx={{
-                              py: 1,
+                              py: 0.5,
                               px: 2,
                               m: 0.5,
                               typography: 'body2',

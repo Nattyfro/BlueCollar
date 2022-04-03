@@ -84,7 +84,7 @@ export default function CareerLandingFeaturedJobs({ jobs }: Props) {
               variant="outlined"
               endIcon={<Iconify icon={directionStraightRight} sx={{ width: 22, height: 22 }} />}
             >
-              View All Jobs
+              View All Candidates
             </Button>
           </NextLink>
         </Stack>

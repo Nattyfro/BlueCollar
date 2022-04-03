@@ -50,9 +50,9 @@ export default function myAccount() {
                 Account Settings
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>
-              Welcome to your account settings where you can modify your details
+              Welcome to your account settings where you can modify your details.
               </Typography>
-              <Divider sx={{ py: 5, width: 1 }}/>
+              <Divider sx={{ py: 5  }}/>
               <CareerContactForm />
             </Grid>
           </Grid>
