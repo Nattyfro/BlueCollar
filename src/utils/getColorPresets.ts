@@ -20,7 +20,6 @@ export const colorPresets = [
     name: presetsKey.default,
     primary: palette.light.primary,
     secondary: palette.light.secondary,
-    tertiary: palette.light.tertiary,
   },
 
   // PINK CYAN
@@ -106,14 +105,6 @@ export const colorPresets = [
       contrastText: contrastText.black,
     },
   
-  tertiary: {
-    lighter: '#FFF3D8',
-    light: '#FFD18B', // here
-    main: '#99B898',
-    dark: '#B75D1F',
-    darker: '#7A2D0C',
-    contrastText: contrastText.black,
-  },
 },
   // GREEN - ORANGE
   {

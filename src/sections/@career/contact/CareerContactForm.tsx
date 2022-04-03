@@ -113,7 +113,7 @@ export default function CareerContactForm() {
                 valueLabelFormat={(value) => fCurrency(value)}
                 aria-label="Large"
 
-                color="tertiary"
+                color="secondary"
               />
             )}
           />

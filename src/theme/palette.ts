@@ -4,12 +4,11 @@ import createGradient from '../utils/createGradient';
 
 // ----------------------------------------------------------------------
 
-export type ColorSchema = 'primary' | 'secondary' | 'tertiary' | 'info' | 'success' | 'warning' | 'error';
+export type ColorSchema = 'primary' | 'secondary'  | 'info' | 'success' | 'warning' | 'error';
 
 interface GradientsPaletteOptions {
   primary: string;
   secondary: string;
-  tertiary: string;
   info: string;
   success: string;
   warning: string;
@@ -73,14 +72,6 @@ const SECONDARY = {
   darker: '#063963',
   contrastText: contrastText.white,
 };
-const TERTIARY = {
-  lighter: '#D2FCF4',
-  light: '#77F0ED',
-  main: '#99B898',
-  dark: '#116E95',
-  darker: '#063963',
-  contrastText: contrastText.white,
-};
 const INFO = {
   lighter: '#CBFEFC',
   light: '#63E8F9',
@@ -138,7 +129,6 @@ const GREY = {
 const GRADIENTS = {
   primary: createGradient(PRIMARY.light, PRIMARY.main),
   secondary: createGradient(SECONDARY.light, SECONDARY.main),
-  tertiary: createGradient(TERTIARY.light, TERTIARY.main),
   info: createGradient(INFO.light, INFO.main),
   success: createGradient(SUCCESS.light, SUCCESS.main),
   warning: createGradient(WARNING.light, WARNING.main),
@@ -149,7 +139,6 @@ const COMMON = {
   common: { black: '#000', white: '#fff' },
   primary: { ...PRIMARY, contrastText: '#fff' },
   secondary: { ...SECONDARY, contrastText: '#fff' },
-  tertiary: { ...TERTIARY, contrastText: '#fff' },
   info: { ...INFO, contrastText: '#fff' },
   success: { ...SUCCESS, contrastText: GREY[800] },
   warning: { ...WARNING, contrastText: GREY[800] },
@@ -172,14 +161,14 @@ const palette = {
   light: {
     ...COMMON,
     mode: 'light',
-    text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500], tertiary: GREY[600] },
+    text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
     background: { paper: '#fff', default: '#fff', neutral: GREY[100] },
     action: { active: GREY[600], ...COMMON.action },
   },
   dark: {
     ...COMMON,
     mode: 'dark',
-    text: { primary: '#fff', secondary: GREY[500], disabled: GREY[600], tertiary: GREY[600] },
+    text: { primary: '#fff', secondary: GREY[500], disabled: GREY[600] },
     background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_12] },
     action: { active: GREY[500], ...COMMON.action },
   },
