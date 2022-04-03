@@ -18,10 +18,12 @@ import { fCurrency } from '../../../utils/formatNumber';
 
 const SERVICES = ['Full time', 'part time', 'Agency'];
 const DRIVES = ['Yes, I Drive', 'No, I Dont Drive'];
+const SALARIES = ['Hourly', 'Daily', 'Weekly', 'Annualy'];
 
 const FormSchema = Yup.object().shape({
   services: Yup.array().required().min(1, 'Select at least one type of work'),
   drive: Yup.array().required().min(1, 'Select at least one type of work'),
+  salary: Yup.array().required().max(1, 'Salary Range is required'),
   email: Yup.string().required('Email is required').email('That is not an email'),
   company: Yup.string().required('Company is required'),
   age: Yup.number().required('Age is required'),
@@ -38,7 +40,10 @@ type FormValuesProps = {
   budget: number | number[];
   message: string;
   drive: string[]; // ADDED
+  salary: string[]; // ADDED
   postCode: string; // ADDED
+  city: string; // ADDED
+  experience: string; // ADDED
 };
 
 // ----------------------------------------------------------------------
@@ -55,13 +60,14 @@ export default function CareerContactForm() {
     defaultValues: {
       services: [],
       drive: [],
+      salary: [],
       firstName: '',
       lastName: '',
       email: '',
       phoneNumber: '' ,
       company: '',
       age: [],
-      budget: [180],
+      budget: [250],
       message: '',
     },
   });
@@ -94,11 +100,33 @@ export default function CareerContactForm() {
 
 
 
-<Stack spacing={5} sx={{ py: 2, width: 1 }}>
+<Stack spacing={2} sx={{ py: 5, width: 1 }}>
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
             Desired Salary
           </Typography>
 
+
+
+
+          <Stack alignItems='left'>
+
+
+  <Controller
+      name="drive"
+      control={control}
+      render={({ field, fieldState: { error } }) => {
+        // Using with lodash https://lodash.com/docs/4.17.15#xor
+        // const onSelected = (service: string) => xor(field.value, [service]);
+
+        const onSelected = (drive: string) =>
+          field.value.includes(drive)
+            ? field.value.filter((value) => value !== drive)
+            : [...field.value, drive];
+
+        return (
+          <div> 
+            <Stack>
+ 
           <Controller
             name="budget"
             control={control}
@@ -118,6 +146,63 @@ export default function CareerContactForm() {
             )}
           />
         </Stack>
+
+
+
+
+            <Stack 
+            direction="row" 
+            >
+            
+              {SALARIES.map((salaries) => (
+                <ToggleButton
+                  {...field}
+                  key={salaries}
+                  color="standard"
+                  selected={field.value.includes(salaries)}
+                  onChange={() => field.onChange(onSelected(salaries))}
+                  sx={{
+                    py: 0.5,
+                    px: 2,
+                    m: 0.5,
+                    typography: 'body2',
+                    '&.Mui-selected': {
+                      bgcolor: 'text.primary',
+                      color: (theme) =>
+                        theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                      '&:hover': {
+                        bgcolor: 'text.primary',
+                      },
+                    },
+                  }}
+                >
+                  {salaries}
+                </ToggleButton>
+              ))}
+            </Stack>
+
+            {error && (
+              <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
+                {(error as any)?.message}
+              </FormHelperText>
+            )}
+          </div>
+        );
+      }}
+    />
+
+</Stack>
+
+
+</Stack>
+
+
+
+
+
+
+
+
 
         <Stack
           direction={{ xs: 'column', md: 'row' }}
@@ -227,10 +312,41 @@ export default function CareerContactForm() {
               />
             )}
           />
-
-
-
+          
         </Stack>
+
+        <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        spacing={{ xs: 2.5, md: 2 }}
+        sx={{ width: 1 }}
+        >
+        <Controller
+            name="city"
+            control={control}
+            render={({ field, fieldState: { error } }) => (
+              <TextField
+                {...field}
+                fullWidth
+                label="City"
+                error={Boolean(error)}
+                helperText={error?.message}
+              />
+            )}
+          />
+          <Controller
+            name="experience"
+            control={control}
+            render={({ field, fieldState: { error } }) => (
+              <TextField
+                {...field}
+                fullWidth
+                label="Experience"
+                error={Boolean(error)}
+                helperText={error?.message}
+              />
+            )}
+          />
+          </Stack>
 
 
 
@@ -279,7 +395,7 @@ export default function CareerContactForm() {
               <div> 
                 <Stack>
                 
-                  <Typography variant="overline" align="center" sx={{ color: 'text.secondary' , py: 2, }}  >
+                  <Typography variant="overline" align="center" sx={{ color: 'text.secondary' , py: 2}}  >
                   What type of work are you after?
                   </Typography>
 

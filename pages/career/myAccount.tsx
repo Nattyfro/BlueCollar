@@ -9,7 +9,6 @@ import Layout from '../../src/layouts';
 // components
 import { Page } from '../../src/components';
 // sections
-import { NewsletterMarketing } from '../../src/sections/newsletter';
 /* import {
   MarketingFreeSEO,
   
