@@ -9,6 +9,7 @@ import {
   Typography,
   ToggleButton,
   FormHelperText,
+  Divider,
   Slider as MUISlider,
 } from '@mui/material';
 // utils
@@ -18,7 +19,7 @@ import { fCurrency } from '../../../utils/formatNumber';
 
 const SERVICES = ['Full time', 'part time', 'Agency'];
 const DRIVES = ['Yes, I Drive', 'No, I Dont Drive'];
-const SALARIES = ['Hourly', 'Daily', 'Weekly', 'Annualy'];
+const SALARIES = ['Hourly', 'Daily', 'Weekly', 'Annually'];
 
 const FormSchema = Yup.object().shape({
   services: Yup.array().required().min(1, 'Select at least one type of work'),
@@ -80,7 +81,7 @@ export default function CareerContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={2.5} alignItems="center">
+      <Stack spacing={2.5} >
              
 
 
@@ -98,17 +99,17 @@ export default function CareerContactForm() {
 
 
 
+      <Divider/>
 
-
-<Stack spacing={2} sx={{ py: 5, width: 1 }}>
+<Stack spacing={1} sx={{ py: 5, px: 0}}>
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-            Desired Salary
+            Desired Salary (£)
           </Typography>
 
 
 
 
-          <Stack alignItems='left'>
+          <Stack>
 
 
   <Controller
@@ -135,8 +136,8 @@ export default function CareerContactForm() {
                 {...field}
                 valueLabelDisplay="on"
                 max={500}
-                defaultValue={70}
                 step={1}
+                sx={{m:0}}
                 size='medium'
                 valueLabelFormat={(value) => fCurrency(value)}
                 aria-label="Large"
@@ -157,6 +158,7 @@ export default function CareerContactForm() {
               {SALARIES.map((salaries) => (
                 <ToggleButton
                   {...field}
+                  fullWidth
                   key={salaries}
                   color="standard"
                   selected={field.value.includes(salaries)}
@@ -164,7 +166,8 @@ export default function CareerContactForm() {
                   sx={{
                     py: 0.5,
                     px: 2,
-                    m: 0.5,
+                    mx: 0.5,
+                    mt:2,
                     typography: 'body2',
                     '&.Mui-selected': {
                       bgcolor: 'text.primary',
@@ -395,37 +398,42 @@ export default function CareerContactForm() {
               <div> 
                 <Stack>
                 
-                  <Typography variant="overline" align="center" sx={{ color: 'text.secondary' , py: 2}}  >
+                  <Typography variant="overline"  sx={{ color: 'text.secondary' , py: 2}}  >
                   What type of work are you after?
                   </Typography>
 
                 </Stack>
 
-                <Stack 
-                direction="row" 
-                flexWrap="wrap">
+
+
+                <Stack direction="row">
+                
+                  
                 
                   {SERVICES.map((service) => (
                     <ToggleButton
                       {...field}
+                      fullWidth
                       key={service}
                       color="standard"
                       selected={field.value.includes(service)}
                       onChange={() => field.onChange(onSelected(service))}
-                      sx={{
-                        py: 0.5,
-                        px: 2,
-                        m: 0.5,
-                        typography: 'body2',
-                        '&.Mui-selected': {
-                          bgcolor: 'text.primary',
-                          color: (theme) =>
-                            theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
-                          '&:hover': {
-                            bgcolor: 'text.primary',
-                          },
-                        },
-                      }}
+                       sx={{
+                    py: 0.5,
+                    px: 2,
+                    mx: 0.5,
+                    mt:2,
+                    typography: 'body2',
+                    '&.Mui-selected': {
+                      bgcolor: 'text.primary',
+                      color: (theme) =>
+                        theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                      '&:hover': {
+                        bgcolor: 'text.primary',
+                      },
+                    },
+                  }}
+                  
                     >
                       {service}
                     </ToggleButton>
@@ -446,7 +454,7 @@ export default function CareerContactForm() {
 
 
 
-          <Stack alignItems='center'>
+          <Stack>
 
           <Typography variant="overline" sx={{ color: 'text.secondary' , py: 2, }}  >
           Do you have a drivers licence?
@@ -466,19 +474,18 @@ export default function CareerContactForm() {
 
                   return (
                     <div> 
-                      <Stack 
-                      direction="row" 
-                      flexWrap="wrap">
+                      <Stack direction="row">
                       
                         {DRIVES.map((drives) => (
                           <ToggleButton
                             {...field}
+                            fullWidth
                             key={drives}
                             color="standard"
                             selected={field.value.includes(drives)}
                             onChange={() => field.onChange(onSelected(drives))}
                             sx={{
-                              py: 0.5,
+                              py: 1,
                               px: 2,
                               m: 0.5,
                               typography: 'body2',
@@ -508,6 +515,8 @@ export default function CareerContactForm() {
               />
 
           </Stack> 
+
+          <Divider/>
 
         <LoadingButton size="large" type="submit" variant="contained" loading={isSubmitting}>
           Save Changes

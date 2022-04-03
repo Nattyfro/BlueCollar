@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Divider } from '@mui/material';
 // config
 import { HEADER_MOBILE_HEIGHT, HEADER_DESKTOP_HEIGHT } from '../../src/config';
 // layouts
@@ -47,12 +47,12 @@ export default function myAccount() {
 
             <Grid item xs={12} md={6} lg={6}>
               <Typography variant="h2" sx={{ mb: 5 }}>
-                Your Settings
+                Account Settings
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>
               Welcome to your account settings where you can modify your details
               </Typography>
-
+              <Divider sx={{ py: 5, width: 1 }}/>
               <CareerContactForm />
             </Grid>
           </Grid>
