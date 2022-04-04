@@ -79,122 +79,144 @@ export default function CareerContactForm() {
     reset();
   };
 
+
+
+
   return (
+
     <form onSubmit={handleSubmit(onSubmit)}>
+
       <Stack spacing={2.5} >
              
 
 
+        <Stack spacing={1} sx={{ pt: 10, px: 0}}>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <Divider/>
-
-<Stack spacing={1} sx={{ py: 2.5, px: 0}}>
-          <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-            Desired Salary (£)
+          <Typography variant="overline" sx={{ color: 'primary' }}>
+            Target Salary (£)
           </Typography>
 
+          <Typography variant="overline" sx={{ color: 'text.disabled' }}> 
+            How much you would like to be paid in order for you to think about the job opportunity.
+          </Typography>
+
+        <Stack>
+
+    
+        <Controller
+
+          name="drive"
+          control={control}
+          render={({ field, fieldState: { error } }) => {
+            
+            // Using with lodash https://lodash.com/docs/4.17.15#xor
+            // const onSelected = (service: string) => xor(field.value, [service]);
+
+            const onSelected = (drive: string) =>
+
+              field.value.includes(drive)
+
+                ? field.value.filter((value) => value !== drive)
+                : [...field.value, drive];
+
+              return (
+                
+                <div> 
+
+                  <Stack>
+      
+                    <Controller
+
+                      name="budget"
+                      control={control}
+                      render={({ field }) => (
+
+                        <MUISlider 
+
+                          {...field}
+                          valueLabelDisplay="auto"
+                          max={500}
+                          step={1}
+                          sx= {{ py:3 }} 
+                          size='medium'
+                          valueLabelFormat={(value) => fCurrency(value)}
+                          aria-label="Large"
+                          color="secondary"
+
+                        />
+
+                      )}
+                      
+                    />
+
+                    
+      </Stack>
+
+      
 
 
 
-          <Stack>
 
+        <Stack direction="row">
+        
+        
+          {SALARIES.map((salaries) => (
 
-  <Controller
-      name="drive"
-      control={control}
-      render={({ field, fieldState: { error } }) => {
-        // Using with lodash https://lodash.com/docs/4.17.15#xor
-        // const onSelected = (service: string) => xor(field.value, [service]);
+            <ToggleButton
 
-        const onSelected = (drive: string) =>
-          field.value.includes(drive)
-            ? field.value.filter((value) => value !== drive)
-            : [...field.value, drive];
+              {...field}
 
-        return (
-          <div> 
-            <Stack>
- 
-          <Controller
-            name="budget"
-            control={control}
-            render={({ field }) => (
-              <MUISlider
-                {...field}
-                valueLabelDisplay="on"
-                max={500}
-                step={1}
-                sx={{m:0}}
-                size='medium'
-                valueLabelFormat={(value) => fCurrency(value)}
-                aria-label="Large"
+              key={salaries}
+              color="standard"
+              selected={field.value.includes(salaries)}
+              onChange={() => field.onChange(onSelected(salaries))}
+              sx={{
+                py: 0.5,
+                px: 2,
+                mx: 0.5,
+                mt:2,
+                typography: 'body2',
+                '&.Mui-selected': {
+                  bgcolor: 'text.primary',
+                  color: (theme) =>
+                    theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                  '&:hover': {
+                    bgcolor: 'text.primary',
+                  },
+                },
+              }}>
+            
+              {salaries}
 
-                color="secondary"
-              />
-            )}
-          />
+            </ToggleButton>
+
+          ))}
+
         </Stack>
 
+          {error && (
 
+            <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
 
+              {(error as any)?.message}
 
-            <Stack 
-            direction="row" 
-            >
-            
-              {SALARIES.map((salaries) => (
-                <ToggleButton
-                  {...field}
-                  fullWidth
-                  key={salaries}
-                  color="standard"
-                  selected={field.value.includes(salaries)}
-                  onChange={() => field.onChange(onSelected(salaries))}
-                  sx={{
-                    py: 0.5,
-                    px: 2,
-                    mx: 0.5,
-                    mt:2,
-                    typography: 'body2',
-                    '&.Mui-selected': {
-                      bgcolor: 'text.primary',
-                      color: (theme) =>
-                        theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
-                      '&:hover': {
-                        bgcolor: 'text.primary',
-                      },
-                    },
-                  }}
-                >
-                  {salaries}
-                </ToggleButton>
-              ))}
-            </Stack>
+            </FormHelperText>
 
-            {error && (
-              <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
-                {(error as any)?.message}
-              </FormHelperText>
-            )}
+          )}
+          
           </div>
         );
       }}
     />
 
 </Stack>
+
+
+
+<Divider 
+sx={{ pb: 3}}
+/>
+
 
 
 </Stack>
