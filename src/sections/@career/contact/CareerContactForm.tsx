@@ -538,12 +538,19 @@ sx={{ pb: 3}}
 
           </Stack> 
 
-          <Divider/>
 
-        <LoadingButton size="large" type="submit" variant="contained" loading={isSubmitting}>
+        
+      </Stack>
+
+      <LoadingButton 
+      size="large" 
+      type="submit" 
+      variant="contained" 
+      loading={isSubmitting}
+      sx={{ my:4 }}>
           Save Changes
         </LoadingButton>
-      </Stack>
+
     </form>
   );
 }
