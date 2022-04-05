@@ -22,22 +22,25 @@ const DRIVES = ['Yes, I Drive', 'No, I Dont Drive'];
 const SALARIES = ['Hourly', 'Daily', 'Weekly', 'Annually'];
 
 const FormSchema = Yup.object().shape({
-  services: Yup.array().required().min(1, 'Select at least one type of work'),
-  drive: Yup.array().required().min(1, 'Select at least one type of work'),
-  salary: Yup.array().required().max(1, 'Salary Range is required'),
+  firstName: Yup.string().required('First name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  salary: Yup.array().required().min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one')  ,
   email: Yup.string().required('Email is required').email('That is not an email'),
-  company: Yup.string().required('Company is required'),
-  age: Yup.number().required('Age is required'),
+  phoneNumber: Yup.string().required('Phone Number is required'),
+  services: Yup.array().required().min(1, 'Select at least one type of work'),
+  drive: Yup.array().required().min(1, 'Select whether you drive or not'),
+  trade: Yup.string().required('Trade is required'),
+  age: Yup.number().required('Age is required').min(18,'Must be over 16 to use the site'),
 });
 
 type FormValuesProps = {
-  services: string[]; // after string there was []
+  services: string[]; 
   firstName: string;
   lastName: string;
   email: string;
   phoneNumber: string;
-  company: string;
-  age: number [];
+  trade: string;
+  age: number;
   budget: number | number[];
   message: string;
   drive: string[]; // ADDED
@@ -66,8 +69,8 @@ export default function CareerContactForm() {
       lastName: '',
       email: '',
       phoneNumber: '' ,
-      company: '',
-      age: [],
+      trade: '',
+      // age: [], THIS IS HOW IT WAS
       budget: [250],
       message: '',
     },
@@ -97,7 +100,7 @@ export default function CareerContactForm() {
           </Typography>
 
           <Typography variant="overline" sx={{ color: 'text.disabled' }}> 
-            How much you would like to be paid in order for you to think about the job opportunity.
+          What is a realistic salary you believe you’re worth?
           </Typography>
 
         <Stack>
@@ -105,19 +108,19 @@ export default function CareerContactForm() {
     
         <Controller
 
-          name="drive"
+          name="salary"
           control={control}
           render={({ field, fieldState: { error } }) => {
             
             // Using with lodash https://lodash.com/docs/4.17.15#xor
             // const onSelected = (service: string) => xor(field.value, [service]);
 
-            const onSelected = (drive: string) =>
+            const onSelected = (salary: string) =>
 
-              field.value.includes(drive)
+              field.value.includes(salary)
 
-                ? field.value.filter((value) => value !== drive)
-                : [...field.value, drive];
+                ? field.value.filter((value) => value !== salary)
+                : [...field.value, salary];
 
               return (
                 
@@ -297,7 +300,7 @@ sx={{ pb: 3}}
           sx={{ width: 1 }}
         >
           <Controller
-            name="company"
+            name="trade"
             control={control}
             render={({ field, fieldState: { error } }) => (
               <TextField
@@ -365,7 +368,7 @@ sx={{ pb: 3}}
               <TextField
                 {...field}
                 fullWidth
-                label="Experience"
+                label="Years of Experience"
                 error={Boolean(error)}
                 helperText={error?.message}
               />
@@ -397,7 +400,9 @@ sx={{ pb: 3}}
 
 
 
-
+          <Divider 
+          sx={{ pb: 3}}/>
+          
 
 
 
@@ -418,24 +423,23 @@ sx={{ pb: 3}}
 
             return (
               <div> 
-                <Stack>
+                <Stack >
                 
-                  <Typography variant="overline"  sx={{ color: 'text.secondary' , py: 2}}  >
+                  <Typography variant="overline"  sx={{ color: 'text.secondary' , py: 0}}  >
                   What type of work are you after?
                   </Typography>
 
                 </Stack>
 
+                
 
-
-                <Stack direction="row">
+                <Stack direction="row" sx= {{ mb:1 }} >
                 
                   
                 
                   {SERVICES.map((service) => (
                     <ToggleButton
                       {...field}
-                      fullWidth
                       key={service}
                       color="standard"
                       selected={field.value.includes(service)}
@@ -478,8 +482,8 @@ sx={{ pb: 3}}
 
           <Stack>
 
-          <Typography variant="overline" sx={{ color: 'text.secondary' , py: 2, }}  >
-          Do you have a drivers licence?
+          <Typography variant="overline" sx={{ color: 'text.secondary' , py: 1 }}  >
+          Do you have a driving licence?
           </Typography>
 
             <Controller
@@ -501,7 +505,6 @@ sx={{ pb: 3}}
                         {DRIVES.map((drives) => (
                           <ToggleButton
                             {...field}
-                            fullWidth
                             key={drives}
                             color="standard"
                             selected={field.value.includes(drives)}
@@ -509,7 +512,8 @@ sx={{ pb: 3}}
                             sx={{
                               py: 0.5,
                               px: 2,
-                              m: 0.5,
+                              mx: 0.5,
+                              mt: 1,
                               typography: 'body2',
                               '&.Mui-selected': {
                                 bgcolor: 'text.primary',
