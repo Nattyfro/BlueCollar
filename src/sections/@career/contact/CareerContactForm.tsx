@@ -19,7 +19,7 @@ import { fCurrency } from '../../../utils/formatNumber';
 
 const SERVICES = ['Full time', 'part time', 'Agency'];
 const DRIVES = ['Yes, I Drive', 'No, I Dont Drive'];
-const SALARIES = ['Hourly', 'Daily', 'Weekly', 'Annually'];
+const SALARIES = ['Hourly', 'Daily', 'Monthly'];
 
 const FormSchema = Yup.object().shape({
   firstName: Yup.string().required('First name is required'),
@@ -89,7 +89,7 @@ export default function CareerContactForm() {
 
     <form onSubmit={handleSubmit(onSubmit)}>
 
-      <Stack spacing={2.5} >
+      <Stack spacing={2.5} sx={{ py: 2, width: 1 }}  >
              
 
 
@@ -126,7 +126,7 @@ export default function CareerContactForm() {
                 
                 <div> 
 
-                  <Stack>
+                  <Stack  flexWrap="wrap" >
       
                     <Controller
 
@@ -143,7 +143,6 @@ export default function CareerContactForm() {
                           sx= {{ py:3 }} 
                           size='medium'
                           valueLabelFormat={(value) => fCurrency(value)}
-                          aria-label="Large"
                           color="secondary"
 
                         />
@@ -160,7 +159,7 @@ export default function CareerContactForm() {
 
 
 
-        <Stack direction="row">
+        <Stack direction="row" >
         
         
           {SALARIES.map((salaries) => (

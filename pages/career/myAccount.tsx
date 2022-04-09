@@ -32,12 +32,12 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export default function myAccount() {
   return (
-    <Page title="Contact Us - Marketing">
+    <Page title="Account Settings">
       <RootStyle>
         <Container sx={{ py: { xs: 8, md: 10 } }}>
           <Grid
             container
-            spacing={{ xs: 0, md: 3 }}
+            spacing={{ xs: 8, md: 3 }}
             justifyContent="space-between"
             direction={{ xs: 'column-reverse', md: 'row' }}
           >
@@ -49,7 +49,6 @@ export default function myAccount() {
               <Typography variant="h2" sx={{ mb: 5 }}>
                 Account Settings
               </Typography>
-              <Divider  variant="middle" sx={{ py: 2  }}/>
               <CareerContactForm />
             </Grid>
           </Grid>
