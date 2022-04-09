@@ -15,7 +15,6 @@ import {
   Slider as MUISlider,
   // Imports From CheckoutMethods
   Radio,
-  Button,
   Collapse,
   RadioGroup,
   FormControlLabel,
@@ -28,7 +27,6 @@ import { _paymentMethods } from '../../../../_data/mock';
 import { Image, Iconify } from '../../../components';
 //
 import CheckoutNewCardForm from '../../checkout/CheckoutNewCardForm';
-import addIcon from '@iconify/icons-carbon/add';
 import checkmarkOutline from '@iconify/icons-carbon/checkmark-outline';
 import { styled } from '@mui/material/styles';
 
@@ -53,25 +51,11 @@ const FormSchema = Yup.object().shape({
 //---------------------Consts from CheckoutMethods.tsx----------------------------------
 
 
-const CARD_OPTIONS = [
-  {
-    value: 'visa1',
-    label: '**** **** **** 1212 - Jimmy Holland',
-  },
-  {
-    value: 'visa2',
-    label: '**** **** **** 2424 - Shawn Stokes',
-  },
-  {
-    value: 'mastercard',
-    label: '**** **** **** 4545 - Cole Armstrong',
-  },
-];
 
 
 const OptionStyle = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'hasChildren' && prop !== 'selected',
-})<OptionStyleProps>(({ hasChildren, selected, theme }) => ({
+  shouldForwardProp: (prop) => prop !== 'hasChildren' && prop !== 'selected' && prop !== 'hasChildrenAnnually',
+})<OptionStyleProps>(({hasChildrenAnnually, hasChildren, selected, theme }) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -84,15 +68,13 @@ const OptionStyle = styled(Paper, {
   ...(hasChildren && {
     flexWrap: 'wrap',
   }),
+  ...(hasChildrenAnnually && {
+    flexWrap: 'wrap',
+  }),
   ...(selected && {
     boxShadow: theme.customShadows.z24,
   }),
 }));
-
-
-
-
-
 
 
 
@@ -120,6 +102,7 @@ type FormValuesProps = {
 type OptionStyleProps = {
 
   hasChildren: boolean;
+  hasChildrenAnnually: boolean;
   selected: boolean;
 }
 
@@ -159,13 +142,8 @@ export default function CareerContactForm() {
 
 
   const [show, setShow] = useState(false);
-  const [method, setMethod] = useState('paypal');
+  const [method, setMethod] = useState('');
 
-  const handleCollapseIn = () => {
-    if (method !== 'paypal') {
-      setShow(!show);
-    }
-  };
 
   const handleCollapseOut = () => {
     setShow(false);
@@ -193,11 +171,18 @@ export default function CareerContactForm() {
         <Stack spacing={2.5}>
           {_paymentMethods.map((option) => {
             const { value, label, icons } = option;
-            const hasChildren = value === 'credit_card';
+            const hasChildren = value === 'monthly';
+            const hasChildrenAnnually = value === 'annually';
             const isSelected = method === value;
 
             return (
-              <OptionStyle key={label} hasChildren={hasChildren} selected={isSelected}>
+              <OptionStyle
+               key={label}
+               hasChildren={hasChildren} 
+               hasChildrenAnnually={hasChildrenAnnually} 
+               selected={isSelected}>
+
+
                 <FormControlLabel
                   value={value}
                   control={<Radio checkedIcon={<Iconify icon={checkmarkOutline} />} />}
@@ -216,37 +201,60 @@ export default function CareerContactForm() {
                   ))}
                 </Stack>
 
-                {isSelected && hasChildren && (
+                  {isSelected && hasChildren && ( // Monthly
+                    <>
+                    
+                    <MUISlider
+                    sx={{ mb: 3, mt:2 }} 
+                    valueLabelDisplay="on"
+                    max={500}
+                    step={1}
+                    valueLabelFormat={(value) => fCurrency(value)}
+                    />
+                        
+
+                        
+
+                      <Collapse in={show} sx={{ width: 1 }}>
+                        <CheckoutNewCardForm onCancel={handleCollapseOut} />
+                      </Collapse>
+                    </>
+                  )}
+
+
+                  
+                
+
+                {isSelected && hasChildrenAnnually && ( // Annually
                   <>
-                    <TextField select fullWidth label="Card" SelectProps={{ native: true }}>
-                      {CARD_OPTIONS.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </TextField>
 
-                    <Stack alignItems="flex-start" sx={{ width: 1 }}>
-                      <Divider sx={{ my: 3, width: 1, borderStyle: 'dashed' }} />
+                  
+                  
+                    <MUISlider
+                    sx={{ mb: 3, mt:2 }} 
+                    valueLabelDisplay="on"
+                    max={500}
+                    step={1}
+                    valueLabelFormat={(value) => fCurrency(value)}
+                    />
+                      
 
-                      {show ? (
-                        <Typography variant="h6">Add New Card</Typography>
-                      ) : (
-                        <Button
-                          startIcon={<Iconify icon={addIcon} sx={{ width: 20, height: 20 }} />}
-                          onClick={handleCollapseIn}
-                          sx={{ mb: 3 }}
-                        >
-                          Add New Card
-                        </Button>
-                      )}
-                    </Stack>
+                      
 
                     <Collapse in={show} sx={{ width: 1 }}>
                       <CheckoutNewCardForm onCancel={handleCollapseOut} />
                     </Collapse>
+                    
                   </>
                 )}
+
+
+
+
+
+
+
+
               </OptionStyle>
             );
           })}
