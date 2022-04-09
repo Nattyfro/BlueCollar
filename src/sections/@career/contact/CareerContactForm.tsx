@@ -207,7 +207,7 @@ export default function CareerContactForm() {
                     <MUISlider
                     sx={{ mb: 3, mt:2 }} 
                     valueLabelDisplay="on"
-                    max={500}
+                    max={6000}
                     step={1}
                     valueLabelFormat={(value) => fCurrency(value)}
                     />
@@ -233,7 +233,7 @@ export default function CareerContactForm() {
                     <MUISlider
                     sx={{ mb: 3, mt:2 }} 
                     valueLabelDisplay="on"
-                    max={500}
+                    max={70000}
                     step={1}
                     valueLabelFormat={(value) => fCurrency(value)}
                     />
