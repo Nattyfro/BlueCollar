@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Grid, Container, Typography, Divider } from '@mui/material';
+import { Grid, Container, Typography} from '@mui/material';
 // config
 import { HEADER_MOBILE_HEIGHT, HEADER_DESKTOP_HEIGHT } from '../../src/config';
 // layouts
