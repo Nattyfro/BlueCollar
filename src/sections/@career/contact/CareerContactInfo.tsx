@@ -1,9 +1,6 @@
 // icons
-import locationIcon from '@iconify/icons-carbon/location';
-import mobileIcon from '@iconify/icons-carbon/mobile';
 import emailIcon from '@iconify/icons-carbon/email';
 import timeIcon from '@iconify/icons-carbon/time';
-import launchIcon from '@iconify/icons-carbon/launch';
 // @mui
 import { Typography, Stack, Link } from '@mui/material';
 // components

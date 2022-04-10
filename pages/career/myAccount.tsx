@@ -19,6 +19,8 @@ import {
   
 } from '../../src/sections/@career/contact';
 
+import { CareerDesiredSalary } from '../../src/sections/@career';
+
 // ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -44,11 +46,12 @@ export default function myAccount() {
             <Grid item xs={12} md={6} lg={5}>
               <CareerContactInfo />
             </Grid>
-
             <Grid item xs={12} md={6} lg={6}>
               <Typography variant="h2" sx={{ mb: 5 }}>
                 Account Settings
               </Typography>
+              
+              <CareerDesiredSalary/>  
               <CareerContactForm />
             </Grid>
           </Grid>
