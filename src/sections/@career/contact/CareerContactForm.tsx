@@ -204,7 +204,7 @@ export default function CareerContactForm() {
                   sx={{ position: 'absolute', top: 32, right: 16 }}
                 >
                   {icons.map((icon) => (
-                    <Image key={icon} alt="duration" src={icon} sx={{ height: 36, width: 45 }} />
+                    <Image key={icon} alt="duration" src={icon} sx={{ height: 36, width: 71 }} />
                   ))}
                 </Stack>
 
@@ -239,7 +239,7 @@ export default function CareerContactForm() {
                     <MUISlider
                     sx={{ mb: 3, mt:2 }} 
                     valueLabelDisplay="on"
-                    min={270}
+                    min={1080}
                     max={6000}
                     step={10}
                     valueLabelFormat={(value) => fCurrency(value)}
