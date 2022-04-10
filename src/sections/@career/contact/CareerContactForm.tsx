@@ -54,8 +54,8 @@ const FormSchema = Yup.object().shape({
 
 
 const OptionStyle = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'hasChildren' && prop !== 'selected' && prop !== 'hasChildrenAnnually',
-})<OptionStyleProps>(({hasChildrenAnnually, hasChildren, selected, theme }) => ({
+  shouldForwardProp: (prop) => prop !== 'hasChildrenHourly' && prop !== 'selected' && prop !== 'hasChildrenMonthly' && prop !== 'hasChildrenAnnually',
+})<OptionStyleProps>(({hasChildrenHourly, hasChildrenMonthly, hasChildrenAnnually, selected, theme }) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -65,12 +65,16 @@ const OptionStyle = styled(Paper, {
   transition: theme.transitions.create('box-shadow'),
   border: `solid 1px ${theme.palette.divider}`,
   borderRadius: Number(theme.shape.borderRadius) * 1.25,
-  ...(hasChildren && {
+  ...(hasChildrenHourly && {
+    flexWrap: 'wrap',
+  }),
+  ...(hasChildrenMonthly && {
     flexWrap: 'wrap',
   }),
   ...(hasChildrenAnnually && {
     flexWrap: 'wrap',
   }),
+  
   ...(selected && {
     boxShadow: theme.customShadows.z24,
   }),
@@ -101,7 +105,8 @@ type FormValuesProps = {
 
 type OptionStyleProps = {
 
-  hasChildren: boolean;
+  hasChildrenHourly: boolean;
+  hasChildrenMonthly: boolean;
   hasChildrenAnnually: boolean;
   selected: boolean;
 }
@@ -171,14 +176,16 @@ export default function CareerContactForm() {
         <Stack spacing={2.5}>
           {_paymentMethods.map((option) => {
             const { value, label, icons } = option;
-            const hasChildren = value === 'monthly';
+            const hasChildrenHourly = value === 'hourly';
+            const hasChildrenMonthly = value === 'monthly';
             const hasChildrenAnnually = value === 'annually';
             const isSelected = method === value;
 
             return (
               <OptionStyle
-               key={label}
-               hasChildren={hasChildren} 
+              key={label}
+              hasChildrenHourly={hasChildrenHourly} 
+               hasChildrenMonthly={hasChildrenMonthly} 
                hasChildrenAnnually={hasChildrenAnnually} 
                selected={isSelected}>
 
@@ -201,14 +208,40 @@ export default function CareerContactForm() {
                   ))}
                 </Stack>
 
-                  {isSelected && hasChildren && ( // Monthly
+
+                {isSelected && hasChildrenHourly && ( // Hourly
+                  <>
+
+                  
+                  
+                    <MUISlider
+                    sx={{ mb: 3, mt:2 }} 
+                    valueLabelDisplay="on"
+                    min={6.50}
+                    max={35}
+                    step={0.25}
+                    valueLabelFormat={(value) => fCurrency(value)}
+                    />
+                      
+
+                      
+
+                    <Collapse in={show} sx={{ width: 1 }}>
+                      <CheckoutNewCardForm onCancel={handleCollapseOut} />
+                    </Collapse>
+                    
+                  </>
+                )}
+
+                  {isSelected && hasChildrenMonthly && ( // Monthly
                     <>
                     
                     <MUISlider
                     sx={{ mb: 3, mt:2 }} 
                     valueLabelDisplay="on"
+                    min={270}
                     max={6000}
-                    step={1}
+                    step={10}
                     valueLabelFormat={(value) => fCurrency(value)}
                     />
                         
@@ -233,8 +266,9 @@ export default function CareerContactForm() {
                     <MUISlider
                     sx={{ mb: 3, mt:2 }} 
                     valueLabelDisplay="on"
+                    min={14200}
                     max={70000}
-                    step={1}
+                    step={100}
                     valueLabelFormat={(value) => fCurrency(value)}
                     />
                       
@@ -248,7 +282,7 @@ export default function CareerContactForm() {
                   </>
                 )}
 
-
+                
 
 
 
