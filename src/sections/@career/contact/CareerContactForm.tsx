@@ -204,7 +204,7 @@ export default function CareerContactForm() {
                   sx={{ position: 'absolute', top: 32, right: 16 }}
                 >
                   {icons.map((icon) => (
-                    <Image key={icon} alt="logo card" src={icon} sx={{ height: 24, width: 30 }} />
+                    <Image key={icon} alt="logo card" src={icon} sx={{ height: 48, width: 60 }} />
                   ))}
                 </Stack>
 
