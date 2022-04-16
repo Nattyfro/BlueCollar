@@ -15,7 +15,7 @@ import { Page } from '../../src/components';
 } from '../../src/sections/@marketing'; */
 import {
   CareerContactInfo,
-  CareerContactForm,
+ //  CareerContactForm,
   
 } from '../../src/sections/@career/contact';
 
@@ -50,9 +50,9 @@ export default function myAccount() {
               <Typography variant="h2" sx={{ mb: 5 }}>
                 Account Settings
               </Typography>
-              
-              <CareerDesiredSalary/>  
-              <CareerContactForm />
+                
+                <CareerDesiredSalary/>  
+                
             </Grid>
           </Grid>
         </Container>

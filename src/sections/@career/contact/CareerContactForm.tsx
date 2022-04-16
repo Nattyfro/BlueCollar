@@ -15,7 +15,7 @@ import {
   Slider as MUISlider,
 } from '@mui/material';
 
-// ----------------------------------------------------------------------
+// ----------------------YUP & JSON------------------------------------------------
 
 const SERVICES = ['Full time', 'part time', 'Agency'];
 const DRIVES = ['Yes, I Drive', 'No, I Dont Drive'];
@@ -33,12 +33,10 @@ const FormSchema = Yup.object().shape({
   age: Yup.number().required('Age is required').min(18,'Must be over 16 to use the site'),
 });
 
-//---------------------Consts from CheckoutMethods.tsx----------------------------------
 
 
 
-
-//---------------------Consts from CheckoutMethods.tsx----------------------------------
+//---------------------typescript----------------------------------
 
 type FormValuesProps = {
   services: string[]; 
@@ -61,12 +59,7 @@ type FormValuesProps = {
 // ----------------------------------------------------------------------
 
 export default function CareerContactForm() {
-  const {
-    reset,
-    control,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<FormValuesProps>({
+  const {reset, handleSubmit, control, formState: { isSubmitting }} = useForm<FormValuesProps>({
     mode: 'onTouched',
     resolver: yupResolver(FormSchema),
     defaultValues: {
@@ -78,31 +71,39 @@ export default function CareerContactForm() {
       email: '',
       phoneNumber: '' ,
       trade: '',
-      // age: [], THIS IS HOW IT WAS
+      age: undefined,
       budget: [250],
       message: '',
+      
     },
   });
+
+// -------------Submitting the form----------------------------
+
+// basically code for the submit button to do push data out
 
   const onSubmit = async (data: FormValuesProps) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     alert(JSON.stringify(data, null, 2));
-    reset();
+    reset(); 
+    // myles this is u below // 
+    console.log(data);
   };
+
+
+
 
 // -----------------------------MYLES CheckoutMethods-----------------------------------------
 
-
-
-    
-
-  // -----------------------------MYLES CheckoutMethods return ( || has been merged   -----------------------------------------
-
   return (
 
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}> 
+        
+        
 
       <Stack spacing={2.5} sx={{ py: 2, width: 1 }}  >
+
+
              
         
         <Stack spacing={1} sx={{ pt: 10, px: 0}}>
@@ -224,6 +225,14 @@ export default function CareerContactForm() {
     />
 
 </Stack>
+
+
+
+<Divider 
+sx={{ pb: 3}}
+/>
+
+
 
 </Stack>
 

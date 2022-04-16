@@ -1,5 +1,5 @@
 // import * as Yup from 'yup';
-//import { useForm, Controller } from 'react-hook-form';
+// import { useForm, Controller } from 'react-hook-form';
 // import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 
 
@@ -13,8 +13,9 @@ import {
   FormControlLabel,
   Paper,
   Typography,
+  Button,
 } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 // _data
 import { _paymentMethods } from '../../../../_data/mock';
 // components
@@ -24,6 +25,7 @@ import CheckoutNewCardForm from '../../checkout/CheckoutNewCardForm';
 import checkmarkOutline from '@iconify/icons-carbon/checkmark-outline';
 import { styled } from '@mui/material/styles';
 import {OptionStyleProps} from '../../../@types/career/Form'
+import directionStraightRight from '@iconify/icons-carbon/direction-straight-right';
 
 
 
@@ -35,6 +37,7 @@ import {OptionStyleProps} from '../../../@types/career/Form'
       marginBottom: theme.spacing(5),
     },
   }));
+
 
 
 const OptionStyle = styled(Paper, {
@@ -63,8 +66,6 @@ const OptionStyle = styled(Paper, {
       boxShadow: theme.customShadows.z24,
     }),
   }));
-
-
 
 
 // -----------------------------MYLES CheckoutMethods-----------------------------------------
@@ -111,15 +112,27 @@ return (
 
   <RootStyle>
 
-            <RadioGroup value={method} onChange={handleChangeMethod}>
 
-            <Stack spacing={2.5}>
-          {_paymentMethods.map((option) => {
-            const { value, label, icons } = option;
-            const hasChildrenHourly = value === 'hourly';
-            const hasChildrenMonthly = value === 'monthly';
-            const hasChildrenAnnually = value === 'annually';
-            const isSelected = method === value;
+    <Stack sx= {{my:3}}>
+
+    <Typography variant="overline" sx={{ color: 'text.disabled'}}>
+    What is the minimum salary you would like employers to offer?
+    </Typography>
+
+    </Stack>
+
+
+    <RadioGroup value={method} onChange={handleChangeMethod}>
+
+      <Stack spacing={2.5}>
+        {_paymentMethods.map((option) => {
+          
+          const { value, label, icons } = option;
+          const hasChildrenHourly = value === 'hourly';
+          const hasChildrenMonthly = value === 'monthly';
+          const hasChildrenAnnually = value === 'annually';
+          const isSelected = method === value;
+          
 
             return (
               
@@ -163,14 +176,6 @@ return (
                     step={0.25}
                     valueLabelFormat={(value) => fCurrency(value)}
                     />
-                      
-
-                      
-
-                    <Collapse in={show} sx={{ width: 1 }}>
-                      <CheckoutNewCardForm onCancel={handleCollapseOut} />
-                    </Collapse>
-                    
                   </>
                 )}
 
@@ -222,19 +227,38 @@ return (
                     
                   </>
                 )}
-
-                
-
-
-
-
-
-
               </OptionStyle>
             
           )})}
         </Stack>
         </RadioGroup>
+
+        <Stack direction="row" alignItems="center" sx= {{my:5}}> 
+
+            <Button
+              size="large"
+              variant="outlined"
+              color="inherit"
+              sx= {{mr:1}}
+              
+              
+            >
+              Back
+            </Button>
+
+            <Button
+              size="large"
+              variant="contained"
+              endIcon={<Iconify icon={directionStraightRight} sx={{ width: 22, height: 22 }} />}
+            >
+              Next
+            </Button>
+
+
+        </Stack>
+
+                  
+        
         </RootStyle>
         );
         }
