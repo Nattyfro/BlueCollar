@@ -224,6 +224,7 @@ What is the minimum salary you would like employers to offer?
         >
 
           <CareerTradeFilter />
+          
           </Stack>
         
       </Stack>

@@ -4,6 +4,8 @@ import { Stack, Box } from '@mui/material';
 import { JobFiltersProps } from '../../../@types/career';
 // components
 import DropDown from './DropDown';
+import Age from './Age';
+
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +16,7 @@ const defaultValues = {
   filterType: [],
   filterLevel: [],
   filterBenefits: [],
-  filterSalary: [0, 20000],
+  filterSalary: [0],
 };
 
 export default function CareerTradeFilter() {
@@ -26,6 +28,13 @@ export default function CareerTradeFilter() {
     setFilters({
       ...filters,
       filterCategories: keyword,
+    });
+  };
+
+  const handleChangeSalary = (event: Event, newValue:number[]) => {
+    setFilters({
+      ...filters,
+      filterSalary: newValue as number[],
     });
   };
 
@@ -42,6 +51,7 @@ export default function CareerTradeFilter() {
   const renderFilters = (
     <>
       <Stack spacing={2.5} direction={{ xs: 'column', md: 'row' }} alignItems="center">
+        
 
         <DropDown
           filterCategories={filters.filterCategories}
@@ -50,7 +60,10 @@ export default function CareerTradeFilter() {
         
       </Stack>
 
-     
+      <Age 
+          filterSalary={filters.filterSalary}
+          onChangeSalary={handleChangeSalary}
+        />
 
     </>
   );

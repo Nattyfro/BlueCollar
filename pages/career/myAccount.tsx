@@ -20,7 +20,7 @@ import {
 } from '../../src/sections/@career/contact';
 
 import { CareerDetails } from '../../src/sections/@career';
-import { CareerTradeFilter } from '../../src/sections/@career';
+
 
 // ----------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ export default function myAccount() {
               <Typography variant="h2" sx={{ mb: 5 }}>
                 Account Settings
               </Typography>
-                <CareerDetails/>  
+                <CareerDetails/>
                 
             </Grid>
           </Grid>
