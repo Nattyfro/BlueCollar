@@ -5,7 +5,7 @@ import { Slider as MUISlider, FormControl, Typography, Popover, Box, Select } fr
 // ----------------------------------------------------------------------
 
 const inputStyle = {
-  width: { xs: 1, md: 160 },
+  width: { xs: 1, md: 1 },
   '& .MuiSvgIcon-root': { color: 'text.disabled', width: 18, height: 18 },
 };
 
