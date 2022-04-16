@@ -51,7 +51,7 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
                 return placeholder;
               }
               return (
-                <Typography component="span">{Salary} Yrs old</Typography>
+                <Typography component="span">{Salary} years old</Typography>
               );
             }}
           />
