@@ -54,9 +54,9 @@ export default function MyApp(props: MyAppProps) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-
+        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1" />
+      </Head> 
+ 
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <SettingsProvider>
           <ThemeProvider>

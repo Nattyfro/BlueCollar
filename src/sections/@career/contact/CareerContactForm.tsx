@@ -259,6 +259,9 @@ sx={{ pb: 3}}
                 label="First Name"
                 error={Boolean(error)}
                 helperText={error?.message}
+                // content="width=device-width"
+                // initial-scale=1
+                // maximum-scale=1">
               />
             )}
           />
