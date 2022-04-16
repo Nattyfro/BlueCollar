@@ -22,7 +22,7 @@ type  Props = {
   onChangeSalary: (event: Event, newValue: number[]) => void;
 };
 
-export default function Age({ filterSalary, onChangeSalary }: Props) {
+export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
