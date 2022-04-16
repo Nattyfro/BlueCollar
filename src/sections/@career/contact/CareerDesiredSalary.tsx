@@ -90,7 +90,7 @@ const handleCollapseOut = () => {
 
 const handleChangeMethod = (event: React.ChangeEvent<HTMLInputElement>) => {
   if (method === 'hourly') {
-    setShow(false);
+    setShow(false); // this was originally true
   }
   setMethod((event.target as HTMLInputElement).value);
 };
