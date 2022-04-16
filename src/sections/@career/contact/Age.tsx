@@ -17,9 +17,10 @@ const placeholder = (
 
 // ----------------------------------------------------------------------
 
-type  Props = {
+
+type Props = {
   filterSalary: number[];
-  onChangeSalary: (event: Event, newValue: number[]) => void;
+  onChangeSalary: (event: Event, newValue: number | number[]) => void;
 };
 
 export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: Props) { // hello

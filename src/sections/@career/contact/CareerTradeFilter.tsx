@@ -31,7 +31,7 @@ export default function CareerTradeFilter() {
     });
   };
 
-  const handleChangeSalary = (event: Event, newValue:number[]) => {
+  const handleChangeSalary = (event: Event, newValue:number | number[]) => {
     setFilters({
       ...filters,
       filterSalary: newValue as number[],
