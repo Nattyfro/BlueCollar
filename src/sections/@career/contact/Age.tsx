@@ -86,7 +86,6 @@ export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
           value={filterSalary}
           onChange={onChangeSalary}
         />
-        <Typography>hello</Typography>
       </Popover>
     </>
     
