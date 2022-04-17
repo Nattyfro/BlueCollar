@@ -4,7 +4,7 @@ import { Stack, Box } from '@mui/material';
 // components
 import DropDown from './DropDown';
 import Age from './Age';
-import PostCode from './PostCode';
+import CareerPostCode from './CareerPostCode';
 
 
 // ----------------------------------------------------------------------
@@ -12,11 +12,13 @@ import PostCode from './PostCode';
 const defaultValues = {
   filterCategories: null,
   filterSalary: [0],
+  filterPostCode: '',
 };
 
 type AgeProps = {
   filterCategories: string | null;
   filterSalary: number[];
+  filterPostCode: string;
 };
 
 export default function CareerTradeFilter() {
@@ -35,6 +37,12 @@ export default function CareerTradeFilter() {
     setFilters({
       ...filters,
       filterSalary: newValue as number[],
+    });
+  };
+  const handleChangePostCode = (event: Event, newValue:string) => {
+    setFilters({
+      ...filters,
+      filterPostCode: newValue as string,
     });
   };
 
@@ -71,9 +79,9 @@ export default function CareerTradeFilter() {
 
       <Stack>
 
-        <PostCode 
-          filterSalary={filters.filterSalary}
-          onChangeSalary={handleChangeAge}
+        <CareerPostCode 
+          filterPostCode={filters.filterPostCode}
+          onChangePostCode={handleChangePostCode}
         />
 
       </Stack>

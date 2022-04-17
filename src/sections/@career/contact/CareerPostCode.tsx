@@ -1,8 +1,8 @@
 import { useState } from 'react';
 // @mui
-import { Slider as MUISlider, FormControl, Typography, Popover, Box, Select, Stack } from '@mui/material';
+import { FormControl, Typography, Popover, Box, Select, Stack, TextField } from '@mui/material';
 import { Image } from '../../../components';
-
+import { InputProps as StandardInputProps } from '../../../../node_modules/@mui/material/Input/Input';
 // ----------------------------------------------------------------------
 
 const inputStyle = {
@@ -20,11 +20,11 @@ const placeholder = (
 
 
 type Props = {
-  filterSalary: number[];
-  onChangeSalary: (event: Event, newValue: number | number[]) => void;
+  filterPostCode: string | null;
+  onChangePostCode: (event: Event, newValue: string) => void;
 };
 
-export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: Props) { // hello
+export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -35,7 +35,7 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
     setOpen(null);
   };
 
-  const Salary = filterSalary[0];
+  const CareerPostCode = filterPostCode;
 
   return (
     <>
@@ -48,11 +48,11 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
             displayEmpty
             value=""
             renderValue={() => {
-              if (Salary === 0 ) {
+              if (CareerPostCode === null ) {
                 return placeholder;
               }
               return (
-                <Typography component="span">{Salary} </Typography>
+                <Typography component="span">{CareerPostCode} </Typography>
               );
             }}
           />
@@ -75,9 +75,16 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
           },
         }}
       >
-        <Typography variant="h6"  sx={{ mb: 8, px:5, display: 'block', color: 'text.disabled' }}>
-          slide to your age
-        </Typography>
+
+          <Stack textAlign="center" >
+
+            <Typography variant="h3" sx= {{pb:2}} >Favourites</Typography>
+
+            <Typography variant="body3" sx={{ color: 'text.secondary', pb:6, px:2 }}>
+             View all of the people you have favourited, begin talks with them here!
+            </Typography>
+
+          </Stack>
 
 
         <Image
@@ -91,16 +98,20 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
       />
 
         <Stack
-          sx= {{ px: 5 }}>
-          <MUISlider
-            step={1}
-            min={18}
-            max={80}
-            valueLabelDisplay="on"
-            // ORIGINAL  valueLabelFormat={(value) => `${fCurrency(value)}`}
-            value={filterSalary}
-            onChange={onChangeSalary}
-          /> 
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={{ xs: 2.5, md: 2 }}
+          sx={{ width: 1, px:8 }}
+        >
+
+          <TextField
+
+            fullWidth
+            label="Postcode"
+            value={filterPostCode}
+            // onChange= { onChangePostCode }
+            // sx= {{px:3}}
+          />
+
         </Stack>
       </Popover>
     </>

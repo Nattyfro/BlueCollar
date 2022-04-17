@@ -100,7 +100,7 @@ export default function CareerContactForm() {
 
       <Stack sx= {{my:3}}>
 
-<Typography variant="overline" sx={{ color: 'text.disabled'}}>
+<Typography variant="h6" sx={{ color: 'text.disabled'}}>
 Enter your details here
 </Typography>
 
