@@ -1,6 +1,16 @@
 import { useState } from 'react';
 // @mui
-import { FormControl, Typography, Popover, Box, Select, Stack, TextField } from '@mui/material';
+import { 
+  FormControl,
+  Typography,
+  Popover, 
+  Box, 
+  Select, 
+  Stack, 
+  TextField, 
+  Divider,
+  } from '@mui/material';
+
 import { Image } from '../../../components';
 // ----------------------------------------------------------------------
 
@@ -11,7 +21,7 @@ const inputStyle = {
 
 const placeholder = (
   <Typography variant="body2" sx={{ color: 'text.disabled' }}>
-    Age
+    Postcode
   </Typography>
 );
 
@@ -23,7 +33,7 @@ type Props = {
   onChangePostCode: (event: Event, newValue: string) => void;
 };
 
-export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ }: Props) {
+export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -47,7 +57,7 @@ export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ 
             displayEmpty
             value=""
             renderValue={() => {
-              if (CareerPostCode === null ) {
+              if (CareerPostCode === undefined ) {
                 return placeholder;
               }
               return (
@@ -67,8 +77,7 @@ export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ 
         sx= {{ overflow: 'scroll' }}
         PaperProps={{
           sx: {
-            pt: 4,
-            pb: 4,
+            py: 4,
             width: 1,
             maxWidth: 340,
           },
@@ -77,18 +86,19 @@ export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ 
 
           <Stack textAlign="center" >
 
-            <Typography variant="h3" sx= {{pb:2}} >Postcode</Typography>
+            <Typography variant="h3" sx= {{pb:3}} >Postcode</Typography>
 
-            <Typography variant="body3" sx={{ color: 'text.secondary', pb:6, px:2 }}>
+            <Typography variant="body3" sx={{ color: 'text.secondary', px:2 }}>
             Enter the first half of your postcode, see the examples
             Below for help.
             </Typography>
 
           </Stack>
 
+          <Divider sx={{ my:6, mx:6}}/>
 
         <Image
-        alt="marketing-contact"
+        alt="postcode-examples"
         src="https://blue-collar.vercel.app/assets/postCode.png"
         sx={{
           maxWidth: 380,
@@ -97,18 +107,20 @@ export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ 
         }}
       />
 
+
         <Stack
           direction={{ xs: 'column', md: 'row' }}
           spacing={{ xs: 2.5, md: 2 }}
-          sx={{ width: 1, px:8 }}
+          sx={{ width: 1, px:10 }}
         >
+
 
           <TextField
 
             fullWidth
             label="Postcode"
             value={filterPostCode}
-            // onChange= { onChangePostCode }
+            onChange = { onChangePostCode }
             // sx= {{px:3}}
           />
 
