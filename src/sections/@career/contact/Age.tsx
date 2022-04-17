@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // @mui
-import { Slider as MUISlider, FormControl, Typography, Popover, Box, Select } from '@mui/material';
+import { Slider as MUISlider, FormControl, Typography, Popover, Box, Select, Stack } from '@mui/material';
 import { Image } from '../../../components';
 
 // ----------------------------------------------------------------------
@@ -70,13 +70,12 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
           sx: {
             pt: 4,
             pb: 4,
-            px: 5,
             width: 1,
             maxWidth: 340,
           },
         }}
       >
-        <Typography variant="overline"  sx={{ mb: 8, display: 'block', color: 'text.disabled' }}>
+        <Typography variant="overline"  sx={{ mb: 8, px:5, display: 'block', color: 'text.disabled' }}>
           slide to your age
         </Typography>
 
@@ -86,20 +85,23 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
         src="https://blue-collar.vercel.app/assets/postCode.png"
         sx={{
           maxWidth: 380,
-          pb:6
+          pb:6,
+          px:1
         }}
       />
 
-
-        <MUISlider
-          step={1}
-          min={18}
-          max={80}
-          valueLabelDisplay="on"
-          // ORIGINAL  valueLabelFormat={(value) => `${fCurrency(value)}`}
-          value={filterSalary}
-          onChange={onChangeSalary}
-        />
+        <Stack
+          sx= {{ px: 5 }}>
+          <MUISlider
+            step={1}
+            min={18}
+            max={80}
+            valueLabelDisplay="on"
+            // ORIGINAL  valueLabelFormat={(value) => `${fCurrency(value)}`}
+            value={filterSalary}
+            onChange={onChangeSalary}
+          />
+        </Stack>
       </Popover>
     </>
     
