@@ -101,7 +101,7 @@ export default function CareerContactForm() {
       <Stack sx= {{my:3}}>
 
 <Typography variant="overline" sx={{ color: 'text.disabled'}}>
-What is the minimum salary you would like employers to offer?
+Enter your details here
 </Typography>
 
 </Stack>
@@ -222,12 +222,11 @@ What is the minimum salary you would like employers to offer?
 
 
 
-        <Stack
-        >
+        <Stack>
 
           <CareerTradeFilter />
           
-          </Stack>
+        </Stack>
         
       </Stack>
 

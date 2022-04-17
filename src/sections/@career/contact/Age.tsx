@@ -40,7 +40,7 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
     <>
 
 
-      <Box onClick={handleOpen} sx= {{ my:2 }}>
+      <Box onClick={handleOpen} >
         <FormControl variant="filled" sx={{ ...inputStyle }}>
           <Select
             open={false}
@@ -66,11 +66,11 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
         transformOrigin={{ vertical: 'center', horizontal: 'center' }}
         PaperProps={{
           sx: {
-            pt: 6,
-            pb: 1,
-            px: 8,
+            pt: 4,
+            pb: 4,
+            px: 5,
             width: 1,
-            maxWidth: 360,
+            maxWidth: 340,
           },
         }}
       >
@@ -78,7 +78,6 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
           slide to your age
         </Typography>
         <MUISlider
-          size="medium"
           step={1}
           min={18}
           max={80}

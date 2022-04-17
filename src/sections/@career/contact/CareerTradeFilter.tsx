@@ -50,7 +50,7 @@ export default function CareerTradeFilter() {
 
   const renderFilters = (
     <>
-      <Stack spacing={2.5} direction={{ xs: 'column', md: 'row' }} >
+      <Stack spacing={2.5} sx={{ py: 2, width: 1 }} direction={{ xs: 'column', md: 'row' }} >
         
 
         <DropDown
