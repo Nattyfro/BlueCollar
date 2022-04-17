@@ -77,10 +77,11 @@ export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ 
 
           <Stack textAlign="center" >
 
-            <Typography variant="h3" sx= {{pb:2}} >Favourites</Typography>
+            <Typography variant="h3" sx= {{pb:2}} >Postcode</Typography>
 
             <Typography variant="body3" sx={{ color: 'text.secondary', pb:6, px:2 }}>
-             View all of the people you have favourited, begin talks with them here!
+            Enter the first half of your postcode, see the examples
+            Below for help.
             </Typography>
 
           </Stack>
