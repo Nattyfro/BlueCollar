@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // @mui
 import { Slider as MUISlider, FormControl, Typography, Popover, Box, Select } from '@mui/material';
+import { Image } from '../../../components';
 
 // ----------------------------------------------------------------------
 
@@ -64,6 +65,7 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
         anchorEl={open}
         anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
         transformOrigin={{ vertical: 'center', horizontal: 'center' }}
+        sx= {{ overflow: 'scroll' }}
         PaperProps={{
           sx: {
             pt: 4,
@@ -77,6 +79,18 @@ export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: 
         <Typography variant="overline"  sx={{ mb: 8, display: 'block', color: 'text.disabled' }}>
           slide to your age
         </Typography>
+
+
+        <Image
+        alt="marketing-contact"
+        src="https://blue-collar.vercel.app/assets/postCode.png"
+        sx={{
+          maxWidth: 380,
+          pb:6
+        }}
+      />
+
+
         <MUISlider
           step={1}
           min={18}
