@@ -47,9 +47,10 @@ export default function CareerJobCategoriesFilter({ filterCategories, onChangeCa
             {...params}
             variant="filled"
             placeholder="Trade"
-            InputProps={{
+            InputProps={{   
               ...params.InputProps,
               autoComplete: 'search',
+              readOnly:true,
               startAdornment: (
                 <InputAdornment position="start">
                   <Iconify

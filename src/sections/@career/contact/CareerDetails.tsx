@@ -112,6 +112,8 @@ What is the minimum salary you would like employers to offer?
           spacing={{ xs: 2.5, md: 2 }}
           sx={{ width: 1 }}
         >
+
+          
           <Controller
             name="firstName"
             control={control}
