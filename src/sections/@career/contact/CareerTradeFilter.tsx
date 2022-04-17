@@ -1,27 +1,27 @@
 import { useState } from 'react';
 // @mui
 import { Stack, Box } from '@mui/material';
-import { JobFiltersProps } from '../../../@types/career';
 // components
 import DropDown from './DropDown';
 import Age from './Age';
+import PostCode from './postCode';
 
 
 // ----------------------------------------------------------------------
 
 const defaultValues = {
-  filterKeyword: null,
   filterCategories: null,
-  filterLocation: null,
-  filterType: [],
-  filterLevel: [],
-  filterBenefits: [],
   filterSalary: [0],
+};
+
+type AgeProps = {
+  filterCategories: string | null;
+  filterSalary: number[];
 };
 
 export default function CareerTradeFilter() {
 
-  const [filters, setFilters] = useState<JobFiltersProps>(defaultValues);
+  const [filters, setFilters] = useState<AgeProps>(defaultValues);
 
 
   const handleChangeCategory = (keyword: string | null) => {
@@ -31,7 +31,7 @@ export default function CareerTradeFilter() {
     });
   };
 
-  const handleChangeSalary = (event: Event, newValue:number | number[]) => {
+  const handleChangeAge = (event: Event, newValue:number | number[]) => {
     setFilters({
       ...filters,
       filterSalary: newValue as number[],
@@ -60,10 +60,24 @@ export default function CareerTradeFilter() {
         
       </Stack>
 
-      <Age 
+      <Stack>
+
+        <Age 
           filterSalary={filters.filterSalary}
-          onChangeSalary={handleChangeSalary}
+          onChangeSalary={handleChangeAge}
         />
+
+      </Stack>
+
+      <Stack>
+
+        <PostCode 
+          filterSalary={filters.filterSalary}
+          onChangeSalary={handleChangeAge}
+        />
+
+      </Stack>
+
 
     </>
   );

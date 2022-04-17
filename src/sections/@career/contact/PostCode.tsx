@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // @mui
 import { Slider as MUISlider, FormControl, Typography, Popover, Box, Select, Stack } from '@mui/material';
+import { Image } from '../../../components';
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +24,7 @@ type Props = {
   onChangeSalary: (event: Event, newValue: number | number[]) => void;
 };
 
-export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
+export default function CareerJobSalaryFilter({ filterSalary, onChangeSalary }: Props) { // hello
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -40,7 +41,7 @@ export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
     <>
 
 
-      <Box onClick={handleOpen} >
+      <Box onClick={handleOpen} sx={{ pt:2 }} >
         <FormControl variant="filled" sx={{ ...inputStyle }}>
           <Select
             open={false}
@@ -51,7 +52,7 @@ export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
                 return placeholder;
               }
               return (
-                <Typography component="span">{Salary} years old</Typography>
+                <Typography component="span">{Salary} </Typography>
               );
             }}
           />
@@ -75,11 +76,19 @@ export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
         }}
       >
         <Typography variant="h6"  sx={{ mb: 8, px:5, display: 'block', color: 'text.disabled' }}>
-          How Old Are You?
+          slide to your age
         </Typography>
 
 
-      
+        <Image
+        alt="marketing-contact"
+        src="https://blue-collar.vercel.app/assets/postCode.png"
+        sx={{
+          maxWidth: 380,
+          pb:6,
+          px:1
+        }}
+      />
 
         <Stack
           sx= {{ px: 5 }}>
