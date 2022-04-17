@@ -2,7 +2,6 @@ import { useState } from 'react';
 // @mui
 import { FormControl, Typography, Popover, Box, Select, Stack, TextField } from '@mui/material';
 import { Image } from '../../../components';
-import { InputProps as StandardInputProps } from '../../../../node_modules/@mui/material/Input/Input';
 // ----------------------------------------------------------------------
 
 const inputStyle = {
@@ -24,7 +23,7 @@ type Props = {
   onChangePostCode: (event: Event, newValue: string) => void;
 };
 
-export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
+export default function CareerPostCode ({ filterPostCode /*, onChangePostCode*/ }: Props) {
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
