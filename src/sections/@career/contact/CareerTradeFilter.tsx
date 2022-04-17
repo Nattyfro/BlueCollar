@@ -4,7 +4,7 @@ import { Stack, Box } from '@mui/material';
 // components
 import DropDown from './DropDown';
 import Age from './Age';
-import PostCode from './postCode';
+import PostCode from './PostCode';
 
 
 // ----------------------------------------------------------------------
