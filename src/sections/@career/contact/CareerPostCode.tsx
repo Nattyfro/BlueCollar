@@ -33,7 +33,7 @@ type Props = {
   onChangePostCode: (event: Event, newValue: string) => void;
 };
 
-export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
+export default function CareerPostCode ({ filterPostCode, /*onChangePostCode*/ }: Props) {
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -120,7 +120,7 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
             fullWidth
             label="Postcode"
             value={filterPostCode}
-            onChange = { onChangePostCode }
+            // onChange = { onChangePostCode }
             // sx= {{px:3}}
           />
 
