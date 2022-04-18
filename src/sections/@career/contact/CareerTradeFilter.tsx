@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // @mui
-import { Stack, Box } from '@mui/material';
+import { Stack, Box, Button} from '@mui/material';
 // components
 import DropDown from './DropDown';
 import Age from './Age';
@@ -17,7 +17,7 @@ const defaultValues = {
 type AgeProps = {
   filterCategories: string | null;
   filterSalary: number[];
-  filterPostCode: string | null;
+  filterPostCode: string;
 };
 
 export default function CareerTradeFilter() {
@@ -38,23 +38,23 @@ export default function CareerTradeFilter() {
       filterSalary: newValue as number[],
     });
   };
-  const handleChangePostCode = (event: Event, newValue:string | null) => {setFilters({
+  const handleChangePostCode = (event: Event, newValues:string) => {setFilters({
       ...filters,
-      filterPostCode: newValue as string,
+       filterPostCode: newValues as string,
       
     });
   };
 
 
-  // const onReset = () => {
-  //   setFilters(defaultValues);
-  // };
+  const onReset = () => {
+    setFilters(defaultValues);
+  };
 
-  // const onSubmit = async () => {
-  //   await new Promise((resolve) => setTimeout(resolve, 500));
-  //   alert(JSON.stringify(filters, null, 2));
-  //   onReset();
-  // };
+  const onSubmit = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    alert(JSON.stringify(filters, null, 2));
+    onReset();
+  };
 
   const renderFilters = (
     <>
@@ -79,13 +79,37 @@ export default function CareerTradeFilter() {
 
       <Stack>
 
-        <CareerPostCode 
+        <CareerPostCode
           filterPostCode={filters.filterPostCode}
-          onChangePostCode={handleChangePostCode}
+          onChangePostCode={ handleChangePostCode as any }
         />
 
       </Stack>
 
+            <Button
+              size="large"
+              variant="outlined"
+              color="inherit"
+              onClick={onSubmit}
+              sx= {{mr:1, my:3}}
+              
+              
+            >
+              Submit
+            </Button>
+
+
+            <Button
+              size="large"
+              variant="outlined"
+              color="inherit"
+              onClick={onReset}
+              sx= {{mr:1, my:3}}
+              
+              
+            >
+              Reset
+            </Button>
 
     </>
   );

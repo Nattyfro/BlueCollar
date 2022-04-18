@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 // @mui
 import { 
   FormControl,
@@ -29,8 +29,8 @@ const placeholder = (
 
 
 type Props = {
-  filterPostCode: string | null;
-  onChangePostCode: (event: Event, newValue: string | null) => void;
+  filterPostCode: string;
+  onChangePostCode: (event: Event, newValues: string) => void;
 };
 
 export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
@@ -44,24 +44,32 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
     setOpen(null);
   };
 
+  
+
+
+
+
+  // const onChangePostCode = (event: React.KeyboardEvent<HTMLElement>) => { }
+
+
  const PostCode = filterPostCode ;
 
   return (
     <>
 
 
-      <Box onClick={handleOpen} sx={{ pt:2 }} >
+      <Box onClick={handleOpen} sx={{ pt:2 }} id="outlined-multiline-flexible" >
         <FormControl variant="filled" sx={{ ...inputStyle }}>
           <Select
             open={false}
             displayEmpty
-            value=""
+            value= {filterPostCode}
             renderValue={() => {
-              if (PostCode === '' ) {
+              if (PostCode === 'ss' ) {
                 return placeholder;
               }
-              else (
-                <Typography component="span">{CareerPostCode}</Typography>
+              return (
+                <Typography component="span">{PostCode}</Typography>
               );
             }}
           />
@@ -115,15 +123,16 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
         >
 
 
-          <TextField
+           <TextField
 
             fullWidth
             label="Postcode"
             value={filterPostCode}
+            
+
             onChange = { onChangePostCode as any } 
-            //  originally was... onChange = { onChangePostCode } 
-            // sx= {{px:3}}
-          />
+
+          /> 
 
         </Stack>
       </Popover>
