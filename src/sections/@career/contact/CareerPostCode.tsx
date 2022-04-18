@@ -30,10 +30,10 @@ const placeholder = (
 
 type Props = {
   filterPostCode: string | null;
-  onChangePostCode: (event: Event, newValue: string) => void;
+  onChangePostCode: (event: Event, newValue: string | null) => void;
 };
 
-export default function CareerPostCode ({ filterPostCode, /*onChangePostCode*/ }: Props) {
+export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -44,7 +44,7 @@ export default function CareerPostCode ({ filterPostCode, /*onChangePostCode*/ }
     setOpen(null);
   };
 
-  const CareerPostCode = filterPostCode;
+ const PostCode = filterPostCode ;
 
   return (
     <>
@@ -57,11 +57,11 @@ export default function CareerPostCode ({ filterPostCode, /*onChangePostCode*/ }
             displayEmpty
             value=""
             renderValue={() => {
-              if (CareerPostCode === undefined ) {
+              if (PostCode === '' ) {
                 return placeholder;
               }
-              return (
-                <Typography component="span">{CareerPostCode} </Typography>
+              else (
+                <Typography component="span">{CareerPostCode}</Typography>
               );
             }}
           />
@@ -120,7 +120,8 @@ export default function CareerPostCode ({ filterPostCode, /*onChangePostCode*/ }
             fullWidth
             label="Postcode"
             value={filterPostCode}
-            // onChange = { onChangePostCode }
+            onChange = { onChangePostCode as any } 
+            //  originally was... onChange = { onChangePostCode } 
             // sx= {{px:3}}
           />
 

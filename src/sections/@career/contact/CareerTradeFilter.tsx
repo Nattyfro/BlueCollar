@@ -14,11 +14,10 @@ const defaultValues = {
   filterSalary: [0],
   filterPostCode: '',
 };
-
 type AgeProps = {
   filterCategories: string | null;
   filterSalary: number[];
-  filterPostCode: string;
+  filterPostCode: string | null;
 };
 
 export default function CareerTradeFilter() {
@@ -39,12 +38,13 @@ export default function CareerTradeFilter() {
       filterSalary: newValue as number[],
     });
   };
-  const handleChangePostCode = (event: Event, newValue:string) => {
-    setFilters({
+  const handleChangePostCode = (event: Event, newValue:string | null) => {setFilters({
       ...filters,
       filterPostCode: newValue as string,
+      
     });
   };
+
 
   // const onReset = () => {
   //   setFilters(defaultValues);
