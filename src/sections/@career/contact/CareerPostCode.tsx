@@ -65,7 +65,7 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
             displayEmpty
             value= {filterPostCode}
             renderValue={() => {
-              if (PostCode === 'ss' ) {
+              if (PostCode === '' ) {
                 return placeholder;
               }
               return (
