@@ -55,10 +55,6 @@ export type JobProps = {
 
 export type JobFiltersProps = {
   filterKeyword: string | null;
-  filterCategories: string | null;
   filterLocation: CitiesProps | null;
   filterType: string[];
-  filterLevel: string[];
-  filterBenefits: string[];
-  filterSalary: number[];
 };

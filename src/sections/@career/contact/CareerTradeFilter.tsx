@@ -25,6 +25,7 @@ export default function CareerTradeFilter() {
   const [filters, setFilters] = useState<AgeProps>(defaultValues);
 
 
+
   const handleChangeCategory = (keyword: string | null) => {
     setFilters({
       ...filters,
@@ -38,9 +39,9 @@ export default function CareerTradeFilter() {
       filterSalary: newValue as number[],
     });
   };
-  const handleChangePostCode = (event: Event, newValues:string) => {setFilters({
+  const handleChangePostCode = (event: Event, newValue:string) => {setFilters({
       ...filters,
-       filterPostCode: newValues as string,
+       filterPostCode: newValue as string,
       
     });
   };

@@ -76,7 +76,7 @@ export default function CareerJobKeywordFilter({ filterKeyword, onChangeKeyword 
                   component="span"
                   sx={{
                     ...(part.highlight && {
-                      fontWeight: 'fontWeightBold',
+                      fontWeight: 'fontWeightBold'
                     }),
                   }}
                 >

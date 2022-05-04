@@ -5,6 +5,5 @@ export { default as CareerDetails } from './CareerDetails';
 export { default as DropDown } from './DropDown';
 export { default as CareerTradeFilter } from './CareerTradeFilter';
 export { default as Age } from './Age';
-export { default as CareerPostCode } from './CareerPostCode'
-
+export { default as CareerPostCode } from './CareerPostCode';
 

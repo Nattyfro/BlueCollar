@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import React, { useState, useRef } from 'react';
 // @mui
 import { 
   FormControl,
@@ -30,10 +31,10 @@ const placeholder = (
 
 type Props = {
   filterPostCode: string;
-  onChangePostCode: (event: Event, newValues: string) => void;
+  onChangePostCode: (event: Event, newValue: string) => void;
 };
 
-export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Props) {
+export default function CareerPostCode ({ onChangePostCode, filterPostCode }: Props) {
   const [open, setOpen] = useState<HTMLElement | null>(null);
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -44,15 +45,16 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
     setOpen(null);
   };
 
+
+  // const valueRef = useRef('cat')
   
 
 
 
 
-  // const onChangePostCode = (event: React.KeyboardEvent<HTMLElement>) => { }
 
 
- const PostCode = filterPostCode ;
+ const PostCode = filterPostCode;
 
   return (
     <>
@@ -63,7 +65,7 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
           <Select
             open={false}
             displayEmpty
-            value= {filterPostCode}
+            value= ""
             renderValue={() => {
               if (PostCode === '' ) {
                 return placeholder;
@@ -128,8 +130,7 @@ export default function CareerPostCode ({ filterPostCode, onChangePostCode }: Pr
             fullWidth
             label="Postcode"
             value={filterPostCode}
-            
-
+            // inputRef = {PostCode}
             onChange = { onChangePostCode as any } 
 
           /> 

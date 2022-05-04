@@ -14,12 +14,8 @@ import { JobFiltersProps } from '../../../@types/career';
 import { Iconify } from '../../../components';
 //
 import CareerJobTypeFilter from './CareerJobTypeFilter';
-import CareerJobLevelFilter from './CareerJobLevelFilter';
-import CareerJobSalaryFilter from './CareerJobSalaryFilter';
 import CareerJobKeywordFilter from './CareerJobKeywordFilter';
-import CareerJobBenefitsFilter from './CareerJobBenefitsFilter';
 import CareerJobLocationsFilter from './CareerJobLocationsFilter';
-import CareerJobCategoriesFilter from './CareerJobCategoriesFilter';
 
 // ----------------------------------------------------------------------
 
@@ -28,9 +24,6 @@ const defaultValues = {
   filterCategories: null,
   filterLocation: null,
   filterType: [],
-  filterLevel: [],
-  filterBenefits: [],
-  filterSalary: [0, 20000],
 };
 
 export default function CareerJobBarFilters() {
@@ -53,12 +46,6 @@ export default function CareerJobBarFilters() {
     });
   };
 
-  const handleChangeCategory = (keyword: string | null) => {
-    setFilters({
-      ...filters,
-      filterCategories: keyword,
-    });
-  };
 
   const handleChangeLocation = (keyword: CitiesProps | null) => {
     setFilters({
@@ -74,33 +61,6 @@ export default function CareerJobBarFilters() {
     setFilters({
       ...filters,
       filterType: typeof value === 'string' ? value.split(',') : value,
-    });
-  };
-
-  const handleChangeJobLevel = (event: SelectChangeEvent<typeof filters.filterLevel>) => {
-    const {
-      target: { value },
-    } = event;
-    setFilters({
-      ...filters,
-      filterLevel: typeof value === 'string' ? value.split(',') : value,
-    });
-  };
-
-  const handleChangeJobBenefits = (event: SelectChangeEvent<typeof filters.filterBenefits>) => {
-    const {
-      target: { value },
-    } = event;
-    setFilters({
-      ...filters,
-      filterBenefits: typeof value === 'string' ? value.split(',') : value,
-    });
-  };
-
-  const handleChangeSalary = (event: Event, newValue: number | number[]) => {
-    setFilters({
-      ...filters,
-      filterSalary: newValue as number[],
     });
   };
 
@@ -121,10 +81,10 @@ export default function CareerJobBarFilters() {
           filterKeyword={filters.filterKeyword}
           onChangeKeyword={handleChangeKeyword}
         />
-        <CareerJobCategoriesFilter
-          filterCategories={filters.filterCategories}
-          onChangeCategory={handleChangeCategory}
-        />
+          <CareerJobTypeFilter
+            filterType={filters.filterType}
+            onChangeJobType={handleChangeJobType}
+          />
         <CareerJobLocationsFilter
           filterLocation={filters.filterLocation}
           onChangeLocation={handleChangeLocation}
@@ -143,24 +103,6 @@ export default function CareerJobBarFilters() {
         </Button>
       </Stack>
 
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2.5, md: 1 }} sx={{ mt: 2.5 }}>
-        <CareerJobTypeFilter
-          filterType={filters.filterType}
-          onChangeJobType={handleChangeJobType}
-        />
-        <CareerJobLevelFilter
-          filterLevel={filters.filterLevel}
-          onChangeJobType={handleChangeJobLevel}
-        />
-        <CareerJobSalaryFilter
-          filterSalary={filters.filterSalary}
-          onChangeSalary={handleChangeSalary}
-        />
-        <CareerJobBenefitsFilter
-          filterBenefits={filters.filterBenefits}
-          onChangeJobBenefits={handleChangeJobBenefits}
-        />
-      </Stack>
 
       <Button
         size="large"

@@ -45,7 +45,7 @@ export default function Age({ filterSalary, onChangeSalary }: Props) { // hello
           <Select
             open={false}
             displayEmpty
-            value=""
+            value={Salary}
             renderValue={() => {
               if (Salary === 0 ) {
                 return placeholder;
