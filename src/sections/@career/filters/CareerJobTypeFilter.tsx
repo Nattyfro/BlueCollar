@@ -25,6 +25,7 @@ const MenuProps = {
       
       '& .MuiList-root': {
         py: 3,
+        alignItems: 'center'
         
       },
     },

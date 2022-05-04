@@ -21,7 +21,6 @@ import CareerJobLocationsFilter from './CareerJobLocationsFilter';
 
 const defaultValues = {
   filterKeyword: null,
-  filterCategories: null,
   filterLocation: null,
   filterType: [],
 };
