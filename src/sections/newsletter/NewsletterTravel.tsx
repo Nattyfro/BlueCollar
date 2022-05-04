@@ -71,6 +71,7 @@ export default function NewsletterTravel() {
                 sx={{
                   pr: 0.5,
                   my: 5,
+                  color: 'common.white',
                   '& .MuiFilledInput-input': {
                     py: '18px',
                   },
