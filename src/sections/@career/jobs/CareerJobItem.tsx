@@ -6,19 +6,15 @@ import increaseLevel from '@iconify/icons-carbon/increase-level';
 import moneyIcon from '@iconify/icons-carbon/money';
 import userIcon from '@iconify/icons-carbon/user';
 // next
-import NextLink from 'next/link';
 // @mui
 import { 
-  Slider as MUISlider,
    Divider,
   Stack,
   Card, 
   Typography,
   Grid,
-  Popover,
-  ToggleButton } from '@mui/material';
+  Popover, } from '@mui/material';
 // routes
-import Routes from '../../../routes';
 // utils
 import { fDate } from '../../../utils/formatTime';
 import { fCurrency } from '../../../utils/formatNumber';
@@ -28,7 +24,6 @@ import { JobProps } from '../../../@types/career';
 import {
   Image,
   Iconify,
-  TextMaxLine,
   TextIconLabel,
   FavoriteButton,
 } from '../../../components';
@@ -46,7 +41,6 @@ type Props = {
 
 export default function CareerJobItem({ job }: Props) {
   const {
-    id,
     // slug,
     type,
     level,
