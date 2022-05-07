@@ -2,7 +2,7 @@
 import { MenuItem, Checkbox, FormControl, Typography, InputAdornment } from '@mui/material';
 import  Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Iconify } from '../../../components';
-import data from '@iconify/icons-carbon/data-1';
+import timeIcon from '@iconify/icons-carbon/time';
 // ----------------------------------------------------------------------
 
 const JOB_TYPES = ['Part time', 'Full time', 'Freelance'];
@@ -58,7 +58,7 @@ export default function CareerJobTypeFilter({ filterType, onChangeJobType }: Pro
         startAdornment={
           <InputAdornment position="start"   >
           <Iconify
-            icon={data}
+            icon={timeIcon}
             sx={{ width: 24, height: 24, color: 'text.disabled', flexShrink: 0, mr: 1 }}
           />
           </InputAdornment>}

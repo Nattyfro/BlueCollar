@@ -8,7 +8,15 @@ import userIcon from '@iconify/icons-carbon/user';
 // next
 import NextLink from 'next/link';
 // @mui
-import { Divider, Stack, Card, Typography, Grid } from '@mui/material';
+import { 
+  Slider as MUISlider,
+   Divider,
+  Stack,
+  Card, 
+  Typography,
+  Grid,
+  Popover,
+  ToggleButton } from '@mui/material';
 // routes
 import Routes from '../../../routes';
 // utils
@@ -19,12 +27,14 @@ import { JobProps } from '../../../@types/career';
 // components
 import {
   Image,
-  Label,
   Iconify,
   TextMaxLine,
   TextIconLabel,
   FavoriteButton,
 } from '../../../components';
+// myles components
+
+import CandidatesPopover from './CandidatesPopover'
 
 
 
@@ -37,17 +47,16 @@ type Props = {
 export default function CareerJobItem({ job }: Props) {
   const {
     id,
-    slug,
+    // slug,
     type,
     level,
     salary,
     location,
-    isUrgent,
     createdAt,
     favorited,
     experience,
-    companyName,
-    companyLogo,
+    userName,
+    userAvatar,
   } = job;
 
   const [favorite, setFavorite] = useState(favorited);
@@ -55,16 +64,72 @@ export default function CareerJobItem({ job }: Props) {
   const handleChangeFavorite = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFavorite(event.target.checked);
   };
+  const [open, setOpen] = useState<HTMLElement | null>(null);
+
+
+  const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setOpen(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setOpen(null);
+  };
 
   return (
+
     <Card
+      onClick={handleOpen}
       sx={{
         boxShadow: (theme) => theme.customShadows.z8,
         '&:hover': {
           boxShadow: (theme) => theme.customShadows.z24,
         },
       }}
+      
     >
+      <Popover
+        open={Boolean(open)}
+        onClose={handleClose}
+        
+        anchorEl={open}
+        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+        transformOrigin={{ vertical: 'center', horizontal: 'center' }}
+        sx= {{ overflow: 'scroll' }}
+        PaperProps={{
+          sx: {
+            pt: 4,
+            pb: 4,
+            width: 1,
+            maxWidth: 340,
+          },
+        }}
+      >
+        <CandidatesPopover/>
+        {/* <Stack
+          sx= {{ px: 5, justifyContent: 'center' }}>
+            
+          <MUISlider
+            step={1}
+            min={18}
+            max={80}
+            valueLabelDisplay="on"
+            // ORIGINAL  valueLabelFormat={(value) => `${fCurrency(value)}`}
+          /> 
+        </Stack> */}
+      </Popover>
+
+
+
+
+
+
+
+
+
+
+
+
+
       <FavoriteButton
         checked={favorite}
         onChange={handleChangeFavorite}
@@ -74,22 +139,25 @@ export default function CareerJobItem({ job }: Props) {
       <Stack sx={{ p: 3, pb: 0 }}>
         <Stack direction="row" alignItems="center" spacing={2.5}>
           <Image
-            alt={companyName}
-            src={companyLogo}
+            alt={userName} 
+            src={userAvatar}
             sx={{ width: 100, height: 100, borderRadius: 1 }}
           />
-          {isUrgent && <Label color="success">Recently active</Label>}
         </Stack>
 
         <Stack spacing={0.5} sx={{ mt: 3, mb: 2 }}>
-          <NextLink as={Routes.career.job(id)} href={Routes.career.job('[id]')} passHref>
+          {/* <NextLink as={Routes.career.job(id)} href={Routes.career.job('[id]')} passHref>
             <TextMaxLine variant="h6" asLink line={1}>
-              {slug}
+            BlueCollar User {slug} 
             </TextMaxLine>
-          </NextLink>
+          </NextLink> */}
+
+          <Typography variant="h6">
+           BlueCollar User
+          </Typography>
 
           <Typography variant="body3" sx={{ color: 'secondary.main' }}>
-            {companyName}
+            {userName}
           </Typography>
 
           <TextIconLabel
@@ -100,7 +168,7 @@ export default function CareerJobItem({ job }: Props) {
         </Stack>
 
         <Typography variant="caption" sx={{ color: 'text.disabled' }}>
-          Posted day: {fDate(createdAt)}
+          Member since: {fDate(createdAt)}
         </Typography>
       </Stack>
 

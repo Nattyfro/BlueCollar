@@ -27,8 +27,8 @@ export type JobByCountryProps = {
 
 export type JobProps = {
   id: string;
-  companyLogo: string;
-  companyName: string;
+  userAvatar: string;
+  userName: string;
   level: string;
   type: string;
   salary: string | number;

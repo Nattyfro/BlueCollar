@@ -52,6 +52,7 @@ export default function myAccount() {
                 Account Settings
               </Typography>
                 <CareerDesiredSalary/>
+                
                 <CareerDetails/>
                 
             </Grid>

@@ -7,8 +7,8 @@ import { jobContent } from './text';
 
 export const _jobs = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
-  companyName: _mock.company(index),
-  companyLogo: _mock.image.company(index),
+  userName: _mock.company(index),
+  userAvatar: _mock.image.company(index),
   slug: _mock.text.jobTitle(index),
   category: _mock.text.jobCategories(index),
   createdAt: new Date(),
