@@ -59,7 +59,7 @@ export default function CareerJobItem({ job }: Props) {
   const handleChangeFavorite = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFavorite(event.target.checked);
   };
-  const [open, setOpen] = useState<HTMLElement | null>(null);
+  const [anchorEl, setOpen] = useState<HTMLElement | null>(null);
 
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -81,13 +81,14 @@ export default function CareerJobItem({ job }: Props) {
           boxShadow: (theme) => theme.customShadows.z24,
         },
       }}
+
+      
       
     >
       <Popover
-        open={Boolean(open)}
+        open={Boolean(anchorEl)}
         onClose={handleClose}
-        
-        anchorEl={open}
+        anchorEl={anchorEl}
         anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
         transformOrigin={{ vertical: 'center', horizontal: 'center' }}
         sx= {{ overflow: 'scroll' }}
@@ -101,10 +102,9 @@ export default function CareerJobItem({ job }: Props) {
         }}
       >
         
-        <CandidatesPopover job={{
-          userAvatar: '',
-          userName: '',
-        }} />
+        <CandidatesPopover job={job} />
+          
+         
 
         {/* <Button
         onClick={handleClose}>
