@@ -42,7 +42,7 @@ export default function CareerJobsPage() {
       <RootStyle>
         <Container>
           <CareerFavouritesHead/>
-          <CareerJobList jobs={jobs} loading={!jobs.length && !error} />
+          <CareerJobList jobs={jobs} loading={!jobs.length && !error} open={false} />
         </Container>
         <NewsletterCareer />
       </RootStyle>
