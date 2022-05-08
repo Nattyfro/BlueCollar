@@ -11,7 +11,7 @@ import {
 // utils
 import send from '@iconify/icons-carbon/send';
 import {Iconify} from '../../../components';
-import { CandidateProps } from '../../../@types/career';
+import { JobProps } from '../../../@types/career';
 import {
     Image,
   } from '../../../components';
@@ -31,7 +31,7 @@ type FormValuesProps = {
 // ----------------------------------------------------------------------
 
 type Props = {
-    job: CandidateProps;
+    job: JobProps;
   };
   
       
@@ -79,7 +79,7 @@ export default function CandidatesPopover({ job }: Props) {
                     <Image
                         alt={userName} 
                         src={userAvatar}
-                        sx={{ width: 100, height: 100, borderRadius: 1, my:2}}
+                        sx={{ width: 80, height: 80, borderRadius: 1, my:2}}
                     />
                 </Stack>
                 <Stack>

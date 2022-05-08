@@ -14,7 +14,8 @@ import {
   Typography,
   Grid,
   // Backdrop,
-  Popover, } from '@mui/material';
+  Popover,
+Box, } from '@mui/material';
 // routes
 // utils
 import { fDate } from '../../../utils/formatTime';
@@ -59,7 +60,7 @@ export default function CareerJobItem({ job }: Props) {
   const handleChangeFavorite = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFavorite(event.target.checked);
   };
-  const [anchorEl, setOpen] = useState<HTMLElement | null>(null);
+  const [open, setOpen] = useState<HTMLElement | null>(null);
 
 
   const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -71,10 +72,11 @@ export default function CareerJobItem({ job }: Props) {
   };
 
 
+
   return (
 
     <Card
-      onClick={handleOpen}
+      
       sx={{
         boxShadow: (theme) => theme.customShadows.z8,
         '&:hover': {
@@ -85,22 +87,23 @@ export default function CareerJobItem({ job }: Props) {
       
       
     >
+
       <Popover
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
-        transformOrigin={{ vertical: 'center', horizontal: 'center' }}
-        sx= {{ overflow: 'scroll' }}
-        PaperProps={{
-          sx: {
-            pt: 4,
-            pb: 4,
-            width: 1,
-            maxWidth: 340, // was 340
-          },
-        }}
-      >
+          open={Boolean(open)}
+          onClose={handleClose}
+          anchorEl={open}
+          anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+          transformOrigin={{ vertical: 'center', horizontal: 'center' }}
+          sx= {{ overflow: 'scroll' }}
+          PaperProps={{
+            sx: {
+              pt: 4,
+              pb: 4,
+              width: 1,
+              maxWidth: 340, // was 340
+            },
+          }}
+        >
         
         <CandidatesPopover job={job} />
           
@@ -113,6 +116,13 @@ export default function CareerJobItem({ job }: Props) {
        
       </Popover>
 
+
+
+
+      <Box onClick={handleOpen}>
+
+      
+        
       {/* <Stack><Backdrop  open={Boolean(open)} onClick={handleClose} /></Stack> */}
 
 
@@ -210,6 +220,7 @@ export default function CareerJobItem({ job }: Props) {
           />
         </Grid>
       </Grid>
+      </Box>
     </Card>
     
     
