@@ -93,9 +93,9 @@ export default function CareerJobItem({ job }: Props) {
       <Dialog
           open={Boolean(open)}
           onClose={handleClose}
-          anchorEl={open}
-          anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
-          transformOrigin={{ vertical: 'center', horizontal: 'center' }}
+          // anchorEl={open}
+          // anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+          // transformOrigin={{ vertical: 'center', horizontal: 'center' }}
           sx= {{ overflow: 'scroll', zIndex: 1, }}
           PaperProps={{
             sx: {
