@@ -6,8 +6,6 @@ import { LoadingButton } from '@mui/lab';
 import {
   Stack,
   TextField,
-  ToggleButton,
-  FormHelperText,
   Typography,
 } from '@mui/material';
 // utils
@@ -20,7 +18,6 @@ import {
 
 // ----------------------------------------------------------------------
 
-const SERVICES = ['Full-time', 'Part-time', 'Agency'];
 
 const FormSchema = Yup.object().shape({
   services: Yup.array().required().min(1, 'Services field must have at least 1 items'),
@@ -72,24 +69,10 @@ export default function CandidatesPopover({ job }: Props) {
     reset();
   };
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-
-      <Stack spacing={2.5} alignItems="center" sx={{ mx:2 }}>
-        <Controller
-          name="services"
-          control={control}
-          render={({ field, fieldState: { error } }) => {
-            // Using with lodash https://lodash.com/docs/4.17.15#xor
-            // const onSelected = (service: string) => xor(field.value, [service]);
-
-            const onSelected = (service: string) =>
-              field.value.includes(service)
-                ? field.value.filter((value) => value !== service)
-                : [...field.value, service];
 
             return (
-              <div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Stack spacing={2.5} alignItems="center" sx={{ mx:2 }}>
                 
 
                 <Stack  alignItems="center" spacing={2.5}>
@@ -106,45 +89,7 @@ export default function CandidatesPopover({ job }: Props) {
                 </Stack>
 
 
-                <Stack direction="column" flexWrap="wrap">
-                  {SERVICES.map((service) => (
-                    <ToggleButton
-                      {...field}
-                      key={service}
-                      color="standard"
-                      selected={field.value.includes(service)}
-                      onChange={() => field.onChange(onSelected(service))}
-                      sx={{
-                        py: 1,
-                        px: 8,
-                        my: 0.5,
-                        width: 1,
-                        
-                        typography: 'body2',
-                        '&.Mui-selected': {
-                          bgcolor: 'text.primary',
-                          color: (theme) =>
-                            theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
-                          '&:hover': {
-                            bgcolor: 'text.primary',
-                          },
-                        },
-                      }}
-                    >
-                      {service}
-                    </ToggleButton>
-                  ))}
-                </Stack>
 
-                {error && (
-                  <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
-                    {(error as any)?.message}
-                  </FormHelperText>
-                )}
-              </div>
-            );
-          }}
-        />
 
         <Stack
           direction={{ xs: 'column', md: 'column' }}
