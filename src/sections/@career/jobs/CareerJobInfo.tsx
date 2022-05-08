@@ -30,7 +30,7 @@ export default function CareerJobInfo({ job }: Props) {
         <TextIconLabel
           spacing={2}
           alignItems="flex-start"
-          icon={<Iconify icon={calendarIcon} sx={{ width: 24, height: 24 }} />}
+          icon={<Iconify icon={calendarIcon} sx={{ width: 20, height: 20 }} />}
           value={
             <Stack>
               <Typography variant="subtitle2"> Date Posted </Typography>

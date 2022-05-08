@@ -12,6 +12,7 @@ import CareerJobItem from './CareerJobItem';
 type Props = {
   jobs: JobProps[];
   loading?: boolean;
+  open: boolean;
 };
 
 export default function CareerJobList({ jobs, loading }: Props) {

@@ -13,6 +13,10 @@ import {
 // utils
 import send from '@iconify/icons-carbon/send';
 import {Iconify} from '../../../components';
+import { CandidateProps } from '../../../@types/career';
+import {
+    Image,
+  } from '../../../components';
 
 // ----------------------------------------------------------------------
 
@@ -29,20 +33,38 @@ type FormValuesProps = {
 
 // ----------------------------------------------------------------------
 
-export default function CandidatesPopover() {
-  const {
-    reset,
-    control,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<FormValuesProps>({
-    mode: 'onTouched',
-    resolver: yupResolver(FormSchema),
-    defaultValues: {
-      services: [],
-      message: '',
-    },
-  });
+type Props = {
+    job: CandidateProps;
+  };
+  
+      
+      // ----------------------------------------------------------------------
+      
+      
+export default function CandidatesPopover({ job }: Props) {
+
+    const { userName, userAvatar} = job;
+
+    const CHARACTER_LIMIT = 450;
+
+
+          // -----------------FORM-----------------------------------------------------
+
+
+    const {
+        reset,
+        control,
+        handleSubmit,
+        formState: { isSubmitting },
+    } = useForm<FormValuesProps>({
+        mode: 'onTouched',
+        resolver: yupResolver(FormSchema),
+        defaultValues: {
+        services: [],
+        message: '',
+        },
+    });
+
 
   const onSubmit = async (data: FormValuesProps) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -52,6 +74,7 @@ export default function CandidatesPopover() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+
       <Stack spacing={2.5} alignItems="center" sx={{ mx:2 }}>
         <Controller
           name="services"
@@ -67,10 +90,20 @@ export default function CandidatesPopover() {
 
             return (
               <div>
+                
 
-                <Typography variant="h6"  sx={{ mb: 8, px:5, display: 'block' }}>
-                    Contact User{/* Invite Candidate to converation */}
+                <Stack  alignItems="center" spacing={2.5}>
+                    <Image
+                        alt={userName} 
+                        src={userAvatar}
+                        sx={{ width: 100, height: 100, borderRadius: 1, my:2}}
+                    />
+                </Stack>
+                <Stack>
+                <Typography variant="body3"  sx={{ mb: 1, px:0, display: 'block' }}>
+                    Invite Candidate to converation
                 </Typography>
+                </Stack>
 
 
                 <Stack direction="column" flexWrap="wrap">
@@ -82,10 +115,9 @@ export default function CandidatesPopover() {
                       selected={field.value.includes(service)}
                       onChange={() => field.onChange(onSelected(service))}
                       sx={{
-                        py: 0.5,
-                        px: 2,
+                        py: 1,
+                        px: 8,
                         my: 0.5,
-                        mx: 0,
                         width: 1,
                         
                         typography: 'body2',
@@ -119,6 +151,7 @@ export default function CandidatesPopover() {
           spacing={{ xs: 2.5, md: 2 }}
           sx={{ width: 1, mx:2 }}
         >
+
           
 
         <Controller
@@ -129,30 +162,33 @@ export default function CandidatesPopover() {
               {...field}
               fullWidth
               multiline
-              rows={4}
+              rows={5}
               label="Message (max.300)"
               error={Boolean(error)}
               helperText={error?.message}
               sx={{ pb: 2.5 }}
+              inputProps={{
+                maxlength: CHARACTER_LIMIT
+              }}
+              
             />
           )}
         />
 
-        {/* <LoadingButton size="large" type="submit" variant="contained" loading={isSubmitting}>
-          Send Request
-        </LoadingButton> */}
-
+              <Stack sx={{mx:4}}>
 
             <LoadingButton
               size="large"
               variant="contained"
               type="submit"
-              sx={{ margin: '0 auto', display: "flex", mt:4 }}
+              sx={{ margin: '0 auto', display: "flex", mt:1 }}
               endIcon={<Iconify icon={send} sx={{ width: 20, height: 20 }} />}
               loading={isSubmitting}
             >
-              Send Invite
+              Send Message
             </LoadingButton>
+
+              </Stack>
 
 
 
@@ -161,3 +197,5 @@ export default function CandidatesPopover() {
     </form>
   );
 }
+
+

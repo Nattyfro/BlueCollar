@@ -52,6 +52,10 @@ export type JobProps = {
   languages: string[];
   shareLinks: SocialLinks;
 };
+export type CandidateProps = {
+  userAvatar: string;
+  userName: string;
+};
 
 export type JobFiltersProps = {
   filterKeyword: string | null;

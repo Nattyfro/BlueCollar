@@ -13,6 +13,7 @@ import {
   Card, 
   Typography,
   Grid,
+  // Backdrop,
   Popover, } from '@mui/material';
 // routes
 // utils
@@ -66,8 +67,9 @@ export default function CareerJobItem({ job }: Props) {
   };
 
   const handleClose = () => {
-    setOpen(null);
+    setOpen(null)
   };
+
 
   return (
 
@@ -94,23 +96,24 @@ export default function CareerJobItem({ job }: Props) {
             pt: 4,
             pb: 4,
             width: 1,
-            maxWidth: 340,
+            maxWidth: 340, // was 340
           },
         }}
       >
-        <CandidatesPopover/>
-        {/* <Stack
-          sx= {{ px: 5, justifyContent: 'center' }}>
-            
-          <MUISlider
-            step={1}
-            min={18}
-            max={80}
-            valueLabelDisplay="on"
-            // ORIGINAL  valueLabelFormat={(value) => `${fCurrency(value)}`}
-          /> 
-        </Stack> */}
+        
+        <CandidatesPopover job={{
+          userAvatar: '',
+          userName: '',
+        }} />
+
+        {/* <Button
+        onClick={handleClose}>
+          close
+        </Button> */}
+       
       </Popover>
+
+      {/* <Stack><Backdrop  open={Boolean(open)} onClick={handleClose} /></Stack> */}
 
 
 
@@ -208,5 +211,7 @@ export default function CareerJobItem({ job }: Props) {
         </Grid>
       </Grid>
     </Card>
+    
+    
   );
 }

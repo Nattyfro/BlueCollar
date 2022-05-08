@@ -41,7 +41,7 @@ export default function CareerJobsPage() {
       <RootStyle>
         <Container>
           <CareerJobBarFilters />
-          <CareerJobList jobs={jobs} loading={!jobs.length && !error} />
+          <CareerJobList jobs={jobs} loading={!jobs.length && !error} open={false} /> {/* open wasnt originally there */}
         </Container>
         <NewsletterCareer />
       </RootStyle>
