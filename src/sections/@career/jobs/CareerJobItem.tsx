@@ -13,8 +13,8 @@ import {
   Card, 
   Typography,
   Grid,
-  // Backdrop,
   Popover,
+  Dialog,
 Box, } from '@mui/material';
 // routes
 // utils
@@ -32,6 +32,7 @@ import {
 // myles components
 
 import CandidatesPopover from './CandidatesPopover'
+
 
 
 
@@ -74,7 +75,7 @@ export default function CareerJobItem({ job }: Props) {
 
 
   return (
-
+      
     <Card
       
       sx={{
@@ -87,14 +88,15 @@ export default function CareerJobItem({ job }: Props) {
       
       
     >
+     
 
-      <Popover
+      <Dialog
           open={Boolean(open)}
           onClose={handleClose}
           anchorEl={open}
           anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
           transformOrigin={{ vertical: 'center', horizontal: 'center' }}
-          sx= {{ overflow: 'scroll' }}
+          sx= {{ overflow: 'scroll', zIndex: 1, }}
           PaperProps={{
             sx: {
               pt: 4,
@@ -104,17 +106,14 @@ export default function CareerJobItem({ job }: Props) {
             },
           }}
         >
-        
         <CandidatesPopover job={job} />
-          
-         
-
         {/* <Button
         onClick={handleClose}>
-          close
-        </Button> */}
+        close
+      </Button> */}
        
-      </Popover>
+      </Dialog>
+      
 
 
 
@@ -122,8 +121,7 @@ export default function CareerJobItem({ job }: Props) {
       <Box onClick={handleOpen}>
 
       
-        
-      {/* <Stack><Backdrop  open={Boolean(open)} onClick={handleClose} /></Stack> */}
+      
 
 
 

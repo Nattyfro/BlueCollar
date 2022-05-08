@@ -7,6 +7,7 @@ import {
   Stack,
   TextField,
   Typography,
+  Box,
 } from '@mui/material';
 // utils
 import send from '@iconify/icons-carbon/send';
@@ -15,7 +16,6 @@ import { JobProps } from '../../../@types/career';
 import {
     Image,
   } from '../../../components';
-
 // ----------------------------------------------------------------------
 
 
@@ -64,7 +64,7 @@ export default function CandidatesPopover({ job }: Props) {
 
 
   const onSubmit = async (data: FormValuesProps) => {
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     alert(JSON.stringify(data, null, 2));
     reset();
   };
@@ -72,7 +72,10 @@ export default function CandidatesPopover({ job }: Props) {
 
             return (
                 <form onSubmit={handleSubmit(onSubmit)}>
+                  <Box sx={{width:1}} >
+                  
                     <Stack spacing={2.5} alignItems="center" sx={{ mx:2 }}>
+                    
                 
 
                 <Stack  alignItems="center" spacing={2.5}>
@@ -88,8 +91,7 @@ export default function CandidatesPopover({ job }: Props) {
                 </Typography>
                 </Stack>
 
-
-
+                
 
         <Stack
           direction={{ xs: 'column', md: 'column' }}
@@ -135,12 +137,14 @@ export default function CandidatesPopover({ job }: Props) {
 
               </Stack>
 
-
-
       </Stack>
       </Stack>
+      </Box>
+      
     </form>
   );
 }
+
+
 
 
