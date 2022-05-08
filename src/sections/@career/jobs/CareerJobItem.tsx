@@ -13,7 +13,6 @@ import {
   Card, 
   Typography,
   Grid,
-  Popover,
   Dialog,
 Box, } from '@mui/material';
 // routes
@@ -96,7 +95,7 @@ export default function CareerJobItem({ job }: Props) {
           // anchorEl={open}
           // anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
           // transformOrigin={{ vertical: 'center', horizontal: 'center' }}
-          sx= {{ overflow: 'scroll', zIndex: 1, }}
+          sx= {{ overflow: 'scroll', zIndex: 9999 }}
           PaperProps={{
             sx: {
               pt: 4,
