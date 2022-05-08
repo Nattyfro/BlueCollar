@@ -64,7 +64,7 @@ export default function CandidatesPopover({ job }: Props) {
 
 
   const onSubmit = async (data: FormValuesProps) => {
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 0));
     alert(JSON.stringify(data, null, 2));
     reset();
   };
