@@ -82,7 +82,7 @@ export default function CandidatesPopover({ job }: Props) {
                     <Image
                         alt={userName} 
                         src={userAvatar}
-                        sx={{ width: 80, height: 80, borderRadius: 1, my:2}}
+                        sx={{ width: 100, height: 100, borderRadius: 1, my:2}}
                     />
                 </Stack>
                 <Stack>
