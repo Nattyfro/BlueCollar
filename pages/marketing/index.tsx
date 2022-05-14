@@ -6,13 +6,13 @@ import { getAllCaseStudies } from '../../src/utils/get-mardown/marketing/case-st
 import { BlogPostProps } from '../../src/@types/blog';
 import { CaseStudyProps } from '../../src/@types/marketing';
 // _data
-import { _testimonials, _brands, _members, _pricingMarketing } from '../../_data/mock';
+import { _testimonials, _brands, _members } from '../../_data/mock';
 // layouts
 import Layout from '../../src/layouts';
 // components
 import { Page } from '../../src/components';
 // sections
-import { PricingMarketing } from '../../src/sections/pricing';
+// import { PricingMarketing } from '../../src/sections/@career/pricing';
 import { TeamMarketingLangding } from '../../src/sections/team';
 import { BlogMarketingLatestPosts } from '../../src/sections/blog';
 import { NewsletterMarketing } from '../../src/sections/newsletter';
@@ -52,7 +52,7 @@ export default function MarketingLandingPage({ posts, caseStudies }: Props) {
 
       <TeamMarketingLangding members={_members} />
 
-      <PricingMarketing plans={_pricingMarketing} />
+      {/* <PricingMarketing plans={_pricingMarketing} /> */}
 
       <MarketingFaqs />
 

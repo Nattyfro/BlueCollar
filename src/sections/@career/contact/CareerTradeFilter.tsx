@@ -57,6 +57,16 @@ export default function CareerTradeFilter() {
     onReset();
   };
 
+
+  //---------------------------------------QUINCY ------------------------------------------------------------------------
+                                  {/* const renderFilters = (
+                                  <>
+                                    <Stack spacing={2.5} sx={{ py: 2, width: 1 }} direction={{ xs: 'column', md: 'row' }}>
+                                      <DropDown
+                                        filterCategories={filters.filterCategories}
+                                        onChangeCategory={handleChangeCategory}
+                                      />  */}
+
   const renderFilters = (
     <>
       <Stack spacing={2.5} sx={{ py: 2, width: 1 }} direction={{ xs: 'column', md: 'row' }} >

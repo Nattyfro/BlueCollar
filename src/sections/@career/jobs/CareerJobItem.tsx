@@ -14,7 +14,9 @@ import {
   Typography,
   Grid,
   Dialog,
-Box, } from '@mui/material';
+Box,
+// Hidden,
+DialogContent, } from '@mui/material';
 // routes
 // utils
 import { fDate } from '../../../utils/formatTime';
@@ -72,8 +74,6 @@ export default function CareerJobItem({ job }: Props) {
   };
 
 
-  
-
 
   return (
       
@@ -90,28 +90,25 @@ export default function CareerJobItem({ job }: Props) {
       
     >
      
-
+      
       <Dialog
           open={Boolean(open)}
           onClose={handleClose}
-          // anchorEl={open}
-          // anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
-          // transformOrigin={{ vertical: 'center', horizontal: 'center' }}
-          sx= {{ overflow: 'scroll', zIndex: 9999 }}
+          sx= {{ overflow: 'scroll', zIndex: 1100 }}
           PaperProps={{
             sx: {
-              pt: 4,
-              pb: 4,
-              width: 1,
-              maxWidth: 340, // was 340
+              // pt: 4,
+              // pb: 4,
+              width: '340px',
+              height: '530px',
             },
           }}
+          
         >
+          <DialogContent sx={{m:0, p:0}}>
         <CandidatesPopover job={job} />
-        {/* <Button
-        onClick={handleClose}>
-        close
-      </Button> */}
+
+          </DialogContent>
        
       </Dialog>
       

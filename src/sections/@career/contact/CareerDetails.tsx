@@ -24,7 +24,7 @@ const FormSchema = Yup.object().shape({
   services: Yup.array().required().min(1, 'Select at least one type of work'),
   drive: Yup.array().required().min(1, 'Select whether you drive or not'),
   trade: Yup.string().required('Trade is required'),
-  age: Yup.number().required('Age is required').min(18,'Must be over 16 to use the site'),
+  // age: Yup.number().required('Age is required').positive().integer().min(16,'Must be over 16 to use the site'),
 });
 
 
