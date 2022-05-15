@@ -1,7 +1,7 @@
-import { Stack, TextField, Button, Typography } from '@mui/material'
+import { Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
 
-export default function _Email ({data, setFormData, onSubmit}:any) {
+export default function _Email ({data, setFormData}:any) {
 
   return (
     <Stack
@@ -25,13 +25,7 @@ export default function _Email ({data, setFormData, onSubmit}:any) {
       />
 
 
-          <Button
-          onClick={onSubmit}
-          size='large'
-          variant='outlined' sx={{mt:4}}>
-            SUBMIT 
-          </Button>
-
+          
         </Stack>
   )
 }

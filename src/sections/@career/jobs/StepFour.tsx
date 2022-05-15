@@ -1,17 +1,17 @@
 // import { LoadingButton } from '@mui/lab';
-import { Stack, ToggleButton, Typography } from '@mui/material'
+import { Button, Stack, ToggleButton, Typography } from '@mui/material'
 import React from 'react'
 // import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 
 
-const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonus schemes', 'Pension'];
+const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonus schemes', 'Pension', 'Flexibility'];
 
 
 
 
 
 
-export default function StepFour ({ data}:any ) {
+export default function StepFour ({ data, onSubmit}:any ) {
 
   console.log (data)
 
@@ -20,13 +20,13 @@ export default function StepFour ({ data}:any ) {
             return (
               <div>
 
-      <Stack alignItems='center' >
-          <Typography variant="body3"  sx={{ mb: 1, px:0, display: 'block' }}>
-            Please enter your email
+      <Stack sx={{mt:4}}>
+          <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
+            What benefits are there for the candidate if they join
           </Typography>
       
       </Stack> 
-                <Stack direction="row" flexWrap="wrap"  sx={{pb:2, mx:2}}>
+                <Stack direction="row" flexWrap="wrap" sx={{pb:2, mx:2, justifyContent: 'center'}}>
                   {BENEFITS.map((benefits) => (
                     <ToggleButton
                       key={benefits}
@@ -44,7 +44,17 @@ export default function StepFour ({ data}:any ) {
                   ))}
                 </Stack>
 
-              </div>
+            <Stack>
+              <Button
+                onClick={onSubmit}
+                size='large'
+                variant='outlined' sx={{mt:4}}>
+                  SUBMIT 
+              </Button>
+            </Stack>
+
+            </div>
+    
             );
           
         

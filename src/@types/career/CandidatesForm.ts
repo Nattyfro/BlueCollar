@@ -3,10 +3,6 @@
     message: string;
     companyName: string;
     email: string;
-    services: string[];
+    benefits: string[];
+    salary: number;
   };
-
-  // ]type Props = {
-  //   filterBenefits: string[];
-  //   onChangeJobBenefits: (event: SelectChangeEvent<string[]>) => void;
-  // };
