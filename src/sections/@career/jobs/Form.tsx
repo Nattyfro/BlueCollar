@@ -17,7 +17,7 @@ const defaultValues = {
   companyName: '',
   email: '',
   benefits: [],
-  salary: 0,
+  salary: [],
   
 }
 
@@ -35,11 +35,11 @@ const conditionalComponent = () => {
   switch (page) {
     case 0:
       return <_Message data={data} setFormData={setFormData} />;
-    case 1:
-      return <First/>;
+    case 3:
+      return <First  />;
      case 2:
        return <_CompanyName data={data} setFormData={setFormData} />;
-     case 3:
+     case 1:
        return <_Email  data={data} setFormData={setFormData} />;
      case 4:
        return <StepFour data={data} setFormData={setFormData} onSubmit={onSubmit} />;

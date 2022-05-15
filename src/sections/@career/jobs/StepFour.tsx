@@ -22,7 +22,7 @@ export default function StepFour ({ data, onSubmit}:any ) {
 
       <Stack sx={{mt:4}}>
           <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
-            What benefits are there for the candidate if they join
+            Benefits for the caniddate
           </Typography>
       
       </Stack> 

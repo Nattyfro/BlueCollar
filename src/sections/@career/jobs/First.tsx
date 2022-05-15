@@ -3,6 +3,7 @@ import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { Typography, Stack, TextField } from '@mui/material';
+import { fCurrency } from '../../../utils/formatNumber';
 
 
 
@@ -26,12 +27,12 @@ const PrettoSlider = styled(Slider)({
     },
   },
   '& .MuiSlider-valueLabel': {
-    lineHeight: 1.2,
+    lineHeight: 2,
     fontSize: 12,
     background: 'unset',
     padding: 0,
-    width: 38, //was 32
-    height: 38, //was 32
+    width: 45, //was 32
+    height: 45, //was 32
     borderRadius: '50% 50% 50% 0',
     backgroundColor: '#52af77',
     transformOrigin: 'bottom left',
@@ -52,7 +53,7 @@ const PrettoSlider = styled(Slider)({
 export default function First () {
 
   const [value, setValue] = React.useState<number | string | Array<number | string>>(
-    30,
+    [],
   );
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
@@ -70,56 +71,37 @@ export default function First () {
       setValue(6000);
     }
   };
-
-
-
-
-
+//   var string = numeral(1000).format('0,0');
+// // '1,000'
 
 
   return (
 
 
-    <Stack sx={{px:4, pt:5}} >
+    <Box alignItems="center" justifyContent='center' sx={{px:4, pt:5}} >
 
       <Stack alignItems='center' >
         <Typography variant="body3"  sx={{ mb: 3, px:0, display: 'block' }}>
             What salary are you offering?
         </Typography>
       </Stack>    
-    <Box sx={{ width: 1 }}>
-      <PrettoSlider
-        valueLabelDisplay="auto"
-        aria-label="pretto slider"
-        size= 'small'
-        sx={{ mb: 3, mt:5}} 
-        valueLabelFormat={(value) => `${(value)}`}
-        min={1080}
-        max={6000}
-        defaultValue={3540}
-        step={10}
-        // value= {data.salary}
-        // onChange={ (e) => {setFormData ({...data, salary: e.target.value}) ;}}
-        value={typeof value === 'number' ? value : 0}
-        onChange={handleSliderChange}
-        aria-labelledby="input-slider"
-      />
-      {/* <Typography>£{value}  per month</Typography> */}
     
-    </Box>
 
     <Stack alignItems='center' >
       <TextField
         value={value}
         size="small"
         variant="filled"
+        label="(£)"
         onChange={handleInputChange}
+        // value={(value: string | number) => fCurrency(value)}
+        // color="#000"
         onBlur={handleBlur}
         fullWidth
         inputProps={{
           min: 1080,
           max: 6000,
-          type: 'number',
+          type: 'tel',
           'aria-labelledby': 'input-slider',
           width:1,
           textAlign:"center"
@@ -127,9 +109,29 @@ export default function First () {
       />
       </Stack>  
 
+      <Box sx={{ width: 1 }}>
+      <PrettoSlider
+        valueLabelDisplay="auto"
+        aria-label="pretto slider"
+        size= 'small'
+        sx={{ mb: 3, mt:8}} 
+        min={1080}
+        max={6000}
+        defaultValue={3540}
+        step={10}
+        // value= {data.salary}
+        // onChange={ (e) => {setFormData ({...data, salary: e.target.value}) ;}}
+        // valueLabelFormat={(value) => `${(value)}`}
+        // value={data.salary}
+        value={typeof value === 'number' ? value : 0}
+        valueLabelFormat={(value) => fCurrency(value)}
+        onChange={handleSliderChange}
+        aria-labelledby="input-slider"/>
+    </Box>
+
     
 
           
-  </Stack>
+  </Box>
   );
 }

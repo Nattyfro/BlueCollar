@@ -4,5 +4,5 @@
     companyName: string;
     email: string;
     benefits: string[];
-    salary: number;
+    salary: number [];
   };
