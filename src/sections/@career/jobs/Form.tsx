@@ -7,6 +7,8 @@ import { useState } from 'react';
 import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 import StepFour from './StepFour'
 import _Message from './_Message'
+import _Salary from './_Salary';
+import { Controller } from 'react-hook-form'
 
 
 //----------------TypeScript---------------------------------------------------
@@ -43,6 +45,8 @@ const conditionalComponent = () => {
        return <_Email  data={data} setFormData={setFormData} />;
      case 4:
        return <StepFour data={data} setFormData={setFormData} onSubmit={onSubmit} />;
+     case 5:
+       return <_Salary data={data} setFormData={setFormData} onSubmit={onSubmit} controller={Controller}  />;
   }};
 
   // ADDS STATE TO THE PAGE
@@ -53,6 +57,7 @@ const conditionalComponent = () => {
   // SETS THE FORMS DATA INPUT
   const [data, setFormData] = useState<CandidatesProps>(defaultValues);
 
+  // SUBMITS THE FORM
 
   const onSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 500));
