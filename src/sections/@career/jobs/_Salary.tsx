@@ -2,7 +2,7 @@ import {  Stack, TextField, ToggleButton, Typography, Box } from '@mui/material'
 import React from 'react'
 
 
-const BENEFITS = ['Hourly', 'Daily', 'Monthly', 'Annually'];
+const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
 
 
 
@@ -55,22 +55,23 @@ export default function StepFour ({ data}:any ) {
                     rowGap: { xs: 0, md: 1 },
                     columnGap: 0,
                     gridTemplateColumns: {
-                      xs: 'repeat(4, 1fr)',
-                      sm: 'repeat(4, 1fr)',
+                      xs: 'repeat(2, 2fr)',
+                      sm: 'repeat(2, 2fr)',
                       md: 'repeat(4, 2fr)',
                     }}}>
 
-                  {BENEFITS.map((benefits) => (
+                  {PAYRATES.map((benefits) => (
 
                 <ToggleButton
                   key={benefits}
-                  value= {data.services}
+                  value= {data.salary}
                   color="standard"
                   size='small'
                   sx={{
                     py: 1,
                     px: 1,
                     m: 0.5,
+                    typography:'caption'
                   }}>
                 
                   {benefits}

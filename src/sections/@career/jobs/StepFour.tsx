@@ -1,17 +1,18 @@
 // import { LoadingButton } from '@mui/lab';
-import { Button, Stack, ToggleButton, Typography } from '@mui/material'
+import { Stack, ToggleButton, Typography } from '@mui/material'
+import { Box } from '@mui/system';
 import React from 'react'
 // import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 
 
-const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonus schemes', 'Pension', 'Flexibility'];
+const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonus schemes', 'Pension'];
 
 
 
 
 
 
-export default function StepFour ({ data, onSubmit}:any ) {
+export default function StepFour ({ data}:any ) {
 
   console.log (data)
 
@@ -26,32 +27,45 @@ export default function StepFour ({ data, onSubmit}:any ) {
           </Typography>
       
       </Stack> 
-                <Stack direction="row" flexWrap="wrap" sx={{pb:2, mx:2, justifyContent: 'center'}}>
+
+
+
+                <Box sx={{
+                    display: 'grid',
+                    rowGap: { xs: 0, md: 1 },
+                    columnGap: 0,
+                    gridTemplateColumns: {
+                      xs: 'repeat(2, 2fr)',
+                      sm: 'repeat(2, 2fr)',
+                      md: 'repeat(2, 2fr)',
+                    }}}>
                   {BENEFITS.map((benefits) => (
                     <ToggleButton
                       key={benefits}
                       value= {data.services}
                       color="standard"
                       size='small'
+                      
                       sx={{
                         py: 1,
                         px: 1,
                         m: 0.5,
+                        typography: 'caption'
                       }}
                     >
                       {benefits}
                     </ToggleButton>
                   ))}
-                </Stack>
+                </Box>
 
-            <Stack>
+            {/* <Stack>
               <Button
                 onClick={onSubmit}
                 size='large'
                 variant='outlined' sx={{mt:4}}>
                   SUBMIT 
               </Button>
-            </Stack>
+            </Stack> */}
 
             </div>
     
@@ -60,3 +74,32 @@ export default function StepFour ({ data, onSubmit}:any ) {
         
   
 };
+
+{/* <Box
+                  sx={{
+                    display: 'grid',
+                    rowGap: { xs: 0, md: 1 },
+                    columnGap: 0,
+                    gridTemplateColumns: {
+                      xs: 'repeat(4, 1fr)',
+                      sm: 'repeat(4, 1fr)',
+                      md: 'repeat(4, 2fr)',
+                    }}}>
+
+                  {BENEFITS.map((benefits) => (
+
+                <ToggleButton
+                  key={benefits}
+                  value= {data.services}
+                  color="standard"
+                  size='small'
+                  sx={{
+                    py: 1,
+                    px: 1,
+                    m: 0.5,
+                  }}>
+                
+                  {benefits}
+                </ToggleButton>
+                  ))}
+                </Box> */}

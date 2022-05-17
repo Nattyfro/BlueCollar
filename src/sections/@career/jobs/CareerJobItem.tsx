@@ -36,7 +36,6 @@ import CandidatesPopover from './CandidatesPopover'
 
 
 
-
 // ----------------------------------------------------------------------
 
 type Props = {
