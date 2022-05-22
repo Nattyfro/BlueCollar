@@ -18,8 +18,8 @@ export default function CompanyName() {
 
 
       <Stack alignItems='center' >
-        <Typography variant="body3"  sx={{ mb: 3, px:0, display: 'block' }}>
-            Please enter your company name
+        <Typography variant="body1"  sx={{ mb: 3, px:0, display: 'block' }}>
+            Enter your company name
         </Typography>
       </Stack>   
       

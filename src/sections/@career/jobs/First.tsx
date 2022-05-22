@@ -81,13 +81,13 @@ export default function First ({data, setFormData}:any) {
     <Box alignItems="center" justifyContent='center' sx={{px:4, pt:5}} >
 
       <Stack alignItems='center' >
-        <Typography variant="body3"  sx={{ mb: 3, display: 'block' }}>
+        <Typography variant="body1"  sx={{ mb: 3, display: 'block' }}>
             What salary are you offering?
         </Typography>
       </Stack>    
     
 
-    <Stack alignItems='center' >
+    <Stack alignItems='center' sx={{px:8}}>
       <TextField
         value={value}
         size="small"
@@ -95,7 +95,6 @@ export default function First ({data, setFormData}:any) {
         label="(£)"
         onChange={handleInputChange}
         onBlur={handleBlur}
-        fullWidth
         inputProps={{
           min: 1080,
           max: 6000,
@@ -104,6 +103,7 @@ export default function First ({data, setFormData}:any) {
           width:1,
           textAlign:"center"
         }}
+        
       />
       </Stack>  
 

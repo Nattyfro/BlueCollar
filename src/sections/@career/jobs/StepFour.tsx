@@ -4,8 +4,8 @@ import { Stack, ToggleButton, Box, Typography } from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 
-const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
-// const BENEFITS = ['Free Parking', 'Fuel Credit', 'Training Courses', 'Company Vehicle', 'Bonus Schemes', 'Pension Funds'];
+// const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
+const BENEFITS = ['Free Parking', 'Fuel Credit', 'Skill Development', 'Company Vehicle', 'Bonus Schemes', 'Pension Funds'];
 // const BENEFITS = [{value:'Parking'}, {value:'Fuel'}, {value:'Training'}, {value:'Vehicle'}, {value:'Bonus schemes'}, {value:'Pension'}];
 
 
@@ -19,7 +19,7 @@ export default function StepFour () {
 
     <Box >
       <Stack sx={{mt:4}}>
-        <Typography variant="body3" align="center"  sx={{ mb: 3, display: 'block' }}>
+        <Typography variant="body1" align="center"  sx={{ mb: 3, display: 'block' }}>
           Benefits for the candidate
         </Typography>
       </Stack>
@@ -50,7 +50,7 @@ export default function StepFour () {
                       onChange={() => field.onChange(onSelected(benefits))}
                       color="standard"
                       size='small'
-                      sx={{ py: 1, px:2.5, typography: 'caption', 
+                      sx={{ py: 1.5, typography: 'caption', 
                         '&.Mui-selected': {
                           bgcolor: 'text.primary',
                           color: (theme) =>

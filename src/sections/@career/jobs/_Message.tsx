@@ -20,7 +20,7 @@ export default function _Message() {
      <Stack spacing={{ xs: 2.5, md: 2 }}>
 
       <Stack alignItems='center' sx={{width:1}}>
-        <Typography variant="body3" sx={{ mb: 1, display: 'block', width:1 }}>
+        <Typography variant="body1" sx={{ mb: 1, display: 'block', width:1 }}>
             Invite Candidate to converation 
         </Typography>
       </Stack>

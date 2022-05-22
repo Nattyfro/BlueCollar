@@ -17,7 +17,7 @@ export default function StepFour () {
 
       <Stack sx={{mt:4}}>
 
-        <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
+        <Typography variant="body1" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
           What salary are you offering?
         </Typography>
 
@@ -66,7 +66,7 @@ export default function StepFour () {
                       onChange={() => field.onChange(onSelected(payRates))}
                       color="standard"
                       size='small'
-                      sx={{ py: 1, px:1, m:0.5, typography: 'caption', 
+                      sx={{ py: 1.5, px:1, m:0.5, typography: 'caption', 
                         '&.Mui-selected': {
                           bgcolor: 'text.primary',
                           color: (theme) =>

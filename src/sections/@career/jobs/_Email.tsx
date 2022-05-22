@@ -17,7 +17,7 @@ export default function _Email () {
         >
 
       <Stack alignItems='center' >
-        <Typography variant="body3"  sx={{ mb: 3, px:0, display: 'block' }}>
+        <Typography variant="body1"  sx={{ mb: 3, px:0, display: 'block' }}>
             Please enter your email
         </Typography>
       </Stack>   
