@@ -2,6 +2,7 @@
 import {
   Stack
 } from '@mui/material';
+import { Box } from '@mui/system';
 // utils
 import { JobProps } from '../../../@types/career';
 import {
@@ -33,8 +34,10 @@ export default function CandidatesPopover({ job }: Props) {
         sx={{ width: 100, height: 100, borderRadius: 1, mb:2, mt:4}}
         />
       </Stack>
-
+        
+      <Box sx={{width:1, m:0, p:0}} alignItems='center' justifyContent="center" textAlign='center'>
        <Form/>   
+      </Box>
 
     </Stack>
   );

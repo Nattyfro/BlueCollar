@@ -1,22 +1,19 @@
-import {  Stack, TextField, ToggleButton, Typography, Box } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, TextField } from '@mui/material'
 import React from 'react'
-
+import {Controller, useFormContext} from 'react-hook-form'
 
 const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
 
 
 
 
+export default function StepFour () {
 
-
-export default function StepFour ({ data}:any ) {
-
-
-
-
+  const {control} = useFormContext()
+  
   return (
 
-    <div>
+    <Box >
 
       <Stack sx={{mt:4}}>
 
@@ -26,73 +23,72 @@ export default function StepFour ({ data}:any ) {
 
         <Stack alignItems='center' >
           <TextField
-            size="small"
-            variant="filled"
-            label="(£)"
-            // fullWidth
-            sx={{my:4}}
-            inputProps={{
-              min: 1080,
-              max: 6000,
-              type: 'tel',
-              'aria-labelledby': 'input-slider',
-              width:1,
-              textAlign:"center"
-            }}/>
+          size="small"
+          variant="filled"
+          label="(£)"
+          sx={{my:4}}
+          inputProps={{
+            min: 1080,
+            max: 6000,
+            type: 'tel',
+            'aria-labelledby': 'input-slider',
+            width:1,
+            textAlign:"center"
+          }}/>
         </Stack>  
 
       </Stack> 
+    
 
-          {/* TOGGLE BUTTON */}
+    <Stack alignItems= "center" > 
+      <Controller
+        name="benefits"
+        control={control}
+        render={({ field }) => {
+
+          const onSelected = (payRates: string) =>
+            field.value.includes(payRates) ? field.value.filter((value: string) => value !== payRates) : [...field.value, payRates];
+
+          return ( 
+            <Stack sx={{width:1}}>
 
 
+              <Box  sx={{ display: 'grid', rowGap: 1, columnGap: 0, gridTemplateColumns: { xs: 'repeat(4, 2fr)', sm: 'repeat(4, 2fr)', md: 'repeat(4, 2fr)' }}}>
 
+                  {PAYRATES.map((payRates) => (
+                    
+                    
 
-
-                <Box
-                  sx={{
-                    display: 'grid',
-                    rowGap: { xs: 0, md: 1 },
-                    columnGap: 0,
-                    gridTemplateColumns: {
-                      xs: 'repeat(2, 2fr)',
-                      sm: 'repeat(2, 2fr)',
-                      md: 'repeat(4, 2fr)',
-                    }}}>
-
-                  {PAYRATES.map((benefits) => (
-
-                <ToggleButton
-                  key={benefits}
-                  value= {data.salary}
-                  color="standard"
-                  size='small'
-                  sx={{
-                    py: 1,
-                    px: 1,
-                    m: 0.5,
-                    typography:'caption'
-                  }}>
-                
-                  {benefits}
-                </ToggleButton>
+                    <ToggleButton
+                      {...field}
+                      key={payRates}
+                      selected={field.value.includes(payRates)}
+                      onChange={() => field.onChange(onSelected(payRates))}
+                      color="standard"
+                      size='small'
+                      sx={{ py: 1, px:1, m:0.5, typography: 'caption', 
+                        '&.Mui-selected': {
+                          bgcolor: 'text.primary',
+                          color: (theme) =>
+                            theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                        '&:hover': {
+                            bgcolor: 'text.primary',
+                          },
+                        },
+                      }}>
+                      {payRates}
+                    </ToggleButton>
                   ))}
                 </Box>
+            </Stack>
+          );
+        }}
+      />
+    </Stack>
+  </Box>
 
-
-    </div>
-    )};
   
-  
-  
-  {/* <Stack>
-    <Button
-      onClick={onSubmit}
-      size='large'
-      variant='outlined' sx={{mt:4}}>
-        SUBMIT 
-    </Button>
-  </Stack> */}
+  )};
 
 
 
@@ -118,119 +114,109 @@ export default function StepFour ({ data}:any ) {
 
 
 
-//------------------THIS IS THE NIGHTMARE--------------------------------------------------
 
 
 
 
-//   import { Stack, TextField, ToggleButton, Typography, Box } from '@mui/material'
+
+
+
+
+
+
+
+
+// import {  Stack, TextField, ToggleButton, Typography, Box, Button } from '@mui/material'
 // import React from 'react'
+// import { useFormContext } from 'react-hook-form';
+// // import { useFormContext } from 'react-hook-form'
 
 
-// const BENEFITS = ['Hourly', 'Daily', 'Monthly', 'Annually'];
-
-
-
-
-
-
-// export default function StepFour ({ data, Controller, control}:any ) {
-
- 
-
-
-  
-//               {/* 
-//                     <Stack sx={{mt:4}}>
-
-//                       <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
-//                         What salary are you offering?
-//                       </Typography>
-
-//                       <Stack alignItems='center' >
-//                         <TextField
-//                           size="small"
-//                           variant="filled"
-//                           label="(£)"
-//                           // fullWidth
-//                           sx={{my:4}}
-//                           inputProps={{
-//                             min: 1080,
-//                             max: 6000,
-//                             type: 'tel',
-//                             'aria-labelledby': 'input-slider',
-//                             width:1,
-//                             textAlign:"center"
-//                           }}/>
-//                       </Stack>  
-
-//                     </Stack>  */}
+// const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
 
 
 
 
 
 
+// export default function StepFour () {
 
-
-
-
-
+//   const {handleSubmit} = useFormContext();
 
 
 //   return (
 
-//     <Stack>
-      
+//       <Stack>
+//       <Stack sx={{mt:4}}>
 
-//       <Controller
-//         name="salary"
-//         control={control}
-//         render={({ field, fieldState: { error } }: any) => {
+//         <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
+//           What salary are you offering?
+//         </Typography>
 
-//           const onSelected = (benefits: string) =>
-//           field.value.includes(benefits)
-//             ? field.value.filter((value: string) => value !== benefits)
-//             : [...field.value, benefits];
+//         <Stack alignItems='center' >
+//           <TextField
+//             size="small"
+//             variant="filled"
+//             label="(£)"
+//             sx={{my:4}}
+//             inputProps={{
+//               min: 1080,
+//               max: 6000,
+//               type: 'tel',
+//               'aria-labelledby': 'input-slider',
+//               width:1,
+//               textAlign:"center"
+//             }}/>
+//         </Stack>  
 
-//       return (
-        
-//           <Stack>
-//             <Box sx={{ display: 'grid', rowGap: { xs: 0, md: 1 }, columnGap: 0, gridTemplateColumns: { xs: 'repeat(4, 1fr)', sm: 'repeat(4, 1fr)', md: 'repeat(10, 2fr)', }}}> 
+//       </Stack> 
 
-//               {BENEFITS.map((benefits) => (
+
+
+
+
+
+//                 <Box
+//                   sx={{
+//                     display: 'grid',
+//                     rowGap: { xs: 0, md: 1 },
+//                     columnGap: 0,
+//                     gridTemplateColumns: {
+//                       xs: 'repeat(2, 2fr)',
+//                       sm: 'repeat(2, 2fr)',
+//                       md: 'repeat(4, 2fr)',
+//                     }}}>
+
+//                   {PAYRATES.map((benefits) => (
 
 //                 <ToggleButton
 //                   key={benefits}
 //                   value= {data.salary}
 //                   color="standard"
 //                   size='small'
-//                   selected={field.value.includes(data.salary)}
-//                   onChange={() => field.onChange(onSelected(data.salary))}
 //                   sx={{
 //                     py: 1,
 //                     px: 1,
 //                     m: 0.5,
-//                     typography: 'body2',
-//                     '&.Mui-selected': {
-//                       bgcolor: 'text.primary',
-//                       color: (theme) =>
-//                         theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
-//                       '&:hover': {
-//                         bgcolor: 'text.primary',
-//                       },},
-//                   }}
-//                 >
+//                     typography:'caption'
+//                   }}>
                 
 //                   {benefits}
-                  
 //                 </ToggleButton>
-
 //                   ))}
+//                 </Box>
 
-//             </Box>
-//           </Stack>
+//                 <Stack>
+//     <Button
+//       // onClick={handleSubmitonSubmit}
+//       onSubmit={handleSubmit(onSubmit)}
+//       size='large'
+//       variant='outlined' sx={{mt:4}}>
+//         SUBMIT
+//     </Button>
+//   </Stack>
 
-//       />
-//     </Stack>  
+//                   </Stack>
+
+    
 //     )};

@@ -1,105 +1,78 @@
 // import { LoadingButton } from '@mui/lab';
-import { Stack, ToggleButton, Typography } from '@mui/material'
-import { Box } from '@mui/system';
+import { Stack, ToggleButton, Box, Typography } from '@mui/material'
+// import { Box } from '@mui/system';
 import React from 'react'
-// import {CandidatesProps} from '../../../@types/career/CandidatesForm'
+import {Controller, useFormContext} from 'react-hook-form'
 
-
-const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonus schemes', 'Pension'];
-
-
-
-
-
-
-export default function StepFour ({ data}:any ) {
-
-  console.log (data)
+const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
+// const BENEFITS = ['Free Parking', 'Fuel Credit', 'Training Courses', 'Company Vehicle', 'Bonus Schemes', 'Pension Funds'];
+// const BENEFITS = [{value:'Parking'}, {value:'Fuel'}, {value:'Training'}, {value:'Vehicle'}, {value:'Bonus schemes'}, {value:'Pension'}];
 
 
 
-            return (
-              <div>
 
+export default function StepFour () {
+
+  const {control} = useFormContext()
+  
+  return (
+
+    <Box >
       <Stack sx={{mt:4}}>
-          <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
-            Benefits for the caniddate
-          </Typography>
-      
-      </Stack> 
+        <Typography variant="body3" align="center"  sx={{ mb: 3, display: 'block' }}>
+          Benefits for the candidate
+        </Typography>
+      </Stack>
+    
 
+    <Stack alignItems= "center" > 
+      <Controller
+        name="benefits"
+        control={control}
+        render={({ field }) => {
 
+          const onSelected = (benefits: string) =>
+            field.value.includes(benefits) ? field.value.filter((value: string) => value !== benefits) : [...field.value, benefits];
 
-                <Box sx={{
-                    display: 'grid',
-                    rowGap: { xs: 0, md: 1 },
-                    columnGap: 0,
-                    gridTemplateColumns: {
-                      xs: 'repeat(2, 2fr)',
-                      sm: 'repeat(2, 2fr)',
-                      md: 'repeat(2, 2fr)',
-                    }}}>
+          return ( 
+            <Stack sx={{width:1}}>
+
+              <Box  sx={{ width:1, display: 'grid', rowGap: 1.5, columnGap: 1.5, gridTemplateColumns: { xs: 'repeat(2, 2fr)', sm: 'repeat(2, 2fr)', md: 'repeat(2, 2fr)' }}}>
+
                   {BENEFITS.map((benefits) => (
+                    
+                    
+
                     <ToggleButton
+                      {...field}
                       key={benefits}
-                      value= {data.services}
+                      selected={field.value.includes(benefits)}
+                      onChange={() => field.onChange(onSelected(benefits))}
                       color="standard"
                       size='small'
-                      
-                      sx={{
-                        py: 1,
-                        px: 1,
-                        m: 0.5,
-                        typography: 'caption'
-                      }}
-                    >
+                      sx={{ py: 1, px:2.5, typography: 'caption', 
+                        '&.Mui-selected': {
+                          bgcolor: 'text.primary',
+                          color: (theme) =>
+                            theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
+                        '&:hover': {
+                            bgcolor: 'text.primary',
+                          },
+                        },
+                      }}>
                       {benefits}
                     </ToggleButton>
                   ))}
                 </Box>
+            </Stack>
+          );
+        }}
+      />
+    </Stack>
+  </Box>
 
-            {/* <Stack>
-              <Button
-                onClick={onSubmit}
-                size='large'
-                variant='outlined' sx={{mt:4}}>
-                  SUBMIT 
-              </Button>
-            </Stack> */}
-
-            </div>
-    
-            );
-          
-        
   
-};
+  )};
 
-{/* <Box
-                  sx={{
-                    display: 'grid',
-                    rowGap: { xs: 0, md: 1 },
-                    columnGap: 0,
-                    gridTemplateColumns: {
-                      xs: 'repeat(4, 1fr)',
-                      sm: 'repeat(4, 1fr)',
-                      md: 'repeat(4, 2fr)',
-                    }}}>
 
-                  {BENEFITS.map((benefits) => (
 
-                <ToggleButton
-                  key={benefits}
-                  value= {data.services}
-                  color="standard"
-                  size='small'
-                  sx={{
-                    py: 1,
-                    px: 1,
-                    m: 0.5,
-                  }}>
-                
-                  {benefits}
-                </ToggleButton>
-                  ))}
-                </Box> */}

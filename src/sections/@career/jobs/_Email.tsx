@@ -1,11 +1,13 @@
 import { Stack, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system';
 import React from 'react'
+import { useFormContext, Controller } from 'react-hook-form'
 
-export default function _Email ({data, setFormData}:any) {
+export default function _Email () {
+
+  const {control} = useFormContext()
 
   return (
-
 
     <Box alignItems='center' justifyContent="center">
 
@@ -20,12 +22,17 @@ export default function _Email ({data, setFormData}:any) {
         </Typography>
       </Stack>   
 
-          
-      <TextField
-        fullWidth
-        label="Email"
-        value= {data.email}
-        onChange={ (e) => {setFormData ({...data, email: e.target.value}) ;}}
+      <Controller
+        name= 'email'
+        control= {control}
+        defaultValue= ''
+        render={({ field }) => (
+          <TextField
+            {...field}
+            fullWidth
+            label="Email"
+          />
+         )}
       />
         </Stack>
         

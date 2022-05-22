@@ -1,16 +1,15 @@
 import { Stack, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system';
 import React from 'react'
-// import {CandidatesProps} from '../../../@types/career/CandidatesForm'
+import { Controller, useFormContext } from 'react-hook-form'
 
 
 
-export default function CompanyName({ data, setFormData }:any ) {
+export default function CompanyName() {
+
+  const {control} = useFormContext();
 
 
-
-
-  console.log (data)
   return (
 
     <Box alignItems='center' justifyContent="center">
@@ -23,14 +22,19 @@ export default function CompanyName({ data, setFormData }:any ) {
             Please enter your company name
         </Typography>
       </Stack>   
+      
+
+
+      <Controller
+        name="name"
+        control={control}
+        render={({ field }) => (
         
       <TextField
+      {...field}
         fullWidth
         label="Company name"
-        name="name"
-        value={data.companyName}
-        onChange={ (e) => {setFormData ({...data, companyName: e.target.value}) ;
-        }}
+      />)}
       />
 
     </Stack>

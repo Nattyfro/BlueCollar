@@ -3,36 +3,49 @@ import {
   Stack, TextField, Typography
 } from '@mui/material';
 import { Box } from '@mui/system';
+import { Controller } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form'
+
+const CHARACTER_LIMIT = 300;
 
 
-const CHARACTER_LIMIT = 450;
+export default function _Message() {
 
+  const {control} = useFormContext();
 
-export default function _Message({data, setFormData}:any) {
   return (
 
-    <Box alignItems='center' justifyContent="center">
+    <Box alignItems='center' justifyContent="center" sx={{mx:0.5}}>
 
-     <Stack
-      direction={{ xs: 'column', md: 'column' }}
-      spacing={{ xs: 2.5, md: 2 }}
-      sx={{ width: 1}}>
+     <Stack spacing={{ xs: 2.5, md: 2 }}>
 
-      <Stack alignItems='center' >
-        <Typography variant="body3"  sx={{ mb: 1, px:0, display: 'block' }}>
-            Invite Candidate to converation
+      <Stack alignItems='center' sx={{width:1}}>
+        <Typography variant="body3" sx={{ mb: 1, display: 'block', width:1 }}>
+            Invite Candidate to converation 
         </Typography>
       </Stack>
 
-      <TextField
-        fullWidth
-        multiline
-        rows={5}
-        label="Message (max.300)"
-        sx={{ pb: 2.5 }}
-        value= {data.message}
-        inputProps={{ maxlength: CHARACTER_LIMIT }}
-        onChange={ (e) => {setFormData ({...data, message: e.target.value}) ;}}/>
+
+      <Stack sx={{width:1}}>
+        <Controller
+          name="message"
+          control={control}
+          render={({ field, fieldState: { error } }) => (
+            
+            <TextField
+              {...field}
+              multiline
+              rows={5}
+              label="Message (max.300)"
+              error={Boolean(error)}
+              helperText={error?.message}
+              inputProps={{ maxlength: CHARACTER_LIMIT }}
+            />
+          )}
+        />
+      </Stack>
+
+
       </Stack>
 
     </Box>

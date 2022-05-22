@@ -81,7 +81,7 @@ export default function First ({data, setFormData}:any) {
     <Box alignItems="center" justifyContent='center' sx={{px:4, pt:5}} >
 
       <Stack alignItems='center' >
-        <Typography variant="body3"  sx={{ mb: 3, px:0, display: 'block' }}>
+        <Typography variant="body3"  sx={{ mb: 3, display: 'block' }}>
             What salary are you offering?
         </Typography>
       </Stack>    
@@ -94,8 +94,6 @@ export default function First ({data, setFormData}:any) {
         variant="filled"
         label="(£)"
         onChange={handleInputChange}
-        // value={(value: string | number) => fCurrency(value)}
-        // color="#000"
         onBlur={handleBlur}
         fullWidth
         inputProps={{
