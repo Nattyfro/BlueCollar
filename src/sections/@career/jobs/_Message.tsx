@@ -5,10 +5,13 @@ import {
 import { Box } from '@mui/system';
 import { Controller } from 'react-hook-form';
 import { useFormContext } from 'react-hook-form'
+import { Iconify } from '../../../components';
+import securityIcon from '@iconify/icons-carbon/security';
+
 
 const CHARACTER_LIMIT = 300;
 
-
+//spacing={{ xs: 2.5, md: 5 }}
 export default function _Message() {
 
   const {control} = useFormContext();
@@ -16,12 +19,16 @@ export default function _Message() {
   return (
 
     <Box alignItems='center' justifyContent="center" sx={{mx:0.5}}>
+          
+     <Stack spacing={6}>
 
-     <Stack spacing={{ xs: 2.5, md: 2 }}>
-
-      <Stack alignItems='center' sx={{width:1}}>
-        <Typography variant="body1" sx={{ mb: 1, display: 'block', width:1 }}>
-            Invite Candidate to converation 
+     <Stack alignItems="center" spacing={1}>
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
+          <Typography variant="subtitle2">BlueCollar user request</Typography>
+        </Stack>
+        <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
+          Greet the candidate with a welcoming message.
         </Typography>
       </Stack>
 
@@ -35,6 +42,7 @@ export default function _Message() {
             <TextField
               {...field}
               multiline
+              variant='outlined'
               rows={5}
               label="Message (max.300)"
               error={Boolean(error)}

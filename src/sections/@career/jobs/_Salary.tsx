@@ -1,6 +1,9 @@
 import { Stack, ToggleButton, Box, Typography, TextField } from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
+import { Iconify } from '../../../components';
+import securityIcon from '@iconify/icons-carbon/security';
+
 
 const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
 
@@ -15,19 +18,26 @@ export default function StepFour () {
 
     <Box >
 
-      <Stack sx={{mt:4}}>
+      <Stack spacing={3}>
 
-        <Typography variant="body1" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
-          What salary are you offering?
+      <Stack alignItems="center" spacing={1}>
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
+          <Typography variant="subtitle2">BlueCollar user request</Typography>
+        </Stack>
+        <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
+          What salary would you like talks to begin at?
         </Typography>
+      </Stack>
 
         <Stack alignItems='center' >
           <TextField
           size="small"
-          variant="filled"
-          label="(£)"
+          variant="standard"
+          // label="(£)"
           sx={{my:4}}
           inputProps={{
+            // input:{{textAlign:"center"}}
             min: 1080,
             max: 6000,
             type: 'tel',

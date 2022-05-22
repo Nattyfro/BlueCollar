@@ -62,7 +62,7 @@ const OptionStyle = styled(Paper, {
   paddingLeft: theme.spacing(2.5),
   paddingRight: theme.spacing(2),
   transition: theme.transitions.create('box-shadow'),
-  border: `solid 1px ${theme.palette.divider}`,
+  border: `solid 10px ${theme.palette.divider}`,
   borderRadius: Number(theme.shape.borderRadius) * 1.25,
   ...(hasChildren && {
     flexWrap: 'wrap',
@@ -120,7 +120,7 @@ export default function CheckoutMethods( ) {
                 <Stack
                   direction="row"
                   alignItems="center"
-                  spacing={1}
+                  spacing={1} 
                   sx={{ position: 'absolute', top: 32, right: 16 }}
                 >
                   {icons.map((icon) => (

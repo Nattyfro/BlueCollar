@@ -38,7 +38,7 @@ const conditionalComponent = () => {
   switch (page) {
     case 0:
       return <_Message />;
-    case 3:
+    case 6:
       return <First  />;
     case 1:
       return <_CompanyName />;
@@ -46,9 +46,9 @@ const conditionalComponent = () => {
       return <_Email/>;
     case 4:
       return <StepFour/>;
-    case 5:
+    case 3:
       return <_Salary />;
-    case 6:
+    case 5:
       return <_TypeOfWork />;
     }};
 
@@ -83,7 +83,9 @@ const conditionalComponent = () => {
   const methods = useForm<CandidatesProps>({
 
     defaultValues: {
-      benefits: []},
+      benefits: [],
+      employment: [],
+    },
   })
 
   return (

@@ -50,7 +50,7 @@ const PrettoSlider = styled(Slider)({
 
 
 
-export default function First ({data, setFormData}:any) {
+export default function First () {
 
   const [value, setValue] = React.useState<number | string | Array<number | string>>(
     [],

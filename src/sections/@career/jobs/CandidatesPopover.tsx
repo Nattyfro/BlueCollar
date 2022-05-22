@@ -31,11 +31,11 @@ export default function CandidatesPopover({ job }: Props) {
         <Image
         alt={userName} 
         src={userAvatar}
-        sx={{ width: 100, height: 100, borderRadius: 1, mb:2, mt:4}}
+        sx={{ width: 75, height: 75, borderRadius: 1, mb:2, mt:4}}
         />
       </Stack>
         
-      <Box sx={{width:1, m:0, p:0}} alignItems='center' justifyContent="center" textAlign='center'>
+      <Box sx={{width:1}} alignItems='center' justifyContent="center" textAlign='center'>
        <Form/>   
       </Box>
 

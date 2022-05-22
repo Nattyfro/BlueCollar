@@ -6,4 +6,5 @@
     benefits: string[];
     payRates: string[];
     salary: number [];
+    employment: string[],
   };

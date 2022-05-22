@@ -3,6 +3,9 @@ import { Stack, ToggleButton, Box, Typography } from '@mui/material'
 // import { Box } from '@mui/system';
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
+import { Iconify } from '../../../components';
+import securityIcon from '@iconify/icons-carbon/security';
+
 
 // const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
 const BENEFITS = ['Free Parking', 'Fuel Credit', 'Skill Development', 'Company Vehicle', 'Bonus Schemes', 'Pension Funds'];
@@ -18,11 +21,17 @@ export default function StepFour () {
   return (
 
     <Box >
-      <Stack sx={{mt:4}}>
-        <Typography variant="body1" align="center"  sx={{ mb: 3, display: 'block' }}>
-          Benefits for the candidate
-        </Typography>
-      </Stack>
+      <Stack spacing={5}>
+
+<Stack alignItems="center" spacing={1}>
+  <Stack direction="row" alignItems="center" spacing={1}>
+    <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
+    <Typography variant="subtitle2">BlueCollar user request</Typography>
+  </Stack>
+  <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
+  What benefits are you offering the candidate?
+  </Typography>
+</Stack>
     
 
     <Stack alignItems= "center" > 
@@ -68,6 +77,7 @@ export default function StepFour () {
           );
         }}
       />
+    </Stack>
     </Stack>
   </Box>
 
