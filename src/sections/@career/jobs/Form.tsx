@@ -7,6 +7,7 @@ import { useState } from 'react';
 import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 import StepFour from './StepFour'
 import _Message from './_Message'
+import _TypeOfWork from './_TypeOfWork';
 import _Salary from './_Salary';
 import { useForm } from "react-hook-form";
 import { FormProvider } from 'react-hook-form'
@@ -47,6 +48,8 @@ const conditionalComponent = () => {
       return <StepFour/>;
     case 5:
       return <_Salary />;
+    case 6:
+      return <_TypeOfWork />;
     }};
 
 
