@@ -107,7 +107,16 @@ export default function SupportSidebar({
             <Iconify icon={chatIcon} sx={{ width: 24, height: 24 }} />
             <Typography variant="subtitle2">Chat Now</Typography>
           </ContactButtonStyle>
-
+          
+          <ContactButtonStyle>
+            <Iconify icon={mobileIcon} sx={{ width: 24, height: 24 }} />
+            <Typography variant="subtitle2">
+              Call{' '}
+              <Box component="span" sx={{ color: 'primary.main' }}>
+                552-917-1454
+              </Box>
+            </Typography>
+          </ContactButtonStyle>
         </Stack>
       </Box>
     </Scrollbar>

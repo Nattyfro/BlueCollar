@@ -8,6 +8,7 @@ import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 import StepFour from './StepFour'
 import _Message from './_Message'
 import _TypeOfWork from './_TypeOfWork';
+import _ContactMethod from './_ContactMethod'
 import _Salary from './_Salary';
 import { useForm } from "react-hook-form";
 import { FormProvider } from 'react-hook-form'
@@ -36,9 +37,9 @@ export default function Form () {
 
 const conditionalComponent = () => {
   switch (page) {
-    case 0:
-      return <_Message />;
     case 6:
+      return <_Message />;
+    case 7:
       return <First  />;
     case 1:
       return <_CompanyName />;
@@ -50,6 +51,8 @@ const conditionalComponent = () => {
       return <_Salary />;
     case 5:
       return <_TypeOfWork />;
+    case 0:
+      return < _ContactMethod />;
     }};
 
 
