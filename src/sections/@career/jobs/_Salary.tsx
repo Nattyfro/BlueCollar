@@ -32,20 +32,15 @@ export default function StepFour () {
 
         <Stack alignItems='center' >
           <TextField
-          size="small"
           variant="standard"
-          // label="(£)"
           sx={{my:4}}
           inputProps={{
-            // input:{{textAlign:"center"}}
             inputMode: 'numeric',
+            sx:{textAlign: 'center'},
             pattern: '[0-9]*',
             min: 1080,
             max: 6000,
-            type: 'tel',
             'aria-labelledby': 'input-slider',
-            width:1,
-            textAlign:"center"
           }}/>
         </Stack>  
 

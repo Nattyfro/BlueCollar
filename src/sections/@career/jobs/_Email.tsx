@@ -42,7 +42,7 @@ export default function _Email () {
             {...field}
             fullWidth
             variant="standard"
-            // label="Email"
+            InputProps={{ sx:{textAlign: 'center'} }}
           />
          )}
       />

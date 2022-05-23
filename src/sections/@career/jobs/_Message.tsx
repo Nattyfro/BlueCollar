@@ -48,6 +48,7 @@ export default function _Message() {
               error={Boolean(error)}
               helperText={error?.message}
               inputProps={{ maxlength: CHARACTER_LIMIT }}
+              
             />
           )}
         />

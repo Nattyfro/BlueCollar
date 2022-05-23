@@ -47,10 +47,10 @@ const conditionalComponent = () => {
       return <_Message />;
     case 4:
       return < _ContactMethod />;
-    // case 4:
+    // case 5:
     //   return < _ContactMethod />;
     // case 5:
-    //   return <_Email/>;
+      // return <_Email/>;
     // case 6:
     //   return <_CompanyName />;
     // case 7:

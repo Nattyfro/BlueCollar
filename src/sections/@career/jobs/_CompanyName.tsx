@@ -46,7 +46,7 @@ export default function CompanyName() {
       <TextField
       {...field}
         fullWidth
-        // InputProps={{  margin:"dense"      }}
+        InputProps={{ sx:{textAlign: 'center'} }}
         sx={{mt:2, px:2}}
         variant='standard'
         // label="Company name"
