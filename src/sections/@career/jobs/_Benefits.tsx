@@ -14,7 +14,7 @@ const BENEFITS = ['Free Parking', 'Fuel Credit', 'Skill Development', 'Company V
 
 
 
-export default function StepFour () {
+export default function _Benefits () {
 
   const {control} = useFormContext()
   

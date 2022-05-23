@@ -1,11 +1,11 @@
 import React from 'react'
-import First from './First';
-import _CompanyName from './_CompanyName';
-import _Email from './_Email';
+// import First from './First';
+// import _CompanyName from './_CompanyName';
+// import _Email from './_Email';
 import { Stack, Button } from '@mui/material';
 import { useState } from 'react';
 import {CandidatesProps} from '../../../@types/career/CandidatesForm'
-import StepFour from './StepFour'
+import _Benefits from './_Benefits'
 import _Message from './_Message'
 import _TypeOfWork from './_TypeOfWork';
 import _ContactMethod from './_ContactMethod'
@@ -37,22 +37,24 @@ export default function Form () {
 
 const conditionalComponent = () => {
   switch (page) {
-    case 6:
-      return <_Message />;
-    case 7:
-      return <First  />;
-    case 1:
-      return <_CompanyName />;
-    case 2:
-      return <_Email/>;
-    case 4:
-      return <StepFour/>;
-    case 3:
-      return <_Salary />;
-    case 5:
-      return <_TypeOfWork />;
     case 0:
+      return <_Salary />;
+    case 1:
+      return <_Benefits/>;
+    case 2:
+      return <_TypeOfWork />;
+    case 3:
+      return <_Message />;
+    case 4:
       return < _ContactMethod />;
+    // case 4:
+    //   return < _ContactMethod />;
+    // case 5:
+    //   return <_Email/>;
+    // case 6:
+    //   return <_CompanyName />;
+    // case 7:
+    //   return <First  />;
     }};
 
 

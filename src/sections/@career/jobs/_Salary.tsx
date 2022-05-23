@@ -38,6 +38,8 @@ export default function StepFour () {
           sx={{my:4}}
           inputProps={{
             // input:{{textAlign:"center"}}
+            inputMode: 'numeric',
+            pattern: '[0-9]*',
             min: 1080,
             max: 6000,
             type: 'tel',
