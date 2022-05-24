@@ -6,8 +6,9 @@ import { Stack, Button } from '@mui/material';
 import { useState } from 'react';
 import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 import _Benefits from './_Benefits'
+import _Checked from './_Benefits copy'
 import _Message from './_Message'
-import _TypeOfWork from './_TypeOfWork';
+// import _TypeOfWork from './_TypeOfWork';
 import _ContactMethod from './_ContactMethod'
 import _Salary from './_Salary';
 import { useForm } from "react-hook-form";
@@ -38,20 +39,23 @@ export default function Form () {
 const conditionalComponent = () => {
   switch (page) {
     case 0:
-      return <_Salary />;
+      return < _Checked />;
     case 1:
-      return <_Benefits/>;
+      return <_Salary />;
     case 2:
-      return <_TypeOfWork />;
+      return <_Benefits/>;
+    // case 2:
+    //   return <_TypeOfWork />;
     case 3:
       return <_Message />;
     case 4:
       return < _ContactMethod />;
+    
     // case 5:
     //   return < _ContactMethod />;
     // case 5:
       // return <_Email/>;
-    // case 6:
+    // case 5:
     //   return <_CompanyName />;
     // case 7:
     //   return <First  />;

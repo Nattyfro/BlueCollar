@@ -60,7 +60,7 @@ export default function StepFour () {
             <Stack sx={{width:1}}>
 
 
-              <Box  sx={{ display: 'grid', rowGap: 1, columnGap: 0, gridTemplateColumns: { xs: 'repeat(4, 2fr)', sm: 'repeat(4, 2fr)', md: 'repeat(4, 2fr)' }}}>
+              <Box  sx={{ display: 'grid', rowGap: 1, columnGap: 0, gridTemplateColumns: { xs: 'repeat(2, 2fr)', sm: 'repeat(2, 2fr)', md: 'repeat(2, 2fr)' }}}>
 
                   {PAYRATES.map((payRates) => (
                     
@@ -73,7 +73,7 @@ export default function StepFour () {
                       onChange={() => field.onChange(onSelected(payRates))}
                       color="standard"
                       size='small'
-                      sx={{ py: 1.5, px:1, m:0.5, typography: 'caption', 
+                      sx={{ py: 1, px:1, m:0.5, typography: 'caption', 
                         '&.Mui-selected': {
                           bgcolor: 'text.primary',
                           color: (theme) =>
