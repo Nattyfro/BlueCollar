@@ -3,6 +3,10 @@ import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
+import {  MotionViewport, varFade } from '../../../components/animate';
+import { m } from 'framer-motion';
+
+
 
 
 const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
@@ -15,21 +19,25 @@ export default function StepFour () {
   const {control} = useFormContext()
   
   return (
+              <Stack>
+              <MotionViewport
+             >
 
-    <Box >
-
-      <Stack spacing={3}>
-
-      <Stack alignItems="center" spacing={1}>
+            <m.div variants={varFade().in}>
+              <Stack alignItems="center" >
         <Stack direction="row" alignItems="center" spacing={1}>
           <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
           <Typography variant="subtitle2">BlueCollar user request</Typography>
         </Stack>
+        </Stack>
+        
         <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
           What salary would you like talks to begin at?
         </Typography>
-      </Stack>
-
+              
+    
+    <Box >
+      <Stack spacing={3}>
         <Stack alignItems='center' >
           <TextField
           variant="standard"
@@ -93,137 +101,12 @@ export default function StepFour () {
       />
     </Stack>
   </Box>
+  </m.div>
+
+              </MotionViewport>
+  </Stack>
+  
 
   
   )};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import {  Stack, TextField, ToggleButton, Typography, Box, Button } from '@mui/material'
-// import React from 'react'
-// import { useFormContext } from 'react-hook-form';
-// // import { useFormContext } from 'react-hook-form'
-
-
-// const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
-
-
-
-
-
-
-// export default function StepFour () {
-
-//   const {handleSubmit} = useFormContext();
-
-
-//   return (
-
-//       <Stack>
-//       <Stack sx={{mt:4}}>
-
-//         <Typography variant="body3" align="center"  sx={{ mb: 1, px:0, display: 'block' }}>
-//           What salary are you offering?
-//         </Typography>
-
-//         <Stack alignItems='center' >
-//           <TextField
-//             size="small"
-//             variant="filled"
-//             label="(£)"
-//             sx={{my:4}}
-//             inputProps={{
-//               min: 1080,
-//               max: 6000,
-//               type: 'tel',
-//               'aria-labelledby': 'input-slider',
-//               width:1,
-//               textAlign:"center"
-//             }}/>
-//         </Stack>  
-
-//       </Stack> 
-
-
-
-
-
-
-//                 <Box
-//                   sx={{
-//                     display: 'grid',
-//                     rowGap: { xs: 0, md: 1 },
-//                     columnGap: 0,
-//                     gridTemplateColumns: {
-//                       xs: 'repeat(2, 2fr)',
-//                       sm: 'repeat(2, 2fr)',
-//                       md: 'repeat(4, 2fr)',
-//                     }}}>
-
-//                   {PAYRATES.map((benefits) => (
-
-//                 <ToggleButton
-//                   key={benefits}
-//                   value= {data.salary}
-//                   color="standard"
-//                   size='small'
-//                   sx={{
-//                     py: 1,
-//                     px: 1,
-//                     m: 0.5,
-//                     typography:'caption'
-//                   }}>
-                
-//                   {benefits}
-//                 </ToggleButton>
-//                   ))}
-//                 </Box>
-
-//                 <Stack>
-//     <Button
-//       // onClick={handleSubmitonSubmit}
-//       onSubmit={handleSubmit(onSubmit)}
-//       size='large'
-//       variant='outlined' sx={{mt:4}}>
-//         SUBMIT
-//     </Button>
-//   </Stack>
-
-//                   </Stack>
-
-    
-//     )};

@@ -6,6 +6,9 @@ import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
 
+import {  MotionViewport, varFade } from '../../../components/animate';
+import { m } from 'framer-motion';
+
 
 // const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
 const BENEFITS = ['Free Parking', 'Fuel Credit', 'Skill Development', 'Company Vehicle', 'Bonus Schemes', 'Pension Funds'];
@@ -21,6 +24,10 @@ export default function _Benefits () {
   return (
 
     <Box >
+      <MotionViewport
+             >
+
+            <m.div variants={varFade().in}>
       <Stack spacing={5}>
 
 <Stack alignItems="center" spacing={1}>
@@ -79,6 +86,9 @@ export default function _Benefits () {
       />
     </Stack>
     </Stack>
+    </m.div>
+
+  </MotionViewport>
   </Box>
 
   

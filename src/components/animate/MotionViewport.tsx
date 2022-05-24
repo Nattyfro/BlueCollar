@@ -18,7 +18,7 @@ interface Props extends IProps {
 
 export default function MotionViewport({
   children,
-  disableAnimatedMobile = true,
+  disableAnimatedMobile = false,
   ...other
 }: Props) {
   const isDesktop = useResponsive('up', 'sm');

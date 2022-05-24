@@ -11,6 +11,9 @@ import { Box, Stack, Typography, CardActionArea } from '@mui/material';
 // components
 import { Iconify } from '../../../components';
 
+import {  MotionViewport, varBounce } from '../../../components/animate';
+import { m } from 'framer-motion';
+
 
 
 export default function _ContactMethod () {
@@ -40,6 +43,13 @@ const ContactButtonStyle = styled((props) => (
 
 
     <Box >
+
+<MotionViewport
+             >
+
+            <m.div variants={varBounce().in}>
+
+
       <Stack spacing={4}>
 
         <Stack alignItems="center" spacing={1}>
@@ -80,6 +90,13 @@ const ContactButtonStyle = styled((props) => (
         </Stack>
 
       </Stack>
+
+      </m.div>
+
+  </MotionViewport>
+
+
+
     </Box>
 
   )

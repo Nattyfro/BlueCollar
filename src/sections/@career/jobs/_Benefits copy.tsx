@@ -1,11 +1,11 @@
-import {useState} from 'react'
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import Checkbox from '@mui/material/Checkbox';
 import { Stack, Typography } from '@mui/material';
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
+
+import {  MotionViewport, varScale } from '../../../components/animate';
+import { m } from 'framer-motion';
 
 
 
@@ -21,6 +21,15 @@ export default function __Checked () {
 return (
 
   <Stack>
+
+
+<MotionViewport>
+  <m.div variants={varScale().inX}>
+
+
+
+
+
   <Stack sx={{mb:5}} >
 
 <Stack alignItems="center" spacing={1}>
@@ -49,6 +58,17 @@ return (
 
 
 </Stack>
+
+
+
+
+</m.div>
+
+  </MotionViewport>
+
+
+
+
 </Stack>
 
 

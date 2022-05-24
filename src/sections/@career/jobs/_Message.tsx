@@ -8,6 +8,9 @@ import { useFormContext } from 'react-hook-form'
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
 
+import {  MotionViewport, varFade } from '../../../components/animate';
+import { m } from 'framer-motion';
+
 
 const CHARACTER_LIMIT = 300;
 
@@ -19,6 +22,13 @@ export default function _Message() {
   return (
 
     <Box alignItems='center' justifyContent="center" sx={{mx:0.5}}>
+
+
+<MotionViewport
+             >
+
+            <m.div variants={varFade().in}>
+
           
      <Stack spacing={6}>
 
@@ -56,6 +66,10 @@ export default function _Message() {
 
 
       </Stack>
+
+      </m.div>
+
+</MotionViewport>
 
     </Box>
 
