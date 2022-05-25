@@ -11,7 +11,7 @@ import { Box, Stack, Typography, CardActionArea } from '@mui/material';
 // components
 import { Iconify } from '../../../components';
 
-import {  MotionViewport, varBounce } from '../../../components/animate';
+import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
 
 
@@ -47,7 +47,7 @@ const ContactButtonStyle = styled((props) => (
 <MotionViewport
              >
 
-            <m.div variants={varBounce().in}>
+            <m.div variants={varFade().in}>
 
 
       <Stack spacing={4}>

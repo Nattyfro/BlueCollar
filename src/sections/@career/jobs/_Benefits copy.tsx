@@ -4,8 +4,9 @@ import { Stack, Typography } from '@mui/material';
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
 
-import {  MotionViewport, varScale } from '../../../components/animate';
+import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
+// import {useState } from 'react'
 
 
 
@@ -24,7 +25,7 @@ return (
 
 
 <MotionViewport>
-  <m.div variants={varScale().inX}>
+  <m.div variants={varFade().in}>
 
 
 
@@ -48,13 +49,13 @@ return (
 
 {BENEFITS.map((benefits) => (
 
-  <ListItemButton key={benefits}>
+  <ListItemButton key={benefits} dense>
 
-      <Checkbox  />
-      <Typography  variant='body3' >{benefits}</Typography>
+      <Checkbox value={benefits} />
+      <Typography  variant='caption' >{benefits}</Typography>
 
   </ListItemButton>
-))};
+))}
 
 
 </Stack>
@@ -65,7 +66,6 @@ return (
 </m.div>
 
   </MotionViewport>
-
 
 
 

@@ -25,7 +25,7 @@ export default function CandidatesPopover({ job }: Props) {
 
   return (
                   
-    <Stack spacing={2.5} alignItems="center" justifyContent="bottom" sx={{ mx:2, p:0 }}>
+    <Stack spacing={2.5} alignItems="center" justifyContent="bottom" overflow='hidden' sx={{ mx:2, p:0 }}>
 
       <Stack  alignItems="center" spacing={2.5}>
         <Image
