@@ -14,6 +14,7 @@ import _Success from './_Success'
 import _Salary from './_Salary';
 import { useForm } from "react-hook-form";
 import { FormProvider } from 'react-hook-form'
+import { LoadingButton } from '@mui/lab';
 
 
 //----------------TypeScript---------------------------------------------------
@@ -111,7 +112,7 @@ const conditionalComponent = () => {
           <Stack direction='row' position='absolute' overflow='hidden' sx={{ mx:2, py:4, bottom: 0, left: 0}}>
 
             <Stack sx={{mx:0.5}}>
-            { page < 4 && 
+            { page < 3 && 
               <Button
               onClick={handleButton}
               variant='contained' 
@@ -121,7 +122,7 @@ const conditionalComponent = () => {
 
 
           <Stack sx={{mx:0.5}}>
-            { page > 0 && page < 4 &&    
+            { page > 0 && page < 3 &&    
               <Button
                 variant='outlined' 
                 size= 'large' 
@@ -130,6 +131,20 @@ const conditionalComponent = () => {
               </Button> }
             </Stack>
           </Stack>
+
+          <Stack sx={{mx:0.5}}>
+            { page === 3 && 
+              <LoadingButton 
+              size="large" 
+              type="submit" 
+              variant="contained" 
+              onClick={handleButton}
+              // loading={isSubmitting}
+              // onSubmit={onSubmit}
+              sx={{ my:4 }}>
+                  Send Invite
+                </LoadingButton>}
+            </Stack>
 
    </form>
    </FormProvider>
