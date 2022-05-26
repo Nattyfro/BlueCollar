@@ -1,6 +1,6 @@
 import ListItemButton from '@mui/material/ListItemButton';
 import Checkbox from '@mui/material/Checkbox';
-import { Stack, Typography } from '@mui/material';
+import {Stack, Typography } from '@mui/material';
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
 
@@ -45,16 +45,19 @@ return (
 </Stack>
 
   
-<Stack sx={{ml:4.5}}>
+<Stack >
 
 {BENEFITS.map((benefits) => (
 
-  <ListItemButton key={benefits} dense>
 
-      <Checkbox value={benefits} />
+
+  <ListItemButton key={benefits}   sx={{pl:8}}  >
+
+      <Checkbox value={benefits}   />
       <Typography  variant='caption' >{benefits}</Typography>
-
+  
   </ListItemButton>
+
 ))}
 
 

@@ -7,4 +7,7 @@
     payRates: string[];
     salary: number [];
     employment: string[],
+    salaryNumber: number,
+
   };
+ 

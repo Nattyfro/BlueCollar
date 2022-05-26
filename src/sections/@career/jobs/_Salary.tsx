@@ -1,4 +1,4 @@
-import { Stack, ToggleButton, Box, Typography, TextField } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText } from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
@@ -38,18 +38,36 @@ export default function StepFour () {
     
     <Box >
       <Stack spacing={3}>
-        <Stack alignItems='center' >
-          <TextField
-          variant="standard"
-          sx={{my:4}}
-          inputProps={{
-            inputMode: 'numeric',
-            sx:{textAlign: 'center'},
-            pattern: '[0-9]*',
-            min: 1080,
-            max: 6000,
-            'aria-labelledby': 'input-slider',
-          }}/>
+
+        <Stack alignItems='center'>
+
+          <Controller
+          name="salaryNumber"
+          control={control}
+          render={({ field, fieldState: { error } }) => (
+
+
+          
+          
+            <TextField
+            {...field}
+            variant="outlined"
+            label='£'
+            sx={{mt:4, mb:2}}
+            error={Boolean(error)}
+            helperText={error?.message}
+            inputProps={{
+              // inputMode: 'numeric',
+              sx:{textAlign: 'center'},
+              // pattern: '[0-9]*',
+              // 'aria-labelledby': 'input-slider'
+            }}
+            />
+
+          )} 
+          />
+
+
         </Stack>  
 
       </Stack> 
@@ -59,7 +77,7 @@ export default function StepFour () {
       <Controller
         name="benefits"
         control={control}
-        render={({ field }) => {
+        render={({ field, fieldState: {error} }) => {
 
           const onSelected = (payRates: string) =>
             field.value.includes(payRates) ? field.value.filter((value: string) => value !== payRates) : [...field.value, payRates];
@@ -95,6 +113,11 @@ export default function StepFour () {
                     </ToggleButton>
                   ))}
                 </Box>
+                {error && (
+                  <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
+                    {(error as any)?.message}
+                  </FormHelperText>
+                )}
             </Stack>
           );
         }}

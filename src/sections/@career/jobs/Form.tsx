@@ -1,21 +1,18 @@
 import React from 'react'
-// import First from './First';
-// import _CompanyName from './_CompanyName';
-// import _Email from './_Email';
-import { Stack, Button } from '@mui/material';
-import { useState } from 'react';
 import {CandidatesProps} from '../../../@types/career/CandidatesForm'
 import _Benefits from './_Benefits'
-import _Checked from './_Benefits copy'
+import _Checked from './_Checked'
 import _Message from './_Message'
 import _Success from './_Success'
-// import _TypeOfWork from './_TypeOfWork';
-// import _ContactMethod from './_ContactMethod'
 import _Salary from './_Salary';
-import { useForm } from "react-hook-form";
-import { FormProvider } from 'react-hook-form'
-import { LoadingButton } from '@mui/lab';
+import { Stack, Button } from '@mui/material';
+import { useState } from 'react';
+import { useForm, FormProvider } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
+import * as Yup from 'yup';
 
+
+ 
 
 //----------------TypeScript---------------------------------------------------
 
@@ -41,7 +38,7 @@ export default function Form () {
 const conditionalComponent = () => {
   switch (page) {
     case 0:
-      return < _Checked  />;
+      return < _Checked />;
     case 1:
       return <_Salary />;
     case 2:
@@ -50,21 +47,36 @@ const conditionalComponent = () => {
       return <_Message />;
     case 4:
       return <_Success />;
-    // case 4:
-    //   return < _ContactMethod />;
-    // case 2:
-    //   return <_TypeOfWork />;
-    // case 5:
-    //   return < _ContactMethod />;
-    // case 5:
-      // return <_Email/>;
-    // case 5:
-    //   return <_CompanyName />;
-    // case 7:
-    //   return <First  />;
     }};
 
+    //----------------Hooks---------------------------------------------------
 
+    const FormSchema = Yup.object().shape({
+  name: Yup.string().required(),
+  message: Yup.string().required('You must write a message.'),
+  salaryNumber: Yup.number().typeError('salary must be a number').required('You must enter your salary offering'),
+  email: Yup.string().email(),
+  benefits: Yup.array().required('sdfsdfd').min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one')  ,
+
+}); 
+
+const methods = useForm<CandidatesProps>({
+  mode:'onTouched',
+  resolver: yupResolver(FormSchema),
+  defaultValues:{
+    message:'',
+    benefits: [],
+    salaryNumber: undefined,
+  }
+})
+
+// const submitCandidatesForm: SubmitHandler<CandidatesProps> = async (data: CandidatesProps) => {
+//   console.log('data submitted', data)
+// }
+
+
+
+    //----------------Hooks---------------------------------------------------
 
 
   // INCREASES PAGE COUNT
@@ -83,27 +95,15 @@ const conditionalComponent = () => {
   };
 
     
-  // const { reset, control, handleSubmit } = useForm<CandidatesProps>({
-  //   mode: 'onTouched',
-  //   defaultValues: {
-  //     message: '',
-  //     companyName: '',
-  //     email: '',
-  //     benefits: [],
-  //     salary: [],
-  //   },
-  // });
-  
-  const methods = useForm<CandidatesProps>({
+  // const methods = useForm<CandidatesProps>({
 
-    defaultValues: {
-      benefits: [],
-      employment: [],
-    },
-  })
+  //   defaultValues: {
+  //     benefits: [],
+  //     employment: [],
+  //   },
+  // })
 
   return (
-    // SETS THE OVERALL LAYOUT OF THE POPOVER
     <FormProvider {...methods}>
     <form onSubmit={methods.handleSubmit(onSubmit)}>
 
@@ -111,18 +111,8 @@ const conditionalComponent = () => {
 
           <Stack direction='row' position='absolute' overflow='hidden' sx={{ mx:2, py:4, bottom: 0, left: 0}}>
 
-            <Stack sx={{mx:0.5}}>
-            { page < 3 && 
-              <Button
-              onClick={handleButton}
-              variant='contained' 
-              size= 'large'>Next
-              </Button> }
-            </Stack>
-
-
           <Stack sx={{mx:0.5}}>
-            { page > 0 && page < 3 &&    
+            { page > 0 && page < 4 &&    
               <Button
                 variant='outlined' 
                 size= 'large' 
@@ -130,21 +120,20 @@ const conditionalComponent = () => {
                 Back
               </Button> }
             </Stack>
+
+            
+            <Stack sx={{mx:0.5}}>
+            { page < 4 && 
+              <Button
+              onClick={handleButton}
+              variant='contained' 
+              size= 'large'>Next
+              </Button> }
+            </Stack>
+
           </Stack>
 
-          <Stack sx={{mx:0.5}}>
-            { page === 3 && 
-              <LoadingButton 
-              size="large" 
-              type="submit" 
-              variant="contained" 
-              onClick={handleButton}
-              // loading={isSubmitting}
-              // onSubmit={onSubmit}
-              sx={{ my:4 }}>
-                  Send Invite
-                </LoadingButton>}
-            </Stack>
+          
 
    </form>
    </FormProvider>
