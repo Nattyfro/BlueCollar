@@ -1,4 +1,4 @@
-import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment } from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
@@ -52,7 +52,11 @@ export default function StepFour () {
             <TextField
             {...field}
             variant="outlined"
-            label='£'
+            InputProps={{
+              startAdornment: <InputAdornment position="start">£</InputAdornment>
+            }}
+            // label='£'
+            prefix='£'
             sx={{mt:4, mb:2}}
             error={Boolean(error)}
             helperText={error?.message}
