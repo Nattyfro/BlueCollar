@@ -1,8 +1,9 @@
 // @mui
 import { styled } from '@mui/material/styles';
-import { Stack, Container, Typography, Grid, Card } from '@mui/material';
+import { Stack, Container, Typography, Grid, Card, Button } from '@mui/material';
 // components
 import { Image } from '../../../components';
+import Routes from '../../../routes';
 
 // ----------------------------------------------------------------------
 
@@ -91,12 +92,12 @@ export default function CareerLandingGettingStarted() { // Myles edit
                         bottom: { md: 0 },
                         my: { md: 'auto' },
                         boxShadow: { md: 0 },
-                        maxHeight: { md: 304 },
+                        maxHeight: { md: 340 },
                         display: { md: 'flex' },
                         position: { md: 'absolute' },
                         flexDirection: { md: 'column' },
                         justifyContent: { md: 'center' },
-                      }),
+                      }), 
                       ...(secondVision && {
                         boxShadow: (theme) => ({ md: theme.customShadows.z24 }),
                       }),
@@ -110,7 +111,7 @@ export default function CareerLandingGettingStarted() { // Myles edit
                       variant="h1"
                       component="h2"
                       sx={{ color: 'text.disabled', opacity: 0.24, mb: 3 }}
-                    >
+                    > 
                       {`0${index + 1}`}
                     </Typography>
 
@@ -118,7 +119,15 @@ export default function CareerLandingGettingStarted() { // Myles edit
                       {name}
                     </Typography>
 
-                    <Typography sx={{ color: 'text.secondary' }}>{description}</Typography>
+                    <Typography sx={{ color: 'text.secondary' }}>{description}</Typography> 
+                    { firstVision === true &&
+                       <Button
+                       variant='outlined'
+                       size='large'
+                       sx={{ my:4, width:'75%' }}
+                        href={Routes.registerIllustration}>
+                        Click Here
+                        </Button>}
                     
                   </Card>
                   

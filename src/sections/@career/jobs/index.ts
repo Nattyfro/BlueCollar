@@ -5,4 +5,3 @@ export { default as CareerJobDetails } from './CareerJobDetails';
 export { default as CareerJobSimilar } from './CareerJobSimilar';
 export { default as CareerJobCompanyInfo } from './CareerJobCompanyInfo';
 export { default as CareerJobCompanySimilar } from './CareerJobCompanySimilar';
-export { default as CandidatesPopover } from './CandidatesPopover';

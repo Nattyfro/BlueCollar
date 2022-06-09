@@ -15,9 +15,11 @@ const BENEFITS = ['Free Parking', 'Fuel Credit', 'Skill Development', 'Company V
 // const BENEFITS = [{value:'Parking'}, {value:'Fuel'}, {value:'Training'}, {value:'Vehicle'}, {value:'Bonus schemes'}, {value:'Pension'}];
 
 
+interface CandidatesProps {
+  name: string;
+};
 
-
-export default function _Benefits () {
+export default function _Benefits ({name}:CandidatesProps) {
 
   const {control} = useFormContext()
   
@@ -43,27 +45,27 @@ export default function _Benefits () {
 
     <Stack alignItems= "center" > 
       <Controller
-        name="benefits"
+        name= {name}
         control={control}
         render={({ field }) => {
 
-          const onSelected = (benefits: string) =>
-            field.value.includes(benefits) ? field.value.filter((value: string) => value !== benefits) : [...field.value, benefits];
+          const onSelected = (name: string) =>
+            field.value.includes(name) ? field.value.filter((value: string) => value !== name) : [...field.value, name];
 
           return ( 
             <Stack sx={{width:1}}>
 
               <Box  sx={{ width:1, display: 'grid', rowGap: 1.5, columnGap: 1.5, gridTemplateColumns: { xs: 'repeat(2, 2fr)', sm: 'repeat(2, 2fr)', md: 'repeat(2, 2fr)' }}}>
 
-                  {BENEFITS.map((benefits) => (
+                  {BENEFITS.map((name) => (
                     
                     
 
                     <ToggleButton
                       {...field}
-                      key={benefits}
-                      selected={field.value.includes(benefits)}
-                      onChange={() => field.onChange(onSelected(benefits))}
+                      key={name}
+                      selected={field.value.includes(name)}
+                      onChange={() => field.onChange(onSelected(name))}
                       color="standard"
                       size='small'
                       sx={{ py: 1.5, typography: 'caption', 
@@ -76,7 +78,7 @@ export default function _Benefits () {
                           },
                         },
                       }}>
-                      {benefits}
+                      {name}
                     </ToggleButton>
                   ))}
                 </Box>

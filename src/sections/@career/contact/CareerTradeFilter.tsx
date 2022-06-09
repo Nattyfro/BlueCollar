@@ -72,28 +72,19 @@ export default function CareerTradeFilter() {
       <Stack spacing={2.5} sx={{ py: 2, width: 1 }} direction={{ xs: 'column', md: 'row' }} >
         
 
-        <DropDown
-          filterCategories={filters.filterCategories}
-          onChangeCategory={handleChangeCategory}
-        />
+        <DropDown filterCategories={filters.filterCategories} onChangeCategory={handleChangeCategory} />
         
       </Stack>
 
       <Stack>
 
-        <Age 
-          filterSalary={filters.filterSalary}
-          onChangeSalary={handleChangeAge}
-        />
+        <Age filterSalary={filters.filterSalary} onChangeSalary={handleChangeAge} />
 
       </Stack>
 
       <Stack>
 
-        <CareerPostCode
-          filterPostCode={filters.filterPostCode}
-          onChangePostCode={ handleChangePostCode as any }
-        />
+        <CareerPostCode filterPostCode={filters.filterPostCode} onChangePostCode={ handleChangePostCode as any } />
 
       </Stack>
 

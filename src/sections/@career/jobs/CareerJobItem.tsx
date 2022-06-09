@@ -32,7 +32,7 @@ import {
 } from '../../../components';
 // myles components
 
-import CandidatesPopover from './CandidatesPopover'
+import Form from './Form'
 
 
 
@@ -105,7 +105,7 @@ export default function CareerJobItem({ job }: Props) {
           
         >
           <DialogContent sx={{m:0, p:0}}>
-        <CandidatesPopover job={job} />
+        <Form job = { job } />
 
           </DialogContent>
        

@@ -9,14 +9,16 @@ import { m } from 'framer-motion';
 
 
 
-const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
+// const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
 
 
+interface CandidatesProps {
+  name: string;
+};
 
+export default function _Salary ({name}:CandidatesProps) {
 
-export default function StepFour () {
-
-  const {control} = useFormContext()
+  const {control, register} = useFormContext()
   
   return (
               <Stack>
@@ -42,30 +44,22 @@ export default function StepFour () {
         <Stack alignItems='center'>
 
           <Controller
-          name="salaryNumber"
+          name= {name}
           control={control}
           render={({ field, fieldState: { error } }) => (
-
-
-          
-          
             <TextField
             {...field}
             variant="outlined"
             InputProps={{
               startAdornment: <InputAdornment position="start">£</InputAdornment>
             }}
-            // label='£'
-            prefix='£'
             sx={{mt:4, mb:2}}
             error={Boolean(error)}
-            helperText={error?.message}
             inputProps={{
-              // inputMode: 'numeric',
-              sx:{textAlign: 'center'},
-              // pattern: '[0-9]*',
-              // 'aria-labelledby': 'input-slider'
+              sx:{textAlign: 'center', width:80}
             }}
+            helperText={error?.message}
+            {...register(name)}  
             />
 
           )} 
@@ -77,7 +71,7 @@ export default function StepFour () {
       </Stack> 
     
 
-    <Stack alignItems= "center" > 
+    {/* <Stack alignItems= "center" > 
       <Controller
         name="benefits"
         control={control}
@@ -126,7 +120,7 @@ export default function StepFour () {
           );
         }}
       />
-    </Stack>
+    </Stack> */}
   </Box>
   </m.div>
 
