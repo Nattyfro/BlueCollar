@@ -1,4 +1,4 @@
-import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment, Divider } from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
@@ -9,7 +9,7 @@ import { m } from 'framer-motion';
 
 
 
-// const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
+const PAYRATES = ['Hourly', 'Daily', 'Monthly', 'Annually'];
 
 
 interface CandidatesProps {
@@ -69,11 +69,13 @@ export default function _Salary ({name}:CandidatesProps) {
         </Stack>  
 
       </Stack> 
+
+      <Divider sx={{my:2, mx:2}} />
     
 
-    {/* <Stack alignItems= "center" > 
+    <Stack alignItems= "center" > 
       <Controller
-        name="benefits"
+        name="payRates"
         control={control}
         render={({ field, fieldState: {error} }) => {
 
@@ -92,6 +94,7 @@ export default function _Salary ({name}:CandidatesProps) {
 
                     <ToggleButton
                       {...field}
+                      value= {payRates}
                       key={payRates}
                       selected={field.value.includes(payRates)}
                       onChange={() => field.onChange(onSelected(payRates))}
@@ -120,7 +123,7 @@ export default function _Salary ({name}:CandidatesProps) {
           );
         }}
       />
-    </Stack> */}
+    </Stack>
   </Box>
   </m.div>
 

@@ -29,6 +29,7 @@ import {
   Iconify,
   TextIconLabel,
   FavoriteButton,
+  Label,
 } from '../../../components';
 // myles components
 
@@ -54,6 +55,7 @@ export default function CareerJobItem({ job }: Props) {
     experience,
     userName,
     userAvatar,
+    isUrgent,
   } = job;
 
   const [favorite, setFavorite] = useState(favorited);
@@ -145,6 +147,7 @@ export default function CareerJobItem({ job }: Props) {
             src={userAvatar}
             sx={{ width: 100, height: 100, borderRadius: 1 }}
           />
+          {isUrgent && <Label color="success" sx={{px:1, py:1.5}}  >Open To Work </Label>} {/* Opern To Work */}
         </Stack>
 
         <Stack spacing={0.5} sx={{ mt: 3, mb: 2 }}>

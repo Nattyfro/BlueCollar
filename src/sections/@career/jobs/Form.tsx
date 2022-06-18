@@ -23,8 +23,9 @@ interface CandidatesProps  {
   companyName: string;
   email: string;
   benefits: string[];
+  jobType: string[];
   payRates: string[];
-  salary: number [];
+  salary: number [] ;
   employment: string[],
   salaryNumber: number,
 };
@@ -33,10 +34,12 @@ interface CandidatesProps  {
 const FormSchema = Yup.object().shape({
   // name: Yup.string().required(),
   message: Yup.string().required('You must write a message.'),
-  salaryNumber: Yup.number().typeError('salary must be a number').required('You must enter your salary offering'),
   // email: Yup.string().email(),
   // benefits: Yup.array().required('sdfsdfd').min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one')  ,
   benefits: Yup.array().required().min(1, 'Services field must have at least 1 items'),
+  jobType: Yup.array().required().min(1, 'Services field must have at least 1 items'),
+  payRates: Yup.array().required().min(1, 'Please Select the duration of the Salary'),
+  salaryNumber: Yup.number().typeError('salary must be a number').required('You must enter your salary offering'),
   // payRates: Yup.array().required('sdfsdfd').min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only zone')  ,
 
 }); 
@@ -47,26 +50,13 @@ export default function Form ({ job }: Props) {
 
 
 
-  // const commonStyles = {
-  //   // bgcolor: '#fff',
-  //   mb: 2,
-  //   border:20,
-  //   // borderColor:'secondary.main',
-  //   // borderStyle: 'dashed',
-  //               borderColor: 'grey.50032',
-  //   mt: 4,
-  //   width: '75',
-  //   height: '75',
-  // };
-
-  //width: 75, height: 75, borderRadius: 1, mb:2, mt:4, borderColor: 'error.main', 
 
 const conditionalComponent = () => {
   switch (page) {
     case 0:
-      return < _Checked  />;
+      return < _Checked name="jobType"  />;
     case 1:
-      return <_Salary name="salaryNumber" />;
+      return <_Salary name="salaryNumber" /> ;
     case 2:
       return <_Benefits name="benefits" /> ; // looks like i need to nest the second input inside _Benefits
     case 3:
@@ -84,19 +74,19 @@ const conditionalComponent = () => {
 }
 
 const methods  = useForm<CandidatesProps>({
-  // mode:'onTouched',
+  mode:'onTouched',
   resolver: yupResolver(FormSchema),
   defaultValues:{
     message:'',
     benefits: [],
+    jobType: [],
+    payRates: [],
     salaryNumber: undefined,
-    // salaryNumber: [],
   }
 })
 
 
 
-//  const onSubmit = () => { console.log('data submitted')};
 
  const onSubmit = async (data: CandidatesProps) => {
   await new Promise((resolve) => setTimeout(resolve, 500));
@@ -106,7 +96,6 @@ const methods  = useForm<CandidatesProps>({
   console.log('data submitted', data); 
 };
 
-// const onSubmit = (data: CandidatesProps) => console.log('hi', data)
 
   return (
 
@@ -120,7 +109,7 @@ const methods  = useForm<CandidatesProps>({
           // border={8}
           alt={userName} 
           src={userAvatar}
-          sx={{ width: 75, height: 75, borderRadius: 1, mb:2, mt:4,
+          sx={{ width: 50, height: 50, borderRadius: 1, mb:2, mt:4,
           //   borderStyle: 'solid',
           // borderColor: '#808080',
          }}
