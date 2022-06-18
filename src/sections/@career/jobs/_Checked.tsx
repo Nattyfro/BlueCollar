@@ -38,7 +38,7 @@ export default function Checked ({name}:CandidatesProps) {
     <Typography variant="subtitle2">BlueCollar user request</Typography>
   </Stack>
   <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
-  What benefits are you offering the candidate?
+  When do you want the employee to start?
   </Typography>
 </Stack>
     

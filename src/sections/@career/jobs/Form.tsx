@@ -109,7 +109,7 @@ const methods  = useForm<CandidatesProps>({
           // border={8}
           alt={userName} 
           src={userAvatar}
-          sx={{ width: 50, height: 50, borderRadius: 1, mb:2, mt:4,
+          sx={{ width: 55, height: 55, borderRadius: 1, mb:2, mt:4,
           //   borderStyle: 'solid',
           // borderColor: '#808080',
          }}

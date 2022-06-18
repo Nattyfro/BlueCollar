@@ -5,6 +5,9 @@ import timeIcon from '@iconify/icons-carbon/time';
 import increaseLevel from '@iconify/icons-carbon/increase-level';
 import moneyIcon from '@iconify/icons-carbon/money';
 import userIcon from '@iconify/icons-carbon/user';
+import car from '@iconify/icons-carbon/car';
+import home from '@iconify/icons-carbon/home';
+
 // next
 // @mui
 import { 
@@ -20,7 +23,7 @@ DialogContent, } from '@mui/material';
 // routes
 // utils
 import { fDate } from '../../../utils/formatTime';
-import { fCurrency } from '../../../utils/formatNumber';
+// import { fCurrency } from '../../../utils/formatNumber';
 // @types
 import { JobProps } from '../../../@types/career';
 // components
@@ -98,8 +101,6 @@ export default function CareerJobItem({ job }: Props) {
           sx= {{ overflow: 'scroll', zIndex: 1100 }}
           PaperProps={{
             sx: {
-              // pt: 4,
-              // pb: 4,
               width: '340px',
               height: '530px',
             },
@@ -158,15 +159,15 @@ export default function CareerJobItem({ job }: Props) {
           </NextLink> */}
 
           <Typography variant="h6">
-           BlueCollar User
+            BlueCollar User
           </Typography>
 
-          <Typography variant="body3" sx={{ color: 'secondary.main' }}>
-            {userName}
+          <Typography variant="body3" sx={{ pt:1, color: 'secondary.main' }}>
+            No Drivers Licence
           </Typography>
 
           <TextIconLabel
-            icon={<Iconify icon={locationIcon} sx={{ mr: 0.5, width: 18, height: 18 }} />}
+            icon={<Iconify icon={locationIcon} sx={{ mt:0, mr: 0.5, width: 18, height: 18 }} />}
             value={location}
             sx={{ typography: 'body3', color: 'text.secondary' }}
           />
@@ -207,7 +208,8 @@ export default function CareerJobItem({ job }: Props) {
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={moneyIcon} sx={{ width: 20, height: 20, mr: 1 }} />}
-            value={typeof salary === 'number' ? fCurrency(salary) : salary}
+            value={`£${salary} /annu...`}
+            // value={typeof salary === 'number' ? fCurrency(salary) : salary}
           />
         </Grid>
 
@@ -217,6 +219,21 @@ export default function CareerJobItem({ job }: Props) {
             value={level}
           />
         </Grid>
+
+        {/* <Grid item xs={6}>
+          <TextIconLabel
+            icon={<Iconify icon={home} sx={{ width: 20, height: 20, mr: 1 }} />}
+            value={`WV4`}
+          />
+        </Grid>
+
+        <Grid item xs={6}>
+          <TextIconLabel
+            icon={<Iconify icon={car} sx={{ width: 20, height: 20, mr: 1 }} />}
+            value="Car Licence"
+          />
+        </Grid> */}
+
       </Grid>
       </Box>
     </Card>

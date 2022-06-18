@@ -17,7 +17,8 @@ export const _jobs = [...Array(12)].map((_, index) => ({
   experience: index + 1,
   type: (index % 2 && 'part time') || (index % 4 && 'freelance') || 'full time',
   level: (index % 2 && 'Roofer') || (index % 4 && 'Gen.. Labourer') || 'No experience',
-  salary: (index % 3 && 12000) || 'competitive',
+  salary: (index % 3 && 72000) || 65.25,
+  // salary: (index % 3 && 12000) || 'competitive', ORIGINAL
   languages: ['Russian', 'Spanish', 'English'],
   isUrgent: index === 2 || false,
   views: 286,
