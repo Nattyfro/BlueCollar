@@ -5,8 +5,8 @@ import timeIcon from '@iconify/icons-carbon/time';
 import increaseLevel from '@iconify/icons-carbon/increase-level';
 import moneyIcon from '@iconify/icons-carbon/money';
 import userIcon from '@iconify/icons-carbon/user';
-import car from '@iconify/icons-carbon/car';
-import home from '@iconify/icons-carbon/home';
+// import car from '@iconify/icons-carbon/car';
+// import home from '@iconify/icons-carbon/home';
 
 // next
 // @mui

@@ -48,6 +48,7 @@ export default function _Salary ({name}:CandidatesProps) {
           control={control}
           render={({ field, fieldState: { error } }) => (
             <TextField
+            type="number"
             {...field}
             variant="outlined"
             InputProps={{
