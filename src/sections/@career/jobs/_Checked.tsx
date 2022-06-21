@@ -1,5 +1,5 @@
 // import { LoadingButton } from '@mui/lab';
-import { Stack, ToggleButton, Box, Typography } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, FormHelperText } from '@mui/material'
 // import { Box } from '@mui/system';
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
@@ -47,7 +47,7 @@ export default function Checked ({name}:CandidatesProps) {
       <Controller
         name= {name}
         control={control}
-        render={({ field }) => {
+        render={({ field, fieldState: { error } }) => {
 
           const onSelected = (name: string) =>
             field.value.includes(name) ? field.value.filter((value: string) => value !== name) : [...field.value, name];
@@ -77,11 +77,17 @@ export default function Checked ({name}:CandidatesProps) {
                             bgcolor: 'text.primary',
                           },
                         },
-                      }}>
+                      }}
+                      >
                       {name}
                     </ToggleButton>
                   ))}
                 </Box>
+                {error && (
+                  <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
+                    {(error as any)?.message}
+                  </FormHelperText>
+                )}
             </Stack>
           );
         }}

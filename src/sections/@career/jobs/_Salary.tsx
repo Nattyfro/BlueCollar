@@ -1,10 +1,11 @@
-import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment, Divider } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment, Divider, Chip } from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
 import securityIcon from '@iconify/icons-carbon/security';
 import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
+
 
 
 
@@ -18,7 +19,7 @@ interface CandidatesProps {
 
 export default function _Salary ({name}:CandidatesProps) {
 
-  const {control, register} = useFormContext()
+  const {control} = useFormContext()
   
   return (
               <Stack>
@@ -38,7 +39,6 @@ export default function _Salary ({name}:CandidatesProps) {
         </Typography>
               
     
-    <Box >
       <Stack spacing={3}>
 
         <Stack alignItems='center'>
@@ -49,17 +49,18 @@ export default function _Salary ({name}:CandidatesProps) {
           render={({ field, fieldState: { error } }) => (
             <TextField
             {...field}
+            
+            margin="dense"
             variant="outlined"
             InputProps={{
               startAdornment: <InputAdornment position="start">£</InputAdornment>
             }}
-            sx={{mt:4, mb:2}}
-            error={Boolean(error)}
+            sx={{mt:3, mb:2}}
             inputProps={{
               sx:{textAlign: 'center', width:80}
             }}
+            error={Boolean(error)}
             helperText={error?.message}
-            {...register(name)}  
             />
 
           )} 
@@ -70,7 +71,9 @@ export default function _Salary ({name}:CandidatesProps) {
 
       </Stack> 
 
-      <Divider sx={{my:2, mx:2}} />
+      <Divider sx={{mb:1.5, mx:1}} >
+        <Chip label="per" size="small" variant="outlined" color="primary" sx={{ mx:1.5 }} />
+      </Divider>
     
 
     <Stack alignItems= "center" > 
@@ -124,7 +127,6 @@ export default function _Salary ({name}:CandidatesProps) {
         }}
       />
     </Stack>
-  </Box>
   </m.div>
 
               </MotionViewport>

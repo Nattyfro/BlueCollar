@@ -35,11 +35,11 @@ const FormSchema = Yup.object().shape({
   // name: Yup.string().required(),
   message: Yup.string().required('You must write a message.'),
   // email: Yup.string().email(),
-  // benefits: Yup.array().required('sdfsdfd').min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one')  ,
-  benefits: Yup.array().required().min(1, 'Services field must have at least 1 items'),
-  jobType: Yup.array().required().min(1, 'Services field must have at least 1 items'),
-  payRates: Yup.array().required().min(1, 'Please Select the duration of the Salary'),
-  salaryNumber: Yup.number().typeError('salary must be a number').required('You must enter your salary offering'),
+  benefits: Yup.array(),
+  jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
+  payRates: Yup.array().required().min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one'),
+  // payRates: Yup.array().required().min(1, 'Please Select the duration of the Salary'),
+  salaryNumber: Yup.number().required('You must enter your salary offering').typeError('salary must only be numbers'),
   // payRates: Yup.array().required('sdfsdfd').min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only zone')  ,
 
 }); 
@@ -71,6 +71,9 @@ const conditionalComponent = () => {
 
   function handleButton () {
    setPage(page + 1);
+}
+  function handleButtonBack () {
+   setPage(page - 1);
 }
 
 const methods  = useForm<CandidatesProps>({
@@ -131,7 +134,7 @@ const methods  = useForm<CandidatesProps>({
                   <Button
                     variant='outlined' 
                     size= 'large' 
-                    onClick={() => setPage (page - 1 )}>
+                    onClick={handleButtonBack}>
                     Back
                   </Button>}
 
