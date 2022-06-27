@@ -14,6 +14,10 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import * as Yup from 'yup';
 import { Box } from '@mui/system';
 
+
+
+
+
 type Props = {
   job: JobProps;
 };
@@ -31,18 +35,8 @@ interface CandidatesProps  {
 };
 
 
-const FormSchema = Yup.object().shape({
-  // name: Yup.string().required(),
-  message: Yup.string().required('You must write a message.'),
-  // email: Yup.string().email(),
-  benefits: Yup.array(),
-  jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
-  payRates: Yup.array().required().min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one'),
-  // payRates: Yup.array().required().min(1, 'Please Select the duration of the Salary'),
-  salaryNumber: Yup.number().required('You must enter your salary offering').typeError('salary must only be numbers'),
-  // payRates: Yup.array().required('sdfsdfd').min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only zone')  ,
 
-}); 
+
 
 
 
@@ -51,10 +45,10 @@ export default function Form ({ job }: Props) {
 
 
 
-const conditionalComponent = () => {
-  switch (page) {
+const getStepContent = (step: number) => {
+  switch (step) {
     case 0:
-      return < _Checked name="jobType"  />;
+      return < _Checked name="jobType" />;
     case 1:
       return <_Salary name="salaryNumber" /> ;
     case 2:
@@ -67,18 +61,63 @@ const conditionalComponent = () => {
 
 
   const { userName, userAvatar} = job;
-  const  [page, setPage] = useState(0);
 
-  function handleButton () {
-   setPage(page + 1);
-}
-  function handleButtonBack () {
-   setPage(page - 1);
-}
+  const [activeStep, setActiveStep] = useState(0);
+  const steps = ["_Checked", "_Salary", "_Benefits", "_Message", "_Success" ];
+
+
+
+
+  // const onSubmit = async (data: CandidatesProps) => {
+  //   await new Promise((resolve) => setTimeout(resolve, 500));
+  //   alert( JSON.stringify( data, null, 2));
+  //   methods.reset();
+  //   handleNext();
+  //   console.log('data submitted', data); 
+  // };
+
+
+  // const onSubmit = (data: CandidatesProps) => {
+  //   console.log(JSON.stringify(data));
+  //   alert(JSON.stringify(data));
+  //   handleNext();
+  // };
+
+  const onSubmit = async (data: CandidatesProps) => {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    alert( JSON.stringify( data, null, 2));
+    handleNext();
+    // methods.reset();
+    console.log('data submitted', data); 
+  };
+
+  const validationSchema = [
+    //validation for step1
+    Yup.object({
+      jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
+    }),
+    //validation for step2
+    Yup.object({
+      payRates: Yup.array().required().min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one'),
+      salaryNumber: Yup.number().required('You must enter your salary offering').typeError('salary must only be numbers')
+    }),
+    //validation for step3
+    Yup.object({
+      benefits: Yup.array(),
+    }),
+    //validation for step4
+    Yup.object({
+      message: Yup.string().required('You must write a message.'),
+    })
+  ];
+
+  
+
+  const currentValidationSchema = validationSchema[activeStep];
 
 const methods  = useForm<CandidatesProps>({
-  mode:'onTouched',
-  resolver: yupResolver(FormSchema),
+  mode:'onChange',
+  resolver: yupResolver(currentValidationSchema),
   defaultValues:{
     message:'',
     benefits: [],
@@ -88,16 +127,27 @@ const methods  = useForm<CandidatesProps>({
   }
 })
 
+ const { handleSubmit, reset, trigger } = methods;
+
+  const handleNext = async () => {
+    const isStepValid = await trigger();
+    if (isStepValid) setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+    reset();
+  };
+
+
+ 
 
 
 
- const onSubmit = async (data: CandidatesProps) => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  setPage (page + 1 );
-  alert( JSON.stringify( data, null, 2));
-  methods.reset();
-  console.log('data submitted', data); 
-};
 
 
   return (
@@ -105,64 +155,122 @@ const methods  = useForm<CandidatesProps>({
 
     <Stack spacing={2.5} alignItems="center" justifyContent="bottom" overflow='hidden' sx={{ mx:2, p:0 }}>
 
-      <Box  >
-        { page < 4 && 
+      <Box>  { activeStep !== 4 &&
           <Image
           
-          // border={8}
           alt={userName} 
           src={userAvatar}
-          sx={{ width: 55, height: 55, borderRadius: 1, mb:2, mt:4,
-          //   borderStyle: 'solid',
-          // borderColor: '#808080',
+          sx={{ width: 65, height: 65, borderRadius: 1, mb:2, mt:4,
          }}
-          /> }
+          />}
       </Box>
         
 
       <Box sx={{width:1}} alignItems='center' justifyContent="center" textAlign='center'>
 
+
+
+      {/* <Stepper activeStep={activeStep}>
+          {steps.map((label) => {
+            const stepProps = {};
+            const labelProps = {};
+            return (
+              <Step key={label} {...stepProps}>
+                <StepLabel {...labelProps}>{label}</StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper> */}
+        <div style={{ minHeight: "50%" }}>
+          {activeStep === steps.length ? (
+            <>
+              <Button onClick={handleReset} >
+                Reset
+              </Button>
+            </>
+          ) : (
+
+
+
         <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <form>
 
-            {conditionalComponent()}
+          <div >
+                  {getStepContent(activeStep)}
+                </div>
 
-              <Stack direction='row' position='absolute' overflow='hidden' sx={{ mx:2, py:4, bottom: 0, left: 0}}>
+              <Stack direction='row' position='absolute' spacing={1} overflow='hidden' sx={{ mx:2, py:4, bottom: 0, left: 0}}>
 
-                <Stack sx={{mx:0.5}}>
-                {page > 0 && page < 4 &&
-                  <Button
+
+              <Button
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
                     variant='outlined' 
                     size= 'large' 
-                    onClick={handleButtonBack}>
+                    color="primary"
+                    
+                  >
                     Back
-                  </Button>}
+                  </Button>
+                  
 
-                </Stack>
+                  {activeStep === steps.length - 2  ? (
+                    <Button
+                    variant="contained"
+                    size= 'large'
+                    color="primary"
+                    onClick={handleSubmit(onSubmit)}
+                  >
+                    Send Request
+                  </Button>
+                  ) : (
+                    <Button
+                    variant='contained' 
+                    size= 'large' 
+                      onClick={handleNext}
+                    >
+                      Next
+                    </Button>
+                  )}
 
                 
-                <Stack sx={{mx:0.5}}>
-                { page < 3 && 
-                  <Button
-                    onClick={handleButton}
-                    variant='contained' 
-                    size= 'large'>Next
-                  </Button> }
-                </Stack>
-
-                <Stack sx={{mx:0.5}}>
-                { page === 3 && 
-                  <Button
-                    variant='contained' 
-                    type="submit"
-                    size= 'large'>Submit
-                  </Button> }
-                </Stack>
 
               </Stack>
 
         </form>
       </FormProvider>
+          )}
+          </div>
     </Box>
   </Stack>
   )};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {/* <Stack sx={{mx:0.5}}>
+                { page === 3 && 
+                  <LoadingButton
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  loading={isSubmitting}
+                  sx={{
+                    mx: { xs: 'auto !important', md: 'unset !important' },
+                  }}
+                >
+                  Send Request
+                </LoadingButton>}
+                </Stack> */}

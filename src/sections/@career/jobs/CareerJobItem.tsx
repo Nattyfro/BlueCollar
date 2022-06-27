@@ -98,7 +98,7 @@ export default function CareerJobItem({ job }: Props) {
       <Dialog
           open={Boolean(open)}
           onClose={handleClose}
-          sx= {{ overflow: 'scroll', zIndex: 1100 }}
+          sx= {{ overflow: 'hidden', zIndex: 1100 }}
           PaperProps={{
             sx: {
               width: '340px',

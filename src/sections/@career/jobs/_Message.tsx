@@ -11,6 +11,7 @@ import securityIcon from '@iconify/icons-carbon/security';
 
 import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
+// import { LoadingButton } from '@mui/lab';
 // import { CandidateProps } from '../../../@types/career';
 
 interface CandidatesProps {
@@ -23,7 +24,7 @@ const CHARACTER_LIMIT = 300;
 
 export default function _Message ({name, label}:CandidatesProps) {
 
-  const { register, control } = useFormContext();
+  const { control } = useFormContext();
 
   return (
 
@@ -64,18 +65,30 @@ export default function _Message ({name, label}:CandidatesProps) {
                   error={Boolean(error)}
                   helperText={error?.message}
                   inputProps={{ maxLength: CHARACTER_LIMIT }}
-                  {...register(name)}  
                 />)}
                 />
 
           </Stack>
-
 
           </Stack>
 
       </m.div>
 
     </MotionViewport>
+
+                {/* <Stack direction='row' position='absolute' overflow='hidden' sx={{ mx:2.5, py:4, bottom: 0, left: 90 }} >
+                  <LoadingButton
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  loading={isSubmitting}
+                  sx={{
+                    mx: { xs: 'auto !important', md: 'unset !important' },
+                  }}
+                  >
+                  Send Request
+                  </LoadingButton>
+                </Stack> */}
 
   </Box>
   )};

@@ -1,4 +1,4 @@
-import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment, Divider, Chip } from '@mui/material'
+import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment} from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
@@ -51,11 +51,11 @@ export default function _Salary ({name}:CandidatesProps) {
             {...field}
             
             margin="dense"
-            variant="outlined"
+            variant="standard"
             InputProps={{
               startAdornment: <InputAdornment position="start">£</InputAdornment>
             }}
-            sx={{mt:3, mb:2}}
+            sx={{mt:5, mb:2.5}}
             inputProps={{
               sx:{textAlign: 'center', width:80}
             }}
@@ -71,9 +71,9 @@ export default function _Salary ({name}:CandidatesProps) {
 
       </Stack> 
 
-      <Divider sx={{mb:1.5, mx:1}} >
+      {/* <Divider sx={{mb:1.5, mx:1}} >
         <Chip label="per" size="small" variant="outlined" color="primary" sx={{ mx:1.5 }} />
-      </Divider>
+      </Divider> */}
     
 
     <Stack alignItems= "center" > 

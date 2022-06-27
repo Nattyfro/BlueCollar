@@ -1,6 +1,4 @@
-// import { LoadingButton } from '@mui/lab';
 import { Stack, ToggleButton, Box, Typography, FormHelperText } from '@mui/material'
-// import { Box } from '@mui/system';
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import { Iconify } from '../../../components';
@@ -8,6 +6,7 @@ import securityIcon from '@iconify/icons-carbon/security';
 
 import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
+// import NextButton from './NextButton';
 
 
 // const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
@@ -22,6 +21,8 @@ interface CandidatesProps {
 export default function Checked ({name}:CandidatesProps) {
 
   const {control} = useFormContext()
+
+
   
   return (
 
@@ -97,6 +98,12 @@ export default function Checked ({name}:CandidatesProps) {
     </m.div>
 
   </MotionViewport>
+
+
+  {/* <NextButton/> */}
+
+
+
   </Box>
 
   
