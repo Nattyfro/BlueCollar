@@ -6,7 +6,7 @@ import { ThemeColorPresets } from '../@types/settings';
 // ----------------------------------------------------------------------
 
 const presetsKey = {
-  default: 'default',
+  default: 'pinkCyan',
   blueOrange: 'blueOrange',
   greenOrange: 'greenOrange',
   purpleTeal: 'purpleTeal',
