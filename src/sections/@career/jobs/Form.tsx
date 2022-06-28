@@ -155,9 +155,9 @@ const methods  = useForm<CandidatesProps>({
 
     <Stack spacing={2.5} alignItems="center" justifyContent="bottom" overflow='hidden' sx={{ mx:2, p:0 }}>
 
-      <Box>  { activeStep !== 4 &&
+      <Box>
+        { activeStep !== 4 &&
           <Image
-          
           alt={userName} 
           src={userAvatar}
           sx={{ width: 65, height: 65, borderRadius: 1, mb:2, mt:4,
@@ -205,9 +205,9 @@ const methods  = useForm<CandidatesProps>({
               <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
-                    variant='outlined' 
+                    variant='text' 
                     size= 'large' 
-                    color="primary"
+                    color="secondary"
                     
                   >
                     Back
@@ -225,6 +225,7 @@ const methods  = useForm<CandidatesProps>({
                   </Button>
                   ) : (
                     <Button
+                    // disabled={activeStep === 0}
                     variant='contained' 
                     size= 'large' 
                       onClick={handleNext}
@@ -244,33 +245,3 @@ const methods  = useForm<CandidatesProps>({
     </Box>
   </Stack>
   )};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {/* <Stack sx={{mx:0.5}}>
-                { page === 3 && 
-                  <LoadingButton
-                  size="large"
-                  type="submit"
-                  variant="contained"
-                  loading={isSubmitting}
-                  sx={{
-                    mx: { xs: 'auto !important', md: 'unset !important' },
-                  }}
-                >
-                  Send Request
-                </LoadingButton>}
-                </Stack> */}
