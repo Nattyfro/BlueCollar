@@ -14,6 +14,7 @@ export const _jobs = [...Array(12)].map((_, index) => ({
   createdAt: new Date(),
   deadline: add(new Date(), { months: 1 }),
   location: _mock.address.country(index),
+  homelocation: _mock.address.country2(index), // MYLES
   experience: index + 1,
   type: (index % 2 && 'part time') || (index % 4 && 'freelance') || 'full time',
   level: (index % 2 && 'Roofer') || (index % 4 && 'Gen.. Labourer') || 'No experience',
@@ -89,6 +90,7 @@ export const _jobsByCategories = [...Array(8)].map((_, index) => ({
 export const _jobsByCountries = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
   location: _mock.address.country(index),
+  homelocation: _mock.address.country2(index),
   // totalJobs: 101 + index,
   totalJobs: 'West Midlands', //123455
   coverImg: _mock.image.travel(index),

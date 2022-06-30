@@ -176,7 +176,7 @@ type JobByCountryItemProp = {
 };
 
 function JobByCountryItem({ country }: JobByCountryItemProp) {
-  const { location, coverImg, totalJobs } = country;
+  const { homelocation, coverImg, totalJobs } = country;
   return (
     <NextLink href={Routes.career.jobs}>
       <Card
@@ -196,7 +196,7 @@ function JobByCountryItem({ country }: JobByCountryItemProp) {
         </Box>
 
         <Stack spacing={1} sx={{ textAlign: 'center', p: 2.5 }}>
-          <Typography variant="h5">{location}</Typography>
+          <Typography variant="h5">{homelocation}</Typography>
           <Typography variant="body3" sx={{ color: 'text.disabled' }}>
             {totalJobs}
           </Typography>

@@ -43,6 +43,21 @@ export const fullAddress = [
   '3690 Hans Ports Apt. 369 - Cary, KS / 48930',
 ];
 
+export const country2 = [
+  'Wolverhampton',
+  'Stoke',
+  'Birmingham',
+  'Dudley',
+  'Telford',
+  'Dudley',
+  'Northampton',
+  'Worcester',
+  'Hereford',
+  "Redditch",
+  'Coventry',
+  'Walsall'
+];
+
 export const country = [
   'Bradmore, Wolverhampton',
   'Tunstall, Stoke',

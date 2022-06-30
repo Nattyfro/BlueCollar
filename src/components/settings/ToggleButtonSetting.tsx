@@ -1,28 +1,38 @@
 // icons
-import closeIcon from '@iconify/icons-carbon/close';
-import settingsAdjust from '@iconify/icons-carbon/settings-adjust';
+// import closeIcon from '@iconify/icons-carbon/close';
+// import settingsAdjust from '@iconify/icons-carbon/settings-adjust';
 // @mui
 import { alpha, styled } from '@mui/material/styles';
-import { Tooltip } from '@mui/material';
+// import { Tooltip } from '@mui/material';
 //
 import Iconify from '../Iconify';
-import { IconButtonAnimate } from '../animate';
+// import { IconButtonAnimate } from '../animate';
+// import { Typography } from '@mui/material';
+// import data from '@iconify/icons-carbon/user-avatar-filled-alt';
+import launchIcon from '@iconify/icons-carbon/launch';
+
+import { Button } from '@mui/material';
+import NextLink from 'next/link';
+import Routes from '../../routes';
+
+
+
 
 // ----------------------------------------------------------------------
 
 const zIndex = 1999;
 
 const ToggleButtonStyle = styled('div')(({ theme }) => {
-  const isLight = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode === 'dark';
 
   return {
     right: 32,
-    bottom: 40,
+    bottom: 30,
     position: 'fixed',
-    zIndex: zIndex + 1,
+    zIndex: zIndex - 1,
     borderRadius: '50%',
-    padding: theme.spacing(0.5),
-    backgroundColor: theme.palette.background.paper,
+    // padding: theme.spacing(0.5),
+    // backgroundColor: theme.palette.background.paper,
     boxShadow: `-12px 12px 32px -4px ${alpha(
       isLight ? theme.palette.grey[500] : theme.palette.common.black,
       0.8
@@ -48,25 +58,24 @@ type Props = {
   onToggle: VoidFunction;
 };
 
-export default function ToggleButtonSetting({ isOpen, onToggle, notDefault }: Props) {
+export default function ToggleButtonSetting({ isOpen, notDefault }: Props) {
   return (
     <ToggleButtonStyle>
       {notDefault && !isOpen && <BadgeStyle />}
-
-      <Tooltip title="Settings" placement="left">
-        <IconButtonAnimate
-          color={isOpen ? 'primary' : 'inherit'}
-          onClick={onToggle}
-          sx={{
-            ...(isOpen && {
-              bgcolor: (theme) =>
-                alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
-            }),
-          }}
-        >
-          <Iconify icon={isOpen ? closeIcon : settingsAdjust} sx={{ width: 22, height: 22 }} />
-        </IconButtonAnimate>
-      </Tooltip>
+      <NextLink href={Routes.career.landing}>
+      <Button
+              size="large"
+              variant="contained"
+              color='inherit'
+              endIcon={<Iconify sx={{mr:0.5}} icon={launchIcon} />}
+              sx={{p:1.5}}
+              // target="_blank"
+              // rel="noopener"
+              // href={Routes.figmaPreview}
+            >
+              Employers site
+            </Button>
+          </NextLink>
     </ToggleButtonStyle>
   );
 }

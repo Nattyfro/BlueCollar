@@ -8,7 +8,7 @@ import { company } from './company';
 import { phoneNumber } from './phoneNumber';
 import { firstName, lastName, fullName } from './name';
 import { price, rating, age, percent } from './number';
-import { fullAddress, country, countries } from './address';
+import { fullAddress, country, country2, countries } from './address';
 import {
   jobTitle,
   tourName,
@@ -34,6 +34,7 @@ const _mock = {
   address: {
     fullAddress: (index: number) => fullAddress[index],
     country: (index: number) => country[index],
+    country2: (index: number) => country2[index], // MYLES
   },
   name: {
     firstName: (index: number) => firstName[index],

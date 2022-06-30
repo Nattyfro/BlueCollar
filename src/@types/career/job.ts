@@ -20,6 +20,7 @@ export type JobByCategoryProps = {
 export type JobByCountryProps = {
   id: string;
   location: string;
+  homelocation: string;
   coverImg: string;
   totalJobs: string;
   // totalJobs: number; MYLES ORIGINAL

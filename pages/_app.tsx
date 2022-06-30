@@ -28,6 +28,7 @@ import ThemeProvider from '../src/theme';
 // utils
 import axios from '../src/utils/axios';
 // components
+import Settings from '../src/components/settings';
 import RtlLayout from '../src/components/RtlLayout';
 import ProgressBar from '../src/components/ProgressBar';
 import ThemeColorPresets from '../src/components/ThemeColorPresets';
@@ -62,6 +63,7 @@ export default function MyApp(props: MyAppProps) {
             <ThemeColorPresets>
               <MotionLazyContainer>
                 <RtlLayout>
+                  <Settings />
                   <ProgressBar />
                   {getLayout(<Component {...pageProps} />)}
                 </RtlLayout>
