@@ -5,6 +5,7 @@ import timeIcon from '@iconify/icons-carbon/time';
 import increaseLevel from '@iconify/icons-carbon/increase-level';
 import moneyIcon from '@iconify/icons-carbon/money';
 import userIcon from '@iconify/icons-carbon/user';
+import Zoom from '@mui/material/Zoom';
 // import car from '@iconify/icons-carbon/car';
 // import home from '@iconify/icons-carbon/home';
 
@@ -18,6 +19,7 @@ import {
   Grid,
   Dialog,
 Box,
+Tooltip,
 // Hidden,
 DialogContent, } from '@mui/material';
 // routes
@@ -191,20 +193,37 @@ export default function CareerJobItem({ job }: Props) {
           textTransform: 'capitalize',
         }}
       >
+
+<Tooltip
+            title="Users Trade Experience"
+            enterDelay={500}
+            leaveDelay={500}
+            TransitionComponent={Zoom}>
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={increaseLevel} sx={{ width: 20, height: 20, mr: 1 }} />}
             value={`${experience} year exp`}
           />
         </Grid>
+        </Tooltip>
 
+        <Tooltip
+            title="Type Of Work"
+            enterDelay={500}
+            TransitionComponent={Zoom}>
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={timeIcon} sx={{ width: 20, height: 20, mr: 1 }} />}
             value={type}
           />
         </Grid>
+        </Tooltip>
 
+          <Tooltip
+            title="Users Desired Salary"
+            placement="bottom"
+            enterDelay={500}
+            TransitionComponent={Zoom}>
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={moneyIcon} sx={{ width: 20, height: 20, mr: 1 }} />}
@@ -212,13 +231,21 @@ export default function CareerJobItem({ job }: Props) {
             // value={typeof salary === 'number' ? fCurrency(salary) : salary}
           />
         </Grid>
+          </Tooltip>
 
+            <Tooltip
+              title="Trade Speciality"
+              placement="bottom"
+              enterDelay={500}
+              TransitionComponent={Zoom}>
+              
         <Grid item xs={6}>
           <TextIconLabel
             icon={<Iconify icon={userIcon} sx={{ width: 20, height: 20, mr: 1 }} />}
             value={level}
           />
         </Grid>
+          </Tooltip>
 
         {/* <Grid item xs={6}>
           <TextIconLabel

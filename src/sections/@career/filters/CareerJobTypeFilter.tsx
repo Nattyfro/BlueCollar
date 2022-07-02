@@ -5,7 +5,7 @@ import { Iconify } from '../../../components';
 import timeIcon from '@iconify/icons-carbon/time';
 // ----------------------------------------------------------------------
 
-const JOB_TYPES = ['Part time', 'Full time', 'Freelance'];
+const JOB_TYPES = ['Part time', 'Full time', 'Weekends'];
 
 const inputStyle = {
   width: '100%',

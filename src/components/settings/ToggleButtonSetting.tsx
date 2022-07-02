@@ -11,7 +11,7 @@ import Iconify from '../Iconify';
 // import data from '@iconify/icons-carbon/user-avatar-filled-alt';
 import launchIcon from '@iconify/icons-carbon/launch';
 
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import NextLink from 'next/link';
 import Routes from '../../routes';
 
@@ -64,7 +64,7 @@ export default function ToggleButtonSetting({ isOpen, notDefault }: Props) {
       {notDefault && !isOpen && <BadgeStyle />}
       <NextLink href={Routes.career.landing}>
       <Button
-              size="large"
+              // size="large"
               variant="contained"
               color='inherit'
               endIcon={<Iconify sx={{mr:0.5}} icon={launchIcon} />}
@@ -73,7 +73,8 @@ export default function ToggleButtonSetting({ isOpen, notDefault }: Props) {
               // rel="noopener"
               // href={Routes.figmaPreview}
             >
-              Employers site
+              <Typography variant="caption" > Employers site </Typography>
+              
             </Button>
           </NextLink>
     </ToggleButtonStyle>

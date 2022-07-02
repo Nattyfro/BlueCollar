@@ -63,7 +63,7 @@ const getStepContent = (step: number) => {
   const { userName, userAvatar} = job;
 
   const [activeStep, setActiveStep] = useState(0);
-  const steps = ["_Checked", "_Salary", "_Benefits", "_Message", "_Success" ];
+  // const steps = ["_Checked", "_Salary", "_Benefits", "_Message", "_Success" ];
 
 
 
@@ -87,7 +87,7 @@ const getStepContent = (step: number) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     alert( JSON.stringify( data, null, 2));
     handleNext();
-    // methods.reset();
+    methods.reset();
     console.log('data submitted', data); 
   };
 
@@ -127,7 +127,7 @@ const methods  = useForm<CandidatesProps>({
   }
 })
 
- const { handleSubmit, reset, trigger } = methods;
+ const { handleSubmit, trigger } = methods;
 
   const handleNext = async () => {
     const isStepValid = await trigger();
@@ -138,10 +138,10 @@ const methods  = useForm<CandidatesProps>({
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-    reset();
-  };
+  // const handleReset = () => {
+  //   setActiveStep(0);
+  //   reset();
+  // };
 
 
  
@@ -170,28 +170,6 @@ const methods  = useForm<CandidatesProps>({
 
 
 
-      {/* <Stepper activeStep={activeStep}>
-          {steps.map((label) => {
-            const stepProps = {};
-            const labelProps = {};
-            return (
-              <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
-              </Step>
-            );
-          })}
-        </Stepper> */}
-        <div style={{ minHeight: "50%" }}>
-          {activeStep === steps.length ? (
-            <>
-              <Button onClick={handleReset} >
-                Reset
-              </Button>
-            </>
-          ) : (
-
-
-
         <FormProvider {...methods}>
           <form>
 
@@ -201,7 +179,7 @@ const methods  = useForm<CandidatesProps>({
 
               <Stack direction='row' position='absolute' spacing={1} overflow='hidden' sx={{ mx:2, py:4, bottom: 0, left: 0}}>
 
-
+              {activeStep < 3 &&
               <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
@@ -211,10 +189,11 @@ const methods  = useForm<CandidatesProps>({
                     
                   >
                     Back
-                  </Button>
+                  </Button>}
                   
-
-                  {activeStep === steps.length - 2  ? (
+                   {/* {activeStep !== 4 &&
+                   activeStep === steps.length - 2  ? ( */}
+                  { activeStep == 3 && 
                     <Button
                     variant="contained"
                     size= 'large'
@@ -222,8 +201,8 @@ const methods  = useForm<CandidatesProps>({
                     onClick={handleSubmit(onSubmit)}
                   >
                     Send Request
-                  </Button>
-                  ) : (
+                  </Button>}
+                  { activeStep < 3 && 
                     <Button
                     // disabled={activeStep === 0}
                     variant='contained' 
@@ -231,8 +210,8 @@ const methods  = useForm<CandidatesProps>({
                       onClick={handleNext}
                     >
                       Next
-                    </Button>
-                  )}
+                    </Button>}
+                  
 
                 
 
@@ -240,8 +219,6 @@ const methods  = useForm<CandidatesProps>({
 
         </form>
       </FormProvider>
-          )}
-          </div>
     </Box>
   </Stack>
   )};
