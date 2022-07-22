@@ -179,7 +179,7 @@ const methods  = useForm<CandidatesProps>({
 
               <Stack direction='row' position='absolute' spacing={1} overflow='hidden' sx={{ mx:2, py:4, bottom: 0, left: 0}}>
 
-              {activeStep < 3 &&
+              {activeStep < 4 &&
               <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}

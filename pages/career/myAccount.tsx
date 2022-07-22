@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Grid, Container, Typography} from '@mui/material';
+import { Grid, Container, Typography, TextField} from '@mui/material';
 // config
 import { HEADER_MOBILE_HEIGHT, HEADER_DESKTOP_HEIGHT } from '../../src/config';
 // layouts
@@ -19,7 +19,11 @@ import {
   
 } from '../../src/sections/@career/contact';
 
-import { CareerDetails, CareerDesiredSalary } from '../../src/sections/@career';
+// import {CALENDAR} from '../../public/assets/images/formIcons';
+
+// import { CareerDetails, CareerDesiredSalary } from '../../src/sections/@career';
+
+
 
 
 // ----------------------------------------------------------------------
@@ -51,9 +55,19 @@ export default function myAccount() {
               <Typography variant="h2" sx={{ mb: 5 }}>
                 Account Settings
               </Typography>
-                <CareerDesiredSalary/>
-                
-                <CareerDetails/>
+
+
+              <Container maxWidth="sm">
+                {/* <CALENDAR/> */}
+                <Typography> jhbfjn </Typography>
+                <TextField name="ijdfn" label="sdsdvf"/>
+              </Container>
+
+
+
+
+                {/* <CareerDesiredSalary/> */}
+                {/* <CareerDetails/> */}
                 
             </Grid>
           </Grid>

@@ -33,6 +33,7 @@ export type JobProps = {
   level: string;
   type: string;
   salary: string | number;
+  salaryDuration: string;
   experience: string | number;
   isUrgent: boolean;
   category: string;
