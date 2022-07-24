@@ -1,8 +1,6 @@
 import { Stack, ToggleButton, Box, Typography, TextField, FormHelperText, InputAdornment} from '@mui/material'
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
-import { Iconify } from '../../../components';
-import securityIcon from '@iconify/icons-carbon/security';
 import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
 
