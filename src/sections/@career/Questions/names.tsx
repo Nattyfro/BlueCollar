@@ -9,8 +9,8 @@ import { useFormContext } from 'react-hook-form'
 
 import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
-// import { LoadingButton } from '@mui/lab';
-// import { CandidateProps } from '../../../@types/career';
+import { Iconify } from '../../../components';
+import securityIcon from '@iconify/icons-carbon/security';
 
 interface CandidatesProps {
   name: string;
@@ -35,9 +35,15 @@ export default function Names ({name, label}:CandidatesProps) {
               
         <Stack spacing={6}>
 
-        <Typography variant="h4" paragraph sx={{ pb:0}} >
-        Tell us a bit about yourself
-        </Typography>
+        <Stack alignItems="center" spacing={1}>
+  <Stack direction="row" alignItems="center" spacing={1}>
+    <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
+    <Typography variant="subtitle2">BlueCollar Listing application</Typography>
+  </Stack>
+                  <Typography variant="body3" sx={{ color: 'text.disabled' }}>
+                  What salary would you like talks to begin at?
+                  </Typography>
+</Stack> 
 
 
 

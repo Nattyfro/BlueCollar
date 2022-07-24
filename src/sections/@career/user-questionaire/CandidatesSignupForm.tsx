@@ -52,7 +52,7 @@ const getStepContent = (step: number) => {
     case 3:
         return  <_CompanyName/>
     case 4:
-        return <Names name= "message" label= "Message (max.300)" />
+        return <Names name= "message" label= "Bio (max.300)" />
     }};
 
 
