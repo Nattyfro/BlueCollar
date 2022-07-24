@@ -1,28 +1,13 @@
 import { ReactElement } from 'react';
-// @mui
 import { styled } from '@mui/material/styles';
 import { Grid, Container, Typography, TextField, Stack, Button} from '@mui/material';
-// config
 import { HEADER_MOBILE_HEIGHT, HEADER_DESKTOP_HEIGHT } from '../../src/config';
-// layouts
 import Layout from '../../src/layouts';
-// components
 import { Page } from '../../src/components';
-// sections
-/* import {
-  MarketingFreeSEO,
-  
-} from '../../src/sections/@marketing'; */
-import {
-  CareerContactInfo,
- //  CareerContactForm,
-  
-} from '../../src/sections/@career/contact';
-
-import { Image } from '../../src/components';
+import { CareerContactInfo } from '../../src/sections/@career/contact';
+import CandidatesSignupForm from '../../src/sections/@career/user-questionaire/CandidatesSignupForm'
 
 
-// import { CareerDetails, CareerDesiredSalary } from '../../src/sections/@career';3
 
 
 
@@ -54,7 +39,7 @@ export default function myAccount() {
             </Grid>
             <Grid item xs={12} md={6} lg={6}>
 
-            <Stack spacing={6} alignItems="center" sx={{mx:1}}>
+            {/* <Stack spacing={6} alignItems="center" sx={{mx:1}}>
 
               <Stack alignItems="center" spacing={5}>
 
@@ -93,13 +78,11 @@ export default function myAccount() {
                 </Button>
 
               </Stack>
-              </Stack>
+              </Stack> */}
 
+              
+                <CandidatesSignupForm/>
 
-
-
-                {/* <CareerDesiredSalary/> */}
-                {/* <CareerDetails/> */}
                 
             </Grid>
           </Grid>
