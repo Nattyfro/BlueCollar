@@ -35,7 +35,7 @@ export default function Names ({name, label}:CandidatesProps) {
               
         <Stack spacing={6}>
 
-        <Typography variant="h3" paragraph sx={{ pb:0}} >
+        <Typography variant="h4" paragraph sx={{ pb:0}} >
         Tell us a bit about yourself
         </Typography>
 

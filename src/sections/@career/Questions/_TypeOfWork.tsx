@@ -3,10 +3,11 @@ import { Stack, ToggleButton, Box, Typography } from '@mui/material'
 // import { Box } from '@mui/system';
 import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
+import { Iconify } from '../../../components';
+import securityIcon from '@iconify/icons-carbon/security';
 
-// const BENEFITS = ['Parking', 'Fuel', 'Training', 'Vehicle', 'Bonuses', 'Pension'];
+
 const EMPLOYMENT = ['Full-time', 'Part-time', 'Weekends', 'Apprenticeship', 'Fixed-term Contract', 'Temporary Contract' ];
-// const BENEFITS = [{value:'Parking'}, {value:'Fuel'}, {value:'Training'}, {value:'Vehicle'}, {value:'Bonus schemes'}, {value:'Pension'}];
 
 interface CandidatesProps {
   name: string;
@@ -22,10 +23,15 @@ export default function _TypeOfWork ({name}:CandidatesProps) {
     <Box >
       <Stack spacing={5}>
 
-      <Typography variant="h3" paragraph sx={{ pb:0}} >
-        What type of work are you after?
-      </Typography>
-    
+      <Stack alignItems="center" spacing={1}>
+  <Stack direction="row" alignItems="center" spacing={1}>
+    <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
+    <Typography variant="subtitle2">BlueCollar Listing application</Typography>
+  </Stack>
+                  <Typography variant="body3" sx={{ color: 'text.disabled' }}>
+                  What type of work are you after?
+                  </Typography>
+</Stack> 
 
     <Stack alignItems= "center" > 
       <Controller
@@ -52,7 +58,7 @@ export default function _TypeOfWork ({name}:CandidatesProps) {
                       onChange={() => field.onChange(onSelected(benefits))}
                       color="standard"
                       size='small'
-                      sx={{ py: 1.5, typography: 'caption', 
+                      sx={{ mx:2, py: 1.5, typography: 'caption', 
                         '&.Mui-selected': {
                           bgcolor: 'text.primary',
                           color: (theme) =>

@@ -27,6 +27,7 @@ interface CandidatesProps  {
   salary: number [] ;
   employment: string[],
   salaryNumber: number,
+  employmentUrgency: string[],
 };
 
 
@@ -43,15 +44,15 @@ export default function CandidatesSignupForm () {
 const getStepContent = (step: number) => {
   switch (step) {
     case 0:
-      return  <Names name= "message" label= "Message (max.300)" />
+        return <_Checked name="employmentUrgency" />
     case 1:
-      return <_CompanyName />
+        return <_TypeOfWork name= "jobType"/>
     case 2:
-      return <_Salary name= "salaryNumber" />
+        return <_Salary name= "salaryNumber" />
     case 3:
-      return <_TypeOfWork name= "jobType"/>
+        return  <_CompanyName/>
     case 4:
-      return <_Checked name="jobType" />
+        return <Names name= "message" label= "Message (max.300)" />
     }};
 
 
@@ -72,11 +73,12 @@ const getStepContent = (step: number) => {
   const validationSchema = [
     //validation for step1
     Yup.object({
-        message: Yup.string().required('You must write a message.'),
+        employmentUrgency: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
     }),
     //validation for step2
     Yup.object({
-        name: Yup.string().required('You must write a message.'),
+        
+        jobType: Yup.array().required().min(1, 'You must select one'),
     }),
     //validation for step3
     Yup.object({
@@ -85,11 +87,11 @@ const getStepContent = (step: number) => {
     }),
     //validation for step4
     Yup.object({
-        jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
+        name: Yup.string().required('You must write a message.'),
     }),
     //validation for step4
     Yup.object({
-        jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
+        message: Yup.string().required('You must write a message.'),
     })
   ];
 
@@ -104,6 +106,7 @@ const methods  = useForm<CandidatesProps>({
     message:'',
     benefits: [],
     jobType: [],
+    employmentUrgency: [],
     payRates: [],
     salaryNumber: undefined,
   }

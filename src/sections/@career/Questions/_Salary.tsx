@@ -3,7 +3,8 @@ import React from 'react'
 import {Controller, useFormContext} from 'react-hook-form'
 import {  MotionViewport, varFade } from '../../../components/animate';
 import { m } from 'framer-motion';
-
+import { Iconify } from '../../../components';
+import securityIcon from '@iconify/icons-carbon/security';
 
 
 
@@ -25,13 +26,15 @@ export default function _Salary ({name}:CandidatesProps) {
              >
 
             <m.div variants={varFade().in}>
-              <Stack alignItems="center" >
-        <Stack direction="row" alignItems="center" spacing={1}>
-        <Typography variant="h3" paragraph sx={{ pb:0}} >
-        How much do you think you should be earning?
-      </Typography>
-        </Stack>
-        </Stack>
+            <Stack alignItems="center" spacing={1}>
+  <Stack direction="row" alignItems="center" spacing={1}>
+    <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
+    <Typography variant="subtitle2">BlueCollar Listing application</Typography>
+  </Stack>
+                  <Typography variant="body3" sx={{ color: 'text.disabled' }}>
+                  What salary would you like talks to begin at?
+                  </Typography>
+</Stack> 
         
               
     

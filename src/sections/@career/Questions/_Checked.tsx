@@ -36,12 +36,12 @@ export default function Checked ({name}:CandidatesProps) {
 <Stack alignItems="center" spacing={1}>
   <Stack direction="row" alignItems="center" spacing={1}>
     <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
-    <Typography variant="subtitle2">BlueCollar user request</Typography>
+    <Typography variant="subtitle2">BlueCollar Listing application</Typography>
   </Stack>
-  <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
-  When do you want the employee to start?
-  </Typography>
-</Stack>
+                  <Typography variant="body3" sx={{ color: 'text.disabled' }}>
+                  When do you want the employee to start?
+                  </Typography>
+</Stack> 
     
 
     <Stack alignItems= "center" > 

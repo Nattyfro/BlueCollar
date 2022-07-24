@@ -63,25 +63,6 @@ const getStepContent = (step: number) => {
   const { userName, userAvatar} = job;
 
   const [activeStep, setActiveStep] = useState(0);
-  // const steps = ["_Checked", "_Salary", "_Benefits", "_Message", "_Success" ];
-
-
-
-
-  // const onSubmit = async (data: CandidatesProps) => {
-  //   await new Promise((resolve) => setTimeout(resolve, 500));
-  //   alert( JSON.stringify( data, null, 2));
-  //   methods.reset();
-  //   handleNext();
-  //   console.log('data submitted', data); 
-  // };
-
-
-  // const onSubmit = (data: CandidatesProps) => {
-  //   console.log(JSON.stringify(data));
-  //   alert(JSON.stringify(data));
-  //   handleNext();
-  // };
 
   const onSubmit = async (data: CandidatesProps) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
