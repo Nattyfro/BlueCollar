@@ -157,7 +157,7 @@ const methods  = useForm<CandidatesProps>({
                   {getStepContent(activeStep)}
                 </div>
 
-                <Stack direction='row' position='absolute' spacing={1} sx={{ mx:2, py:4, bottom: 0, right: 30}}>
+                <Stack direction='row' spacing={1} justifyContent="right" sx={{pt:5}} >
               {/* <Stack direction='row' justifyContent="right" spacing={1}  sx={{ mx:0 }}> */}
 
               {activeStep < 4 &&
