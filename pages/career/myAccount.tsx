@@ -7,7 +7,7 @@ import { HEADER_MOBILE_HEIGHT, HEADER_DESKTOP_HEIGHT } from '../../src/config';
 // layouts
 import Layout from '../../src/layouts';
 // components
-import { Iconify, Page } from '../../src/components';
+import { Page } from '../../src/components';
 // sections
 /* import {
   MarketingFreeSEO,
@@ -20,10 +20,9 @@ import {
 } from '../../src/sections/@career/contact';
 
 import { Image } from '../../src/components';
-import securityIcon from '@iconify/icons-carbon/security';
 
 
-// import { CareerDetails, CareerDesiredSalary } from '../../src/sections/@career';
+// import { CareerDetails, CareerDesiredSalary } from '../../src/sections/@career';3
 
 
 
@@ -43,7 +42,7 @@ export default function myAccount() {
   return (
     <Page title="Account Settings">
       <RootStyle>
-        <Container sx={{ py: { xs: 8, md: 10 } }}>
+        <Container sx={{ py: { xs: 0, md: 10 } }}>
           <Grid
             container
             spacing={{ xs: 8, md: 3 }}
