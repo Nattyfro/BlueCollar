@@ -10,7 +10,7 @@ import { Iconify, TextIconLabel, Image } from '../../../components';
 
 export default function CareerContactInfo() {
   return (
-    <Stack spacing={3}>
+    <Stack spacing={3} sx={{display: { xs: 'none', md: 'block'}}} >
       <Image
         alt="marketing-contact"
         src="https://blue-collar.vercel.app/assets/illustrations/illustration_marketing_contact.svg"

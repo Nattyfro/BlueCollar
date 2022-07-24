@@ -28,7 +28,7 @@ import ThemeProvider from '../src/theme';
 // utils
 import axios from '../src/utils/axios';
 // components
-import Settings from '../src/components/settings';
+// import Settings from '../src/components/settings';
 import RtlLayout from '../src/components/RtlLayout';
 import ProgressBar from '../src/components/ProgressBar';
 import ThemeColorPresets from '../src/components/ThemeColorPresets';

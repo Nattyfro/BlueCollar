@@ -54,51 +54,43 @@ export default function myAccount() {
               <CareerContactInfo />
             </Grid>
             <Grid item xs={12} md={6} lg={6}>
-              {/* <Typography variant="h2" sx={{ mb: 5 }}>
-                Account Settings
-              </Typography> */}
 
-            <Stack spacing={6} sx={{mx:1}}>
+            <Stack spacing={6} alignItems="center" sx={{mx:1}}>
 
-              <Stack alignItems="center" spacing={1}>
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <Iconify icon={securityIcon} sx={{ width: 24, height: 24, color: 'primary.main' }} />
-                  <Typography variant="subtitle2">BlueCollar user request</Typography>
-                </Stack> 
-                
-                <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
-                Fill out this form and you will be listed on the site within 24hrs
+              <Stack alignItems="center" spacing={5}>
+
+                <Image
+                  src="https://zone-assets-api.vercel.app/assets/icons/ic_lock_password.svg"
+                  alt="Calendar" 
+                  sx={{mb: 5, width: 96, height: 96 }}/>
+
+                <Typography variant="h3" paragraph>
+                  Forgot Your Password?
                 </Typography>
-              </Stack>
-
-
-              <Stack alignItems="center" spacing={2} >
-                <Image src="https://blue-collar.vercel.app/assets/images/formIcons/CALENDAR.png" 
-                       alt=""
-                       sx={{width:"50%"}} />
+                
+                <Typography variant="body2" align="center" sx={{ color: 'text.secondary' }}>
+                  Please enter the email address associated with your account and We will email you a
+                  link to reset your password.
+                </Typography>
 
                 <Stack direction={{ xs: 'column', md: 'row' }} sx={{width:1}} spacing={1.5}>
                   <TextField variant="outlined" name="First Name" label="First Name"/>
                   <TextField variant="outlined" name="Last Name" label="Last Name"/>
                   <TextField variant="outlined" name="Email" label="Email"/>
                 </Stack>
+
               </Stack>
 
 
-              <Stack direction='row' alignItems="center">
+              <Stack sx={{width:1}}>
 
-                <Button
-                    variant='text' 
-                    size= 'large' 
-                    color="secondary">
-                    Back
-                </Button>
 
                 <Button
                     variant='contained' 
+                    sx={{width:1}}
                     size= 'large'>
                   
-                    Next
+                    Continue
                 </Button>
 
               </Stack>
@@ -122,5 +114,5 @@ export default function myAccount() {
 // ----------------------------------------------------------------------
 
 myAccount.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
+  return <Layout disabledHeader disabledFooter >{page}</Layout>;
 };
