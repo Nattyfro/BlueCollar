@@ -9,6 +9,8 @@ import { Box } from '@mui/system';
 import Names from '../Questions/names'
 import _CompanyName from '../Questions/_CompanyName'
 import _Salary from '../Questions/_Salary'
+import _TypeOfWork from '../Questions/_TypeOfWork'
+import _Checked from '../Questions/_Checked'
 
 
 
@@ -47,9 +49,9 @@ const getStepContent = (step: number) => {
     case 2:
       return <_Salary name= "salaryNumber" />
     case 3:
-      return 
+      return <_TypeOfWork name= "jobType"/>
     case 4:
-      return 
+      return <_Checked name="jobType" />
     }};
 
 
@@ -83,7 +85,11 @@ const getStepContent = (step: number) => {
     }),
     //validation for step4
     Yup.object({
-      message: Yup.string().required('You must write a message.'),
+        jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
+    }),
+    //validation for step4
+    Yup.object({
+        jobType: Yup.array().required().min(1, 'You must select one').max(1,'please select only one'),
     })
   ];
 
@@ -160,7 +166,7 @@ const methods  = useForm<CandidatesProps>({
                 <Stack direction='row' spacing={1} justifyContent="right" sx={{pt:5}} >
               {/* <Stack direction='row' justifyContent="right" spacing={1}  sx={{ mx:0 }}> */}
 
-              {activeStep < 4 &&
+              {activeStep < 5 &&
               <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
@@ -172,7 +178,7 @@ const methods  = useForm<CandidatesProps>({
                     Back
                   </Button>}
                   
-                  { activeStep == 3 && 
+                  { activeStep == 4 && 
                     <Button
                     variant="contained"
                     size= 'large'
@@ -181,7 +187,7 @@ const methods  = useForm<CandidatesProps>({
                   >
                     Send Request
                   </Button>}
-                  { activeStep < 3 && 
+                  { activeStep < 4 && 
                     <Button
                     variant='contained' 
                     size= 'large' 
