@@ -18,7 +18,7 @@ export default function CompanyName() {
 <Stack spacing={6}>
 
       <Typography variant="h3" paragraph sx={{ pb:0}} >
-        Whats your first name?
+        What's your first name?
       </Typography>
 
     <Stack direction={{ xs: 'column', md: 'column' }} sx={{ mx:2, pt:0 }} spacing={12}  display= "flex">

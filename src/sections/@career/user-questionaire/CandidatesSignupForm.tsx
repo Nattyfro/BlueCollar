@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack, Button, Typography } from '@mui/material';
+import { Stack, Button } from '@mui/material';
 import { Image } from '../../../components';
 import { useState } from 'react';
 import { useForm, FormProvider } from "react-hook-form";
@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import { Box } from '@mui/system';
 import Names from '../Questions/names'
 import _CompanyName from '../Questions/_CompanyName'
+import _Salary from '../Questions/_Salary'
 
 
 
@@ -44,7 +45,7 @@ const getStepContent = (step: number) => {
     case 1:
       return <_CompanyName />
     case 2:
-      return 
+      return <_Salary name= "salaryNumber" />
     case 3:
       return 
     case 4:
@@ -73,12 +74,12 @@ const getStepContent = (step: number) => {
     }),
     //validation for step2
     Yup.object({
-      payRates: Yup.array().required().min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one'),
-      salaryNumber: Yup.number().required('You must enter your salary offering').typeError('salary must only be numbers')
+        name: Yup.string().required('You must write a message.'),
     }),
     //validation for step3
     Yup.object({
-      benefits: Yup.array(),
+        payRates: Yup.array().required().min(1, 'Select either Hourly, Daily, Monthly or Annually').max(1,'please select only one'),
+        salaryNumber: Yup.number().required('You must enter your salary offering').typeError('salary must only be numbers')
     }),
     //validation for step4
     Yup.object({

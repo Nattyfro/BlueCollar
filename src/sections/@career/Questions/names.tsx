@@ -54,7 +54,6 @@ export default function Names ({name, label}:CandidatesProps) {
                   label={label}
                   variant='outlined'
                   rows={5}
-                  // label="Message (max.300)"
                   error={Boolean(error)}
                   helperText={error?.message}
                   inputProps={{ maxLength: CHARACTER_LIMIT }}
